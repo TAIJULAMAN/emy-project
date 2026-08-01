@@ -1,0 +1,27 @@
+﻿# Cursor index exclusions — keeps chat/workspace load fast.
+# Source of truth is src/generator/sections/*.cjs (not generated output below).
+
+# Generated HTML (2-3 MB each; rebuild with npm run generate)
+linked-pages/restore-may20/*.html
+
+# Old 7 MB monolith backup (sections are the source now)
+generate-linked-pages.monolith.cjs.bak
+src/generator/sections/02-customer-home-patches.cjs.bak
+
+# Chrome automation profiles and cache (very large)
+work/
+
+# Fallback snapshots
+backups/
+
+# Build / temp artifacts
+outputs/
+.firebase/
+tmp-*.log
+tmp-*.err
+tmp-*.out
+
+# Duplicate mirror of generated assets
+src/generator/asset-sources/
+
+node_modules/

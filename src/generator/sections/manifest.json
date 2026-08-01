@@ -1,0 +1,327 @@
+{
+  "totalSourceLines": 112540,
+  "sections": [
+    {
+      "file": "01-fs-write-hook.cjs",
+      "startLine": 1,
+      "endLine": 92,
+      "lines": 92,
+      "bytes": 6260
+    },
+    {
+      "file": "02-customer-home-patches.cjs",
+      "startLine": 93,
+      "endLine": 2036,
+      "lines": 1944,
+      "bytes": 144487
+    },
+    {
+      "file": "03-assets.cjs",
+      "startLine": 2037,
+      "endLine": 2125,
+      "lines": 89,
+      "bytes": 3415
+    },
+    {
+      "file": "04-pages-config.cjs",
+      "startLine": 2126,
+      "endLine": 2137,
+      "lines": 12,
+      "bytes": 843
+    },
+    {
+      "file": "05-ask-session.cjs",
+      "startLine": 2138,
+      "endLine": 2570,
+      "lines": 433,
+      "bytes": 19905
+    },
+    {
+      "file": "06-ask-ui-components.cjs",
+      "startLine": 2571,
+      "endLine": 3015,
+      "lines": 445,
+      "bytes": 23436
+    },
+    {
+      "file": "07-ask-styles-mascots.cjs",
+      "startLine": 3016,
+      "endLine": 3200,
+      "lines": 185,
+      "bytes": 12737
+    },
+    {
+      "file": "08-item-detail-modal-css.cjs",
+      "startLine": 3201,
+      "endLine": 7706,
+      "lines": 4506,
+      "bytes": 175438
+    },
+    {
+      "file": "09-feed-create-flow-css.cjs",
+      "startLine": 7707,
+      "endLine": 8532,
+      "lines": 826,
+      "bytes": 89673
+    },
+    {
+      "file": "10-customer-topbar-css.cjs",
+      "startLine": 8533,
+      "endLine": 8623,
+      "lines": 91,
+      "bytes": 13913
+    },
+    {
+      "file": "11-shared-comment-scripts.cjs",
+      "startLine": 8624,
+      "endLine": 12332,
+      "lines": 3709,
+      "bytes": 183840
+    },
+    {
+      "file": "12-customer-shell-markup.cjs",
+      "startLine": 12333,
+      "endLine": 13007,
+      "lines": 675,
+      "bytes": 42945
+    },
+    {
+      "file": "13-item-detail-markup.cjs",
+      "startLine": 13008,
+      "endLine": 13443,
+      "lines": 436,
+      "bytes": 41821
+    },
+    {
+      "file": "14-feed-create-flow-script.cjs",
+      "startLine": 13444,
+      "endLine": 16993,
+      "lines": 3550,
+      "bytes": 215865
+    },
+    {
+      "file": "15-media-runtimes.cjs",
+      "startLine": 16994,
+      "endLine": 18558,
+      "lines": 1565,
+      "bytes": 94646
+    },
+    {
+      "file": "16-customer-home-carousel-patches.cjs",
+      "startLine": 18559,
+      "endLine": 18897,
+      "lines": 339,
+      "bytes": 20118
+    },
+    {
+      "file": "17-feed-edit-runtime.cjs",
+      "startLine": 18898,
+      "endLine": 20031,
+      "lines": 1134,
+      "bytes": 74501
+    },
+    {
+      "file": "18-item-detail-modal-script.cjs",
+      "startLine": 20032,
+      "endLine": 28442,
+      "lines": 8411,
+      "bytes": 565865
+    },
+    {
+      "file": "19-ask-auth-components.cjs",
+      "startLine": 28443,
+      "endLine": 28862,
+      "lines": 420,
+      "bytes": 29029
+    },
+    {
+      "file": "20-transform-react-page.cjs",
+      "startLine": 28863,
+      "endLine": 30278,
+      "lines": 1416,
+      "bytes": 101249
+    },
+    {
+      "file": "21-linker.cjs",
+      "startLine": 30279,
+      "endLine": 30616,
+      "lines": 338,
+      "bytes": 20490
+    },
+    {
+      "file": "22-page-template.cjs",
+      "startLine": 30617,
+      "endLine": 30723,
+      "lines": 107,
+      "bytes": 5053
+    },
+    {
+      "file": "23-template-signin.cjs",
+      "startLine": 30724,
+      "endLine": 31030,
+      "lines": 307,
+      "bytes": 21931
+    },
+    {
+      "file": "24-template-signup.cjs",
+      "startLine": 31031,
+      "endLine": 32459,
+      "lines": 1429,
+      "bytes": 83515
+    },
+    {
+      "file": "25-template-forgot-password.cjs",
+      "startLine": 32460,
+      "endLine": 32573,
+      "lines": 114,
+      "bytes": 7114
+    },
+    {
+      "file": "26-template-business-profile.cjs",
+      "startLine": 32574,
+      "endLine": 51573,
+      "lines": 19000,
+      "bytes": 1282829
+    },
+    {
+      "file": "27-template-customer-home.cjs",
+      "startLine": 51574,
+      "endLine": 70366,
+      "lines": 18793,
+      "bytes": 1080092
+    },
+    {
+      "file": "28-template-notification-settings.cjs",
+      "startLine": 70367,
+      "endLine": 70640,
+      "lines": 274,
+      "bytes": 14704
+    },
+    {
+      "file": "29-template-customer-search.cjs",
+      "startLine": 70641,
+      "endLine": 78859,
+      "lines": 8219,
+      "bytes": 438199
+    },
+    {
+      "file": "30-template-customer-feeds.cjs",
+      "startLine": 78860,
+      "endLine": 84004,
+      "lines": 5145,
+      "bytes": 433584
+    },
+    {
+      "file": "31-template-customer-profile.cjs",
+      "startLine": 84005,
+      "endLine": 93051,
+      "lines": 9047,
+      "bytes": 552812
+    },
+    {
+      "file": "32-template-customer-chat.cjs",
+      "startLine": 93052,
+      "endLine": 95121,
+      "lines": 2070,
+      "bytes": 156739
+    },
+    {
+      "file": "33-template-confirmation.cjs",
+      "startLine": 95122,
+      "endLine": 95548,
+      "lines": 427,
+      "bytes": 24606
+    },
+    {
+      "file": "34-template-ask-about.cjs",
+      "startLine": 95549,
+      "endLine": 96368,
+      "lines": 820,
+      "bytes": 34337
+    },
+    {
+      "file": "35-generate-marketing-pages.cjs",
+      "startLine": 96369,
+      "endLine": 96385,
+      "lines": 17,
+      "bytes": 863
+    },
+    {
+      "file": "36-template-ask-about-variants.cjs",
+      "startLine": 96386,
+      "endLine": 99415,
+      "lines": 3030,
+      "bytes": 177559
+    },
+    {
+      "file": "37-write-app-pages.cjs",
+      "startLine": 99416,
+      "endLine": 99462,
+      "lines": 47,
+      "bytes": 3402
+    },
+    {
+      "file": "38-template-admin-backend.cjs",
+      "startLine": 99463,
+      "endLine": 101226,
+      "lines": 1764,
+      "bytes": 160848
+    },
+    {
+      "file": "39-write-admin-page.cjs",
+      "startLine": 101227,
+      "endLine": 101230,
+      "lines": 4,
+      "bytes": 290
+    },
+    {
+      "file": "40-shared-session-scripts.cjs",
+      "startLine": 101231,
+      "endLine": 104107,
+      "lines": 2877,
+      "bytes": 169041
+    },
+    {
+      "file": "41-shared-boot-scripts.cjs",
+      "startLine": 104108,
+      "endLine": 108399,
+      "lines": 4292,
+      "bytes": 288587
+    },
+    {
+      "file": "42-post-process-utils.cjs",
+      "startLine": 108400,
+      "endLine": 108433,
+      "lines": 34,
+      "bytes": 1345
+    },
+    {
+      "file": "43-engagement-and-testing.cjs",
+      "startLine": 108434,
+      "endLine": 109444,
+      "lines": 1011,
+      "bytes": 52173
+    },
+    {
+      "file": "44-real-backend-runtime.cjs",
+      "startLine": 109445,
+      "endLine": 110977,
+      "lines": 1533,
+      "bytes": 75241
+    },
+    {
+      "file": "45-admin-cloud-console.cjs",
+      "startLine": 110978,
+      "endLine": 111948,
+      "lines": 971,
+      "bytes": 57758
+    },
+    {
+      "file": "46-manifest-post-process.cjs",
+      "startLine": 111949,
+      "endLine": 112540,
+      "lines": 592,
+      "bytes": 35789
+    }
+  ]
+}

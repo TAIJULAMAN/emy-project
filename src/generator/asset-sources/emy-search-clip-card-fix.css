@@ -1,0 +1,133 @@
+.results .reel-card .caption,
+      .results .reel-card.feed-clip-card .caption,
+      .results .reel-card.feed-product-clip-card .caption,
+      .reel-card.feed-clip-card .caption,
+      .reel-card.feed-product-clip-card .caption,
+      .reel-card.is-clip .caption {
+        inset: auto 10px 18px 10px !important;
+        z-index: 8 !important;
+        display: grid !important;
+        align-content: end !important;
+        gap: 4px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        color: #fff !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        pointer-events: none !important;
+      }
+      .results .reel-card .caption .reel-actions,
+      .results .reel-card.feed-clip-card .caption .reel-actions,
+      .results .reel-card.feed-product-clip-card .caption .reel-actions,
+      .reel-card.feed-clip-card .caption .reel-actions,
+      .reel-card.feed-product-clip-card .caption .reel-actions,
+      .reel-card.is-clip .caption .reel-actions {
+        order: 1 !important;
+        position: static !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        color: rgba(255,255,255,.95) !important;
+        font-size: 12px !important;
+        line-height: 1 !important;
+        font-weight: 900 !important;
+        text-shadow: 0 1px 6px rgba(0,27,71,.38) !important;
+      }
+      .results .reel-card .caption .clip-product-mini,
+      .results .reel-card.feed-clip-card .caption .clip-product-mini,
+      .results .reel-card.feed-product-clip-card .caption .clip-product-mini,
+      .reel-card.feed-clip-card .caption .clip-product-mini,
+      .reel-card.feed-product-clip-card .caption .clip-product-mini,
+      .reel-card.is-clip .caption .clip-product-mini {
+        order: 2 !important;
+        position: static !important;
+        width: fit-content !important;
+        max-width: min(100%, 230px) !important;
+        min-height: 30px !important;
+        display: grid !important;
+        grid-template-columns: minmax(0,1fr) auto !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin: 0 !important;
+        border: 1px solid rgba(255,255,255,.22) !important;
+        border-radius: 999px !important;
+        background: rgba(40,69,106,.86) !important;
+        color: #fff !important;
+        padding: 5px 7px 5px 10px !important;
+        box-shadow: 0 12px 26px rgba(0,27,71,.24) !important;
+        pointer-events: none !important;
+      }
+      .results .reel-card .caption .clip-product-mini strong,
+      .results .reel-card.feed-clip-card .caption .clip-product-mini strong,
+      .results .reel-card.feed-product-clip-card .caption .clip-product-mini strong,
+      .reel-card.feed-clip-card .caption .clip-product-mini strong,
+      .reel-card.feed-product-clip-card .caption .clip-product-mini strong,
+      .reel-card.is-clip .caption .clip-product-mini strong {
+        min-width: 0 !important;
+        overflow: hidden !important;
+        color: #fff !important;
+        font-size: 12px !important;
+        line-height: 1.05 !important;
+        font-weight: 900 !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        text-shadow: none !important;
+      }
+      .results .reel-card .caption .clip-product-mini span,
+      .results .reel-card.feed-clip-card .caption .clip-product-mini span,
+      .results .reel-card.feed-product-clip-card .caption .clip-product-mini span,
+      .reel-card.feed-clip-card .caption .clip-product-mini span,
+      .reel-card.feed-product-clip-card .caption .clip-product-mini span,
+      .reel-card.is-clip .caption .clip-product-mini span {
+        min-height: 20px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 999px !important;
+        background: rgba(255,244,232,.98) !important;
+        color: #d85a00 !important;
+        padding: 0 8px !important;
+        font-size: 10.5px !important;
+        line-height: 1 !important;
+        font-weight: 900 !important;
+        white-space: nowrap !important;
+        text-shadow: none !important;
+      }
+      .results .reel-card .overlay {
+        inset: auto 10px 18px 10px !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        display: grid !important;
+        gap: 4px !important;
+      }
+      .results .search-feed-time-only {
+        display: block !important;
+        margin: 10px 14px 0 auto !important;
+        color: #98a2b3 !important;
+        font-size: 11px !important;
+        line-height: 1.1 !important;
+        font-weight: 800 !important;
+      }
+      .results .reel-card > .search-feed-time-only {
+        position: absolute !important;
+        right: 12px !important;
+        bottom: 10px !important;
+        z-index: 9 !important;
+        margin: 0 !important;
+        color: rgba(255,255,255,.9) !important;
+        text-shadow: 0 1px 6px rgba(0,27,71,.36) !important;
+      }
+      .results .feed-product-card > .emy-product-like-chip {
+        right: 14px !important;
+        bottom: 28px !important;
+      }
+      .results .reel-card .social-feed-actions,
+      .results .reel-card .social-feed-actions-counted,
+      .results .feed-product-card .social-feed-actions,
+      .results .feed-product-card .social-feed-actions-counted,
+      .results [data-feed-social-actions],
+      .results .feed-comments {
+        display: none !important;
+      }
