@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" data-emy-font-inter-async />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-emy-font-inter-async />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" data-emy-font-inter-async />
+    <noscript data-emy-font-inter-async><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+<title>EMY | About</title>
+    <script>
+      (function () {
+        try {
+          if (new URLSearchParams(window.location.search || '').has('emyAuth')) {
+            document.documentElement.setAttribute('data-emy-auth-pending', 'true');
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="assets/vendor/tailwindcss.js"></script>
+    <script src="auth-config.js"></script>
+    <script crossorigin src="assets/vendor/react.production.min.js"></script>
+    <script crossorigin src="assets/vendor/react-dom.production.min.js"></script>
+    <script src="assets/vendor/babel.min.js"></script>
+    <script src="assets/emy-babel-classic-preset.js"></script>
+    <style>
+      :root { --emy-page-scale: 0.85; --emy-page-shift: clamp(-220px, -10vw, -88px); }
+      html { scroll-behavior: smooth; background: #fbfaf8; }
+      body { margin: 0; min-height: 100vh; overflow-x: hidden; background: #fbfaf8; }
+      #root { min-height: 100vh; width: 100%; }
+      html[data-emy-auth-pending="true"],
+      html[data-emy-auth-pending="true"] body { background: #fff8ef; }
+      html[data-emy-auth-pending="true"] #root { visibility: hidden; }
+      #root .font-black,
+      #root .font-extrabold { font-weight: 700 !important; }
+      #root .font-bold { font-weight: 600 !important; }
+      #root .font-semibold { font-weight: 500 !important; }
+      #root [class~="text-7xl"] { font-size: 4rem !important; line-height: 1.04 !important; }
+      #root [class~="text-6xl"] { font-size: 3.4rem !important; line-height: 1.05 !important; }
+      #root [class~="text-5xl"] { font-size: 2.8rem !important; line-height: 1.08 !important; }
+      #root [class~="text-4xl"] { font-size: 2.15rem !important; line-height: 1.14 !important; }
+      #root [class~="rounded-3xl"],
+      #root [class*="rounded-[2"],
+      #root [class*="rounded-[3"],
+      #root [class*="rounded-[4"] { border-radius: 1.25rem !important; }
+      #root [class~="rounded-2xl"],
+      #root [class*="rounded-[1.5"] { border-radius: 0.9rem !important; }
+      #root [class~="p-10"] { padding: 1.75rem !important; }
+      #root [class~="p-8"] { padding: 1.5rem !important; }
+      #root [class~="p-7"] { padding: 1.35rem !important; }
+      #root [class~="p-6"] { padding: 1.2rem !important; }
+      #root [class~="px-10"] { padding-left: 1.75rem !important; padding-right: 1.75rem !important; }
+      #root [class~="px-8"] { padding-left: 1.45rem !important; padding-right: 1.45rem !important; }
+      #root [class~="px-6"] { padding-left: 1.2rem !important; padding-right: 1.2rem !important; }
+      #root [class~="py-6"] { padding-top: 1.05rem !important; padding-bottom: 1.05rem !important; }
+      #root [class~="py-5"] { padding-top: 0.9rem !important; padding-bottom: 0.9rem !important; }
+      #root [class~="py-4"] { padding-top: 0.78rem !important; padding-bottom: 0.78rem !important; }
+      #root .shadow-2xl { box-shadow: 0 18px 45px rgba(0, 27, 71, 0.10) !important; }
+      #root .shadow-xl { box-shadow: 0 12px 32px rgba(0, 27, 71, 0.08) !important; }
+      #root .shadow-lg { box-shadow: 0 8px 20px rgba(0, 27, 71, 0.07) !important; }
+      .emy-fullscreen-cover {
+        width: 100vw;
+        height: 100dvh;
+      }
+      .emy-visual-center {
+        position: relative;
+      }
+      @media (min-width: 768px) {
+        #root {
+          width: calc(100% / var(--emy-page-scale));
+          min-height: calc(100vh / var(--emy-page-scale));
+          margin-left: var(--emy-page-shift);
+          zoom: var(--emy-page-scale);
+        }
+        .emy-fullscreen-cover {
+          width: calc(100vw / var(--emy-page-scale));
+          height: calc(100dvh / var(--emy-page-scale));
+        }
+        #root [class~="md:text-7xl"] { font-size: 4.15rem !important; line-height: 1.04 !important; }
+        #root [class~="md:text-6xl"] { font-size: 3.55rem !important; line-height: 1.06 !important; }
+        #root [class~="md:text-5xl"] { font-size: 2.85rem !important; line-height: 1.12 !important; }
+        #root [class~="md:p-12"] { padding: 2.1rem !important; }
+        #root [class~="md:p-10"] { padding: 1.85rem !important; }
+        #root [class~="md:p-9"] { padding: 1.7rem !important; }
+        #root [class~="md:p-8"] { padding: 1.55rem !important; }
+      }
+    </style>
+      <link rel="stylesheet" href="assets/emy-responsive-hover.css" data-emy-responsive-hover-style />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" data-presets="emy-react-classic">
+const { useEffect, useMemo, useRef, useState } = React;
+
+function __targetForEMYLabel(label) {
+  const text = String(label || '').trim().toLowerCase();
+  if (!text) return null;
+  if (text === 'home') return 'index.html';
+  if (text === 'about' || text === 'about us') return 'about.html';
+  if (text === 'business' || text === 'for businesses' || text.includes('businesses: find out more')) return 'business.html';
+  if (text === 'ask emy' || text === 'askemy') return 'ask-emy.html';
+  if (text === 'faqs' || text === 'faq') return 'faqs.html';
+  if (text === 'contact' || text === 'contact support') return 'contact.html';
+  if (text === 'privacy policy' || text === 'privacy') return 'privacy.html';
+  if (text === 'terms of use' || text === 'terms') return 'terms.html';
+  return null;
+}
+
+function __showEMYSignupRoles(mode) {
+  const existing = document.getElementById('emy-signup-role-page');
+  if (existing) existing.remove();
+  const oldComingSoon = document.getElementById('emy-coming-soon-modal');
+  if (oldComingSoon) oldComingSoon.remove();
+  const flow = String(mode || 'signup').trim().toLowerCase();
+  const isSignInFlow = flow === 'signin' || flow === 'sign in' || flow === 'login' || flow === 'log in';
+  const roleTitle = isSignInFlow ? 'Sign in as' : 'Select your role';
+  const roleIntro = isSignInFlow
+    ? 'Choose the EMY account type you want to access.'
+    : 'Choose how you want to join EMY.';
+
+  const userIcon =
+    '<svg width="106" height="106" viewBox="0 0 120 120" fill="none" aria-hidden="true">' +
+      '<circle cx="60" cy="60" r="43" stroke="#001B47" stroke-width="5"/>' +
+      '<circle cx="60" cy="48" r="17" stroke="#001B47" stroke-width="5"/>' +
+      '<path d="M29 92c7.5-19 20-28 31-28s23.5 9 31 28" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+    '</svg>';
+
+  const businessIcon =
+    '<svg width="106" height="106" viewBox="0 0 120 120" fill="none" aria-hidden="true">' +
+      '<rect x="20" y="42" width="80" height="50" rx="6" stroke="#001B47" stroke-width="5"/>' +
+      '<path d="M45 42v-9c0-4 3-7 7-7h16c4 0 7 3 7 7v9" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+      '<path d="M20 58c20 12 60 12 80 0" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+      '<path d="M54 66h12" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+    '</svg>';
+
+  const roleDescriptions = isSignInFlow
+    ? {
+        Customer: 'Sign in to your customer account.',
+        Business: 'Sign in to your business account.'
+      }
+    : {
+        Customer: 'Find services, shops, offers, and places near you.',
+        Business: 'Offer services and connect with local customers.'
+      };
+  const roleDescription = (role) => roleDescriptions[role] || '';
+
+  const roleCard = (role, icon) =>
+    '<button type="button" title="' + roleDescription(role) + '" aria-label="' + role + ': ' + roleDescription(role) + '" data-emy-role-card="' + role + '" class="emy-role-card group flex cursor-pointer flex-col items-center justify-center bg-white text-center text-[#171435] transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl focus-visible:outline focus-visible:outline-3 focus-visible:outline-orange-400" style="border:1px solid rgba(0,27,71,0.10);border-radius:18px;box-shadow:0 12px 24px rgba(0,27,71,0.08);">' +
+      '<span class="emy-role-icon flex items-center justify-center text-[#001B47]">' + icon + '</span>' +
+      '<span class="emy-role-label mt-4 text-xl font-semibold leading-tight">' + role + '</span>' +
+      '<span class="emy-role-desc">' + roleDescription(role) + '</span>' +
+    '</button>';
+
+  const overlay = document.createElement('div');
+  overlay.id = 'emy-signup-role-page';
+  overlay.className = 'fixed inset-0 z-[140] overflow-hidden bg-[#fff8ef] text-[#001B47]';
+  overlay.style.fontFamily = "'Inter', sans-serif";
+  overlay.innerHTML =
+    '<style>' +
+      '#emy-signup-role-page{background:#fff8ef;background-image:radial-gradient(circle at 76% 14%,rgba(255,106,0,.13),transparent 23rem),radial-gradient(circle at 16% 86%,rgba(0,27,71,.07),transparent 19rem),linear-gradient(180deg,#fff8ef 0%,#fffdf8 54%,#fff7ed 100%);}' +
+      '.emy-role-card{position:relative;overflow:hidden;width:min(62vw,calc((100vh - 170px)/2),222px);aspect-ratio:1/1;padding:18px 18px 16px;}' +
+      '.emy-role-card::after{content:"";position:absolute;left:50%;bottom:12px;width:40px;height:3px;border-radius:999px;background:#ff6a00;opacity:.42;transform:translateX(-50%);transition:opacity .22s ease,width .22s ease;}' +
+      '.emy-role-icon svg{width:54px;height:54px;}' +
+      '.emy-role-desc{display:block;max-width:170px;margin-top:7px;font-size:12px;line-height:1.32;font-weight:400;color:rgba(0,27,71,.62);transition:color .22s ease;}' +
+      '.emy-role-card:hover::after,.emy-role-card:focus-visible::after{width:56px;opacity:1;}' +
+      '.emy-role-card:hover .emy-role-desc,.emy-role-card:focus-visible .emy-role-desc{color:rgba(0,27,71,.82);}' +
+      '@media (min-width:768px){.emy-role-card{width:min(calc((100vh - 170px)/2),210px);}.emy-role-icon svg{width:52px;height:52px;}}' +
+      '@media (max-width:480px){.emy-role-card{width:min(64vw,calc((100vh - 160px)/2),214px);padding:16px 16px 15px;}.emy-role-title{font-size:2rem!important;}.emy-role-label{margin-top:12px!important;font-size:1.12rem!important;}.emy-role-desc{max-width:160px;font-size:11.5px;line-height:1.3;}.emy-role-icon svg{width:48px;height:48px;}}' +
+    '</style>' +
+    '<div class="pointer-events-none absolute inset-0 overflow-hidden">' +
+      '<svg class="absolute right-2 top-3 h-36 w-36 text-orange-200/50 md:right-[18%] md:h-48 md:w-48" viewBox="0 0 180 180" fill="none" aria-hidden="true"><path d="M20 10l65 135L160 5" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '<svg class="absolute -bottom-8 -left-10 h-40 w-60 text-orange-200/55 md:h-48 md:w-72" viewBox="0 0 360 240" fill="none" aria-hidden="true"><path d="M0 210L70 55l66 155 45-88 60 88 42-58 56 58" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+    '</div>' +
+    '<button type="button" data-emy-close-signup-role class="absolute right-5 top-5 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white text-xl font-semibold text-[#001B47] shadow-lg shadow-[#001B47]/10 hover:bg-orange-50" aria-label="Close role selection">×</button>' +
+    '<main class="relative mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-5 pb-7 pt-7 md:pt-8">' +
+      '<h1 class="emy-role-title text-center text-3xl font-semibold leading-tight text-[#171435] md:text-4xl">' + roleTitle + '</h1>' +
+      '<p class="mt-3 max-w-sm text-center text-sm font-medium leading-6 text-[#001B47]/60">' + roleIntro + '</p>' +
+      '<div class="mt-6 flex w-full flex-col items-center gap-5 md:mt-7 md:gap-5">' +
+        roleCard('Customer', userIcon) +
+        roleCard('Business', businessIcon) +
+      '</div>' +
+    '</main>';
+
+  overlay.querySelector('[data-emy-close-signup-role]').addEventListener('click', () => overlay.remove());
+  overlay.querySelectorAll('[data-emy-role-card]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const role = button.dataset.emyRoleCard || 'Account';
+      if (isSignInFlow) {
+        window.location.href = 'emy-signin.html?role=' + encodeURIComponent(role.toLowerCase());
+        return;
+      }
+      window.location.href = 'emy-signup.html?role=' + encodeURIComponent(role.toLowerCase());
+    });
+  });
+  document.body.appendChild(overlay);
+  document.documentElement.removeAttribute('data-emy-auth-pending');
+}
+
+function __showEMYComingSoon(action) {
+  const existing = document.getElementById('emy-coming-soon-modal');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'emy-coming-soon-modal';
+  overlay.className = 'fixed inset-0 z-[120] flex items-center justify-center bg-[#001B47]/75 px-4 backdrop-blur-md';
+  overlay.innerHTML =
+    '<div class="relative w-full max-w-lg overflow-hidden rounded-[2.5rem] border border-white/60 bg-white/95 p-7 text-center text-[#001B47] shadow-2xl backdrop-blur-2xl md:p-9">' +
+      '<div class="pointer-events-none absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_18%_12%,rgba(249,115,22,0.20),transparent_34%),radial-gradient(circle_at_90%_90%,rgba(0,27,71,0.12),transparent_36%)]"></div>' +
+      '<div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-orange-200/50 blur-2xl"></div>' +
+      '<div class="pointer-events-none absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-[#001B47]/10 blur-2xl"></div>' +
+      '<button type="button" data-emy-close-coming-soon class="absolute right-5 top-5 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-2xl bg-white text-[#001B47] shadow-lg shadow-[#001B47]/10 ring-1 ring-orange-100 transition hover:bg-orange-100" aria-label="Close coming soon modal">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+      '</button>' +
+      '<div class="relative z-10 flex justify-center"><div class="flex items-center gap-3"><img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="EMY" class="h-12 w-auto object-contain" /><span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-orange-600">Beta</span></div></div>' +
+      '<h3 class="relative z-10 mt-5 text-3xl font-black leading-tight text-[#001B47]">' + action + ' is coming soon</h3>' +
+      '<p class="relative z-10 mx-auto mt-4 max-w-sm text-base font-semibold leading-7 text-[#001B47]/65">We are still polishing this experience so it feels smooth, secure, and ready for everyone. Thank you for trying EMY while we build the next version.</p>' +
+      '<div class="relative z-10 mt-8 rounded-3xl border border-orange-100 bg-[#fff8ef] p-4 text-left">' +
+        '<p class="text-sm font-black text-[#001B47]">What is next?</p>' +
+        '<p class="mt-1 text-sm leading-6 text-[#001B47]/60">Account access, business onboarding, and profile tools will be available soon.</p>' +
+      '</div>' +
+    '</div>';
+
+  const close = () => overlay.remove();
+  overlay.addEventListener('click', close);
+  overlay.querySelector('div').addEventListener('click', (event) => event.stopPropagation());
+  overlay.querySelector('[data-emy-close-coming-soon]').addEventListener('click', close);
+  document.body.appendChild(overlay);
+}
+
+function __linkEMYPages() {
+  const pathLinks = {
+    '/': 'index.html',
+    '/about': 'about.html',
+    '/business': 'business.html',
+    '/ask-emy': 'ask-emy.html',
+    '/contact': 'contact.html',
+    '/faqs': 'faqs.html',
+    '/privacy': 'privacy.html',
+    '/terms': 'terms.html',
+    '/sign-in': '#login',
+    '/sign-up': '#signup'
+  };
+
+  document.querySelectorAll('header').forEach((header) => {
+    if (header.dataset.emyStandardized === 'true') return;
+    header.dataset.emyStandardized = 'true';
+
+    const navItems = [
+      ['Home', 'index.html'],
+      ['About', 'about.html'],
+      ['Business', 'business.html'],
+      ['Ask EMY', 'ask-emy.html'],
+      ['Contact', 'contact.html'],
+      ['FAQs', 'faqs.html'],
+      ['Sign In', '#login'],
+      ['Sign up', '#signup']
+    ];
+
+    const linkClass = 'rounded-full px-5 py-2 text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600';
+    const askClass = 'rounded-full border border-orange-200 bg-orange-50 px-5 py-2 text-sm font-black text-orange-600 shadow-sm transition hover:-translate-y-0.5 hover:bg-orange-500 hover:text-white hover:shadow-lg hover:shadow-orange-500/20';
+    const loginClass = 'rounded-full border border-[#001B47]/10 bg-white/80 px-6 py-2 text-sm font-bold text-[#001B47] shadow-sm backdrop-blur transition hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600';
+    const signupClass = 'rounded-full bg-orange-500 px-6 py-2 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600';
+    const mobileClass = 'block w-full rounded-xl px-4 py-3 text-left text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600';
+    const mobileSignupClass = 'block w-full rounded-xl bg-orange-500 px-4 py-3 text-left text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-600';
+
+    header.className = 'fixed left-0 right-0 top-0 z-50 border-b border-white/50 bg-white/90 backdrop-blur';
+    const navHtml = navItems.map(([label, href]) => {
+      const base = label === 'Ask EMY' ? askClass : label === 'Sign In' ? loginClass : label === 'Sign up' ? signupClass : linkClass;
+      if (label === 'Sign In' || label === 'Sign up') {
+        return '<button type="button" data-emy-coming-soon="' + label + '" class="' + base + '">' + label + '</button>';
+      }
+      return '<a href="' + href + '" class="' + base + '">' + label + '</a>';
+    }).join('');
+    const mobileNavHtml = navItems.map(([label, href]) => {
+      const base = label === 'Sign up' ? mobileSignupClass : label === 'Ask EMY' ? mobileSignupClass : mobileClass;
+      if (label === 'Sign In' || label === 'Sign up') {
+        return '<button type="button" data-emy-coming-soon="' + label + '" class="' + base + '">' + label + '</button>';
+      }
+      return '<a href="' + href + '" class="' + base + '">' + label + '</a>';
+    }).join('');
+    header.innerHTML =
+      '<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">' +
+        '<a href="index.html" aria-label="Go to homepage" class="flex items-center gap-3">' +
+          '<img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="EMY" class="h-12 w-auto object-contain" />' +
+          '<span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-orange-600">Beta</span>' +
+        '</a>' +
+        '<nav class="hidden items-center gap-3 sm:flex" aria-label="Main navigation" data-emy-standard-nav="true">' +
+          navHtml +
+        '</nav>' +
+        '<button type="button" data-emy-menu-toggle class="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#001B47]/10 bg-white text-[#001B47] shadow-sm sm:hidden" aria-expanded="false" aria-label="Open menu">' +
+          '<span class="grid gap-1.5"><span class="block h-0.5 w-5 rounded-full bg-current"></span><span class="block h-0.5 w-5 rounded-full bg-current"></span><span class="block h-0.5 w-5 rounded-full bg-current"></span></span>' +
+        '</button>' +
+      '</div>' +
+      '<div data-emy-mobile-menu class="hidden border-t border-orange-100 bg-white/95 px-4 pb-4 shadow-xl sm:hidden">' +
+        '<div class="mx-auto grid max-w-7xl gap-2 pt-3">' +
+          mobileNavHtml +
+        '</div>' +
+      '</div>';
+  });
+
+  document.querySelectorAll('a').forEach((anchor) => {
+    const href = anchor.getAttribute('href') || '';
+    if (pathLinks[href]) {
+      anchor.setAttribute('href', pathLinks[href]);
+      return;
+    }
+    if (href === '#' || href === '') {
+      const target = __targetForEMYLabel(anchor.textContent);
+      if (target) anchor.setAttribute('href', target);
+    }
+  });
+
+  document.querySelectorAll('[data-emy-coming-soon]').forEach((button) => {
+    if (button.dataset.emyComingSoonBound === 'true') return;
+    button.dataset.emyComingSoonBound = 'true';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      const menu = document.querySelector('[data-emy-mobile-menu]');
+      const menuButton = document.querySelector('[data-emy-menu-toggle]');
+      if (menu) menu.classList.add('hidden');
+      if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+      const action = button.dataset.emyComingSoon || 'This feature';
+      if (String(action).trim().toLowerCase() === 'sign up') {
+        __showEMYSignupRoles('signup');
+        return;
+      }
+      if (String(action).trim().toLowerCase() === 'sign in' || String(action).trim().toLowerCase() === 'log in') {
+        __showEMYSignupRoles('signin');
+        return;
+      }
+      __showEMYComingSoon(action);
+    }, true);
+  });
+
+  document.querySelectorAll('[data-emy-menu-toggle]').forEach((button) => {
+    if (button.dataset.emyMenuBound === 'true') return;
+    button.dataset.emyMenuBound = 'true';
+    button.addEventListener('click', () => {
+      const menu = document.querySelector('[data-emy-mobile-menu]');
+      if (!menu) return;
+      const isOpen = menu.classList.toggle('hidden') === false;
+      button.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+
+  document.querySelectorAll('[data-emy-mobile-menu] a, [data-emy-mobile-menu] button').forEach((item) => {
+    if (item.dataset.emyMenuCloseBound === 'true') return;
+    item.dataset.emyMenuCloseBound = 'true';
+    item.addEventListener('click', () => {
+      const menu = document.querySelector('[data-emy-mobile-menu]');
+      const button = document.querySelector('[data-emy-menu-toggle]');
+      if (menu) menu.classList.add('hidden');
+      if (button) button.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('header nav').forEach((nav) => {
+    const desired = [
+      ['Home', 'index.html'],
+      ['About', 'about.html'],
+      ['Business', 'business.html'],
+      ['Ask EMY', 'ask-emy.html'],
+      ['Contact', 'contact.html'],
+      ['FAQs', 'faqs.html']
+    ];
+    const existing = Array.from(nav.querySelectorAll('a,button')).map((item) => item.textContent.trim().toLowerCase());
+    const loginItem = Array.from(nav.children).find((item) => item.textContent.trim().toLowerCase() === 'sign in' || item.textContent.trim().toLowerCase() === 'log in');
+    desired.forEach(([label, href]) => {
+      if (existing.includes(label.toLowerCase())) return;
+      const link = document.createElement('a');
+      link.href = href;
+      link.textContent = label;
+      link.className = 'cursor-pointer rounded-full px-5 py-2 text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600';
+      nav.insertBefore(link, loginItem || null);
+      existing.push(label.toLowerCase());
+    });
+  });
+
+  document.querySelectorAll('button').forEach((button) => {
+    if (button.dataset.emyLinked === 'true') return;
+    if (button.dataset.emyComingSoon) return;
+    const text = String(button.textContent || '').trim().toLowerCase();
+    if (text === 'sign up') {
+      button.dataset.emyLinked = 'true';
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+        __showEMYSignupRoles('signup');
+      }, true);
+      return;
+    }
+    if (text === 'sign in' || text === 'log in') {
+      button.dataset.emyLinked = 'true';
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+        __showEMYSignupRoles('signin');
+      }, true);
+      return;
+    }
+    let target = text.includes('businesses: find out more') ? 'business.html' : null;
+    if (!target) return;
+    button.dataset.emyLinked = 'true';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      window.location.href = target;
+    }, true);
+  });
+
+  if (!window.__emyAuthDeepLinkHandled) {
+    const params = new URLSearchParams(window.location.search || '');
+    const authMode = String(params.get('emyAuth') || '').trim().toLowerCase();
+    if (authMode === 'signup' || authMode === 'sign-up') {
+      window.__emyAuthDeepLinkHandled = true;
+      __showEMYSignupRoles('signup');
+    } else if (authMode === 'signin' || authMode === 'sign-in' || authMode === 'login') {
+      window.__emyAuthDeepLinkHandled = true;
+      __showEMYSignupRoles('signin');
+    } else if (params.has('emyAuth')) {
+      document.documentElement.removeAttribute('data-emy-auth-pending');
+    }
+  }
+}
+
+const FOUNDER_IMAGE_URL = "https://iqlance-demo.com/design/EMY-Web/img/aboutus/isaac_stephane.jpg";
+const emyLogo = "https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png";
+const EMY_NAVY = "#001B47";
+
+function Logo() {
+  return <img src={emyLogo} alt="EMY" className="h-12 w-auto object-contain" />;
+}
+
+function smoothScroll(target) {
+  const element = document.querySelector(target);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function LineIcon({ type, className = "h-7 w-7" }) {
+  const props = {
+    className,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+  };
+
+  if (type === "chat") {
+    return (
+      <svg {...props}>
+        <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+        <path d="M8 10h8" />
+        <path d="M8 14h5" />
+      </svg>
+    );
+  }
+
+  if (type === "pin") {
+    return (
+      <svg {...props}>
+        <path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z" />
+        <circle cx="12" cy="10" r="2.5" />
+      </svg>
+    );
+  }
+
+  if (type === "bolt") {
+    return (
+      <svg {...props}>
+        <path d="M12 3l1.8 4.7L18 9l-4.2 1.3L12 15l-1.8-4.7L6 9l4.2-1.3L12 3z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...props}>
+      <path d="M4 10h16" />
+      <path d="M5 10l2-5h10l2 5" />
+      <path d="M6 10v9h12v-9" />
+      <path d="M9 19v-5h6v5" />
+    </svg>
+  );
+}
+
+function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header className={`fixed left-0 right-0 top-0 z-50 border-b border-white/40 bg-white/75 backdrop-blur-xl transition-all duration-300 ${scrolled ? "shadow-lg shadow-[#001B47]/10" : "shadow-none"}`}> 
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+        <button type="button" onClick={() => smoothScroll("#about-hero")} className="cursor-pointer" aria-label="Go to top">
+          <Logo />
+        </button>
+
+        <nav className="hidden items-center gap-3 sm:flex" aria-label="Main navigation">
+          <button type="button" onClick={() => smoothScroll("#about-hero")} className="cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-50">
+            Home
+          </button>
+          <button type="button" onClick={() => smoothScroll("#about-world")} className="cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600">
+            About
+          </button>
+          <a href="#contact" className="cursor-pointer rounded-full px-5 py-2 text-sm font-semibold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600">
+            Contact
+          </a>
+          <a href="#login" className="cursor-pointer rounded-full border border-orange-200 bg-white/80 px-6 py-2 text-sm font-semibold text-[#001B47] shadow-sm transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-600">
+            Sign In
+          </a>
+          <a href="#signup" className="cursor-pointer rounded-full bg-orange-600 px-6 py-2 text-sm font-semibold text-white shadow-lg shadow-orange-600/20 transition hover:bg-orange-700">
+            Sign up
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function FloatingMenu() {
+  const items = useMemo(
+    () => [
+      ["#about-world", "It’s Your World"],
+      ["#about-who", "Who We Are"],
+      ["#about-what", "What We Do"],
+      ["#about-team", "Our Team"],
+    ],
+    []
+  );
+  const [active, setActive] = useState(items[0][0]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      let current = items[0][0];
+      items.forEach(([href]) => {
+        const element = document.querySelector(href);
+        if (!element) return;
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 220 && rect.bottom > 120) current = href;
+      });
+      setActive(current);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [items]);
+
+  return (
+    <aside className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 opacity-25 transition-all duration-300 hover:opacity-100 lg:flex">
+      <div className="flex min-w-[190px] flex-col gap-2 rounded-2xl border border-white/50 bg-white/80 p-3 shadow-2xl backdrop-blur-xl shadow-[#001B47]/10 backdrop-blur">
+        {items.map(([href, label]) => {
+          const isActive = active === href;
+          return (
+            <button
+              key={href}
+              type="button"
+              onClick={() => smoothScroll(href)}
+              className={`flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-semibold transition ${isActive ? "bg-orange-100 text-orange-600" : "text-[#001B47] hover:bg-orange-50 hover:text-orange-600"}`}
+            >
+              <span className={`h-2.5 w-2.5 shrink-0 rounded-full transition ${isActive ? "scale-125 bg-orange-600" : "bg-orange-300"}`} />
+              <span className="whitespace-nowrap leading-none">{label}</span>
+            </button>
+          );
+        })}
+      </div>
+    </aside>
+  );
+}
+
+function StorySection({ id, title, text, image, accent, reverse = false, bullets = [], background = "white" }) {
+  const isWorld = id === "about-world";
+  const isWho = id === "about-who";
+
+  return (
+    <section id={id} className={`relative overflow-hidden px-6 py-28 ${background}`}>
+      <style>{`
+        @keyframes emyFloatSoft {
+          0%, 100% { transform: translateY(0) rotate(var(--emy-rotate, 0deg)); }
+          50% { transform: translateY(-10px) rotate(var(--emy-rotate, 0deg)); }
+        }
+      `}</style>
+      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(90deg,rgba(249,115,22,0.1)_1px,transparent_1px),linear-gradient(0deg,rgba(249,115,22,0.08)_1px,transparent_1px)] bg-[size:56px_56px]" />
+
+      <div className="absolute -right-24 top-10 h-80 w-80 rounded-full bg-orange-300/20 blur-3xl" />
+      <div className="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-orange-500/10 blur-3xl" />
+
+      {(isWorld || isWho) && (
+        <>
+          <div style={{ "--emy-rotate": "-4deg", animation: "emyFloatSoft 6s ease-in-out infinite" }} className="hidden lg:block absolute left-[5%] top-[10%] w-40 rounded-2xl bg-white p-3 shadow-xl transition hover:scale-105">
+            <img alt="Local shops" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=400&q=60" className="h-20 w-full object-cover rounded-xl" />
+            <p className="mt-2 text-xs font-bold text-orange-500">Local shops</p>
+          </div>
+
+          <div style={{ "--emy-rotate": "4deg", animation: "emyFloatSoft 7s ease-in-out infinite 0.8s" }} className="hidden lg:block absolute right-[6%] top-[20%] w-40 rounded-2xl bg-white p-3 shadow-xl transition hover:scale-105">
+            <img alt="Suppliers" src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=400&q=60" className="h-20 w-full object-cover rounded-xl" />
+            <p className="mt-2 text-xs font-bold text-orange-500">Suppliers</p>
+          </div>
+
+          <div style={{ "--emy-rotate": "3deg", animation: "emyFloatSoft 6.5s ease-in-out infinite 0.4s" }} className="hidden lg:block absolute left-[12%] bottom-[8%] w-44 rounded-2xl bg-white p-3 shadow-xl transition hover:scale-105">
+            <img alt="Delivery" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=400&q=60" className="h-20 w-full object-cover rounded-xl" />
+            <p className="mt-2 text-xs font-bold text-orange-500">Delivery</p>
+          </div>
+
+          <div style={{ "--emy-rotate": "-3deg", animation: "emyFloatSoft 7.5s ease-in-out infinite 1s" }} className="hidden lg:block absolute right-[18%] bottom-[6%] w-40 rounded-2xl bg-white p-3 shadow-xl transition hover:scale-105">
+            <img alt="Support" src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=400&q=60" className="h-20 w-full object-cover rounded-xl" />
+            <p className="mt-2 text-xs font-bold text-orange-500">Support</p>
+          </div>
+        </>
+      )}
+
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-center gap-16 md:grid-cols-2">
+          <div className={reverse ? "group md:order-2" : "group"}>
+            <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[#001B47]/10">
+              <img src={image} alt={title} loading="lazy" className="h-[360px] w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+              <div className="absolute bottom-5 left-5 rounded-2xl bg-white/90 px-5 py-3 text-sm font-black text-orange-500 shadow-lg backdrop-blur">
+                {accent}
+              </div>
+            </div>
+          </div>
+
+          <div className={reverse ? "md:order-1" : ""}>
+            <p className="text-sm font-black uppercase tracking-wide text-orange-500">About EMY</p>
+            <h2 className="mt-3 text-3xl font-black leading-tight text-[#001B47] md:text-5xl">{title}</h2>
+            <p className="mt-5 max-w-lg text-base leading-8 text-[#001B47]/70">{text}</p>
+
+            {bullets.length > 0 && (
+              <div className="mt-8 grid gap-3">
+                {bullets.map((bullet, index) => (
+                  <div key={bullet} className="flex items-start gap-3 rounded-2xl bg-white/80 p-4 shadow-sm transition hover:shadow-md">
+                    <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-black text-orange-600">
+                      {index + 1}
+                    </span>
+                    <p className="text-sm font-semibold leading-7 text-[#001B47]">{bullet}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FounderSection() {
+  return (
+    <section id="about-team" className="relative overflow-visible bg-white px-6 pb-28 pt-12">
+      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(90deg,rgba(249,115,22,0.1)_1px,transparent_1px),linear-gradient(0deg,rgba(249,115,22,0.08)_1px,transparent_1px)] bg-[size:56px_56px]" />
+      <div className="absolute -right-24 top-10 h-80 w-80 rounded-full bg-orange-300/30 blur-3xl" />
+      <div className="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-orange-500/15 blur-3xl" />
+
+      <div className="relative mx-auto max-w-4xl text-center">
+        <div className="flex justify-center">
+          <div className="relative z-20 mt-0">
+            <div className="relative">
+              <img
+                src={FOUNDER_IMAGE_URL}
+                alt="Isaac Stephane"
+                className="h-80 w-80 rounded-[2rem] object-cover shadow-[0_25px_70px_rgba(0,0,0,0.25)] md:h-[440px] md:w-[440px]"
+              />
+              <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <p className="text-sm font-black uppercase tracking-wide text-orange-500">Founder & CEO</p>
+          <h2 className="mt-3 text-3xl font-black leading-tight text-[#001B47] md:text-5xl">Isaac Stephane</h2>
+          <p className="mx-auto mt-8 max-w-2xl text-base leading-8 text-[#001B47]/70">
+            Founder and CEO of EMY, building a smarter local business ecosystem that connects customers, small businesses, service providers, suppliers, and communities.
+          </p>
+          <a href="/team" className="mt-8 inline-flex items-center justify-center rounded-xl bg-orange-600 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-orange-600/25 transition hover:bg-orange-700">
+            Meet the full team →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="relative overflow-hidden bg-[#fff7ef] px-6 py-16" id="contact">
+      <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
+      <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" />
+      <div className="relative mx-auto max-w-7xl rounded-[2rem] border border-white/60 bg-white/80 p-8 shadow-2xl backdrop-blur-xl shadow-[#001B47]/5 backdrop-blur md:p-10">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <Logo />
+            <p className="mt-6 max-w-md text-sm leading-7 text-[#001B47]/70">
+              EMY helps people discover nearby businesses, interact directly, and explore services in their local area.
+              <br />
+              <span className="font-semibold text-orange-500">We did it for you.</span>
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <span className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold text-orange-500">Local discovery</span>
+              <span className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold text-orange-500">Ask EMY</span>
+              <span className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold text-orange-500">Business support</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-black uppercase tracking-wide text-[#001B47]">Support</h3>
+            <ul className="mt-5 space-y-3 text-sm text-[#001B47]/70">
+              <li><a href="terms.html" className="hover:text-orange-500">Terms of Use</a></li>
+              <li><a href="privacy.html" className="hover:text-orange-500">Privacy Policy</a></li>
+              <li><a href="#about-world" className="hover:text-orange-500">About Us</a></li>
+              <li><a href="#contact" className="hover:text-orange-500">Contact Support</a></li>
+              <li><a href="faqs.html" className="hover:text-orange-500">FAQs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-orange-100 pt-6 text-center text-sm text-[#001B47]/55">
+          © MY-EMY.COM Ltd. All Rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function AboutPageOnly() {
+  const heroImages = useMemo(
+    () => [
+      "https://images.unsplash.com/photo-1507914372368-b2b085b925a1?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=1200&q=80",
+    ],
+    []
+  );
+
+  const [activeAboutImage, setActiveAboutImage] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveAboutImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, [heroImages.length]);
+
+  const storySections = [
+    {
+      id: "about-world",
+      title: "It’s Your World",
+      text: "EMY helps people, customers, and small businesses connect with the local world around them. We make discovery, communication, and access to support easier in one ecosystem.",
+      image: heroImages[0],
+      accent: "Discovery starts locally",
+      background: "bg-white",
+    },
+    {
+      id: "about-who",
+      title: "Who We Are",
+      text: "We are building the future of connection for small businesses, helping them access the right services, tools, customers, and support to grow with confidence.",
+      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+      accent: "People, services, and businesses",
+      reverse: true,
+      background: "bg-[#fff4ea]",
+      bullets: [
+        "Connect with trusted service providers",
+        "Discover solutions tailored to your business",
+        "Simplify daily communication",
+        "Grow with smarter insights and support",
+      ],
+    },
+    {
+      id: "about-what",
+      title: "What We Do",
+      text: "EMY connects small businesses with customers, service providers, and tools they need to grow and succeed in a changing world.",
+      image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
+      accent: "Built for small shops & local businesses",
+      background: "bg-[#fff3e6]",
+      bullets: [
+        "Match businesses with trusted service providers",
+        "Help customers discover nearby businesses",
+        "Unlock insights to improve performance",
+        "Support growth with tailored solutions",
+      ],
+    },
+  ];
+
+  const miniCards = [
+    ["store", "Small shops", "Make local businesses easier to discover."],
+    ["pin", "Nearby discovery", "Help people find what is around them."],
+    ["chat", "Direct connection", "Bring customers and businesses closer."],
+    ["bolt", "Ask EMY", "Make finding support faster and easier."],
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#fff7ef] font-['Public_Sans',sans-serif] text-[#001B47]">
+      <style>{``}</style>
+      <Header />
+      <FloatingMenu />
+
+      <main className="pt-28">
+        <section id="about-hero" className="relative isolate overflow-hidden px-6 py-20 md:py-28">
+          <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_78%_22%,rgba(255,148,65,0.30),transparent_28%),linear-gradient(115deg,#fffaf4_0%,#fff3e7_48%,#ffe2c4_100%)]" />
+          <div className="absolute inset-0 -z-10 opacity-30 bg-[linear-gradient(90deg,rgba(249,115,22,0.15)_1px,transparent_1px),linear-gradient(0deg,rgba(249,115,22,0.12)_1px,transparent_1px)] bg-[size:42px_42px]" />
+
+          <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-sm font-black uppercase tracking-wide text-orange-500">About EMY</p>
+              <h1 className="mt-5 text-5xl font-black leading-tight tracking-tight md:text-7xl">
+                Business connection for the local world.
+              </h1>
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-[#001B47]/70">
+                EMY is creating a smarter ecosystem where customers discover nearby businesses, businesses connect with customers, and service providers become easier to reach.
+              </p>
+            </div>
+
+            <div className="relative min-h-[520px]">
+              <div className="absolute right-8 top-8 h-80 w-80 rounded-[4rem] bg-gradient-to-br from-[#001B47] via-orange-500 to-orange-600 shadow-2xl shadow-[#001B47]/25" />
+              <img
+                src={heroImages[activeAboutImage]}
+                alt="Business owners connecting"
+                loading="eager"
+                className="absolute left-0 top-16 h-80 w-[78%] rounded-[2rem] object-cover shadow-2xl transition-all duration-500"
+              />
+              <div className="absolute left-[82%] top-32 flex flex-col items-center gap-3">
+                {heroImages.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setActiveAboutImage(index)}
+                    className={`h-12 w-1 cursor-pointer rounded-full ${activeAboutImage === index ? "bg-orange-500" : "bg-neutral-300"}`}
+                    aria-label={`Show image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-[#fffaf5] px-6 py-16">
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_30%,rgba(255,120,40,0.25),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(255,120,40,0.2),transparent_40%)]" />
+          <div className="absolute inset-0 opacity-10 bg-[linear-gradient(90deg,rgba(249,115,22,0.12)_1px,transparent_1px),linear-gradient(0deg,rgba(249,115,22,0.12)_1px,transparent_1px)] bg-[size:48px_48px]" />
+
+          <div className="relative mx-auto grid max-w-7xl gap-6 md:grid-cols-4">
+            {miniCards.map(([type, title, text]) => (
+              <div key={title} className="group relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/75 p-6 shadow-xl backdrop-blur-xl shadow-[#001B47]/5 backdrop-blur transition hover:-translate-y-1 hover:shadow-2xl">
+                <div className="absolute inset-0 opacity-0 transition group-hover:opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(249,115,22,0.4),transparent_60%)]" />
+                <div className="relative z-10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-500 transition group-hover:bg-orange-500 group-hover:text-white">
+                    <LineIcon type={type} />
+                  </div>
+                  <h3 className="mt-5 text-lg font-black">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#001B47]/70">{text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {storySections.map((section) => (
+          <StorySection key={section.id} {...section} />
+        ))}
+
+        <FounderSection />
+        <Footer />
+      </main>
+    </div>
+  );
+}
+
+function __LinkedEMYPage() {
+  React.useEffect(() => {
+    __linkEMYPages();
+  }, []);
+  return <AboutPageOnly />;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<__LinkedEMYPage />);
+    </script>
+      <script defer src="assets/emy-account-session-nav.js" data-emy-account-session-nav></script>
+  </body>
+</html>
