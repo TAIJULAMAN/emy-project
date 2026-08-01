@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EMY App Web</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="rail" aria-label="EMY navigation">
+        <button class="brand" data-route="home" aria-label="EMY home">
+          <span class="brand-mark">m</span>
+          <span class="brand-word">EMY</span>
+        </button>
+        <nav class="rail-nav" aria-label="Main">
+          <button class="nav-item active" data-route="home" aria-label="Home">
+            <span class="nav-icon">⌂</span>
+            <span>Home</span>
+          </button>
+          <button class="nav-item" data-route="search" aria-label="Search">
+            <span class="nav-icon">⌕</span>
+            <span>Search</span>
+          </button>
+          <button class="nav-item" data-route="businesses" aria-label="Businesses">
+            <span class="nav-icon">▦</span>
+            <span>Businesses</span>
+          </button>
+          <button class="nav-item" data-route="products" aria-label="Products">
+            <span class="nav-icon">◫</span>
+            <span>Products</span>
+          </button>
+          <button class="nav-item" data-route="profile" aria-label="Profile">
+            <span class="nav-icon">◉</span>
+            <span>Profile</span>
+          </button>
+        </nav>
+      </aside>
+
+      <main class="screen">
+        <header class="topbar">
+          <button class="icon-button menu-toggle" type="button" aria-label="Menu">☰</button>
+          <div>
+            <p class="eyebrow">Marketplace</p>
+            <h1 id="page-title">Home</h1>
+          </div>
+          <button class="profile-chip" type="button" data-route="profile">
+            <span class="avatar">SE</span>
+            <span class="profile-copy">Stephane</span>
+          </button>
+        </header>
+
+        <section id="view" class="view" aria-live="polite"></section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Mobile navigation">
+        <button class="bottom-item active" data-route="home">⌂<span>Home</span></button>
+        <button class="bottom-item" data-route="search">⌕<span>Search</span></button>
+        <button class="bottom-item" data-route="businesses">▦<span>Business</span></button>
+        <button class="bottom-item" data-route="products">◫<span>Products</span></button>
+        <button class="bottom-item" data-route="profile">◉<span>Profile</span></button>
+      </nav>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

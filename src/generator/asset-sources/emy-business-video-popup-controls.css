@@ -1,0 +1,8 @@
+.item-detail-modal [data-emy-video-player] .emy-video-controls,
+      [data-item-detail-modal] [data-emy-video-player] .emy-video-controls,
+      .gallery-modal [data-emy-video-player] .emy-video-controls,
+      [data-gallery-modal] [data-emy-video-player] .emy-video-controls {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+      }

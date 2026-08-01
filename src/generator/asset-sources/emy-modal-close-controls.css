@@ -1,0 +1,82 @@
+.right-rail .rail-card[data-emy-real-rail="pulse"] {
+        padding: 10px 12px !important;
+      }
+      .right-rail .rail-card[data-emy-real-rail="pulse"] h2 {
+        margin-bottom: 6px !important;
+        font-size: 18px !important;
+        line-height: 1.05 !important;
+      }
+      .right-rail .rail-card[data-emy-real-rail="pulse"] .rail-pulse-item {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        gap: 8px !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 38px !important;
+        overflow: hidden !important;
+        padding: 4px 6px !important;
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        text-align: left !important;
+      }
+      .right-rail .rail-card[data-emy-real-rail="pulse"] .rail-pulse-item[hidden],
+      .right-rail .rail-card[data-emy-real-rail="pulse"] .rail-pulse-item[data-my-business-extra][hidden] {
+        display: none !important;
+      }
+      .right-rail .rail-card[data-emy-real-rail="pulse"] .rail-pulse-copy {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        text-align: left !important;
+      }
+      .right-rail .rail-card[data-emy-real-rail="pulse"] .rail-pulse-copy strong {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        color: var(--emy-navy) !important;
+        font-size: 12px !important;
+        line-height: 1.05 !important;
+        font-weight: 850 !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+      }
+      .right-rail .rail-card[data-emy-real-rail="pulse"] .rail-pulse-copy span {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        margin-top: 1px !important;
+        color: #667085 !important;
+        font-size: 10.8px !important;
+        line-height: 1.12 !important;
+        font-weight: 650 !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+      }
+      .right-rail .rail-card[data-emy-real-rail="pulse"] .rail-tag {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 auto !important;
+        min-width: 54px !important;
+        max-width: 58px !important;
+        min-height: 22px !important;
+        overflow: hidden !important;
+        padding: 0 10px !important;
+        border-radius: 999px !important;
+        background: #fff5ed !important;
+        color: #667085 !important;
+        font-size: 10.5px !important;
+        line-height: 1 !important;
+        font-weight: 850 !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+      }
