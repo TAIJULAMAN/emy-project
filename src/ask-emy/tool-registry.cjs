@@ -1,0 +1,401 @@
+'use strict';
+
+const { RESPONSE_TYPES } = require('./assistant-contract.cjs');
+
+const VALID_RESPONSE_TYPES = new Set(RESPONSE_TYPES);
+
+const ASK_EMY_TOOL_REGISTRY = Object.freeze({
+  answerDirectly: {
+    name: 'answerDirectly',
+    label: 'Answer directly',
+    intents: ['CHAT', 'UNKNOWN'],
+    responseType: 'chat_answer',
+    dataSource: 'assistant_context',
+    permission: 'viewer',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  getViewerAccount: {
+    name: 'getViewerAccount',
+    label: 'Read signed-in viewer account',
+    intents: ['IDENTITY', 'ACCOUNT'],
+    responseType: 'chat_answer',
+    dataSource: 'viewer_session',
+    permission: 'viewer',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  getViewerLocation: {
+    name: 'getViewerLocation',
+    label: 'Read viewer search location',
+    intents: ['VIEWER_LOCATION'],
+    responseType: 'chat_answer',
+    dataSource: 'viewer_location_context',
+    permission: 'viewer',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  guideNextStep: {
+    name: 'guideNextStep',
+    label: 'Guide next step',
+    intents: ['GUIDANCE'],
+    responseType: 'guidance_steps',
+    dataSource: 'assistant_playbook',
+    permission: 'viewer',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  getDailyEmyUpdate: {
+    name: 'getDailyEmyUpdate',
+    label: 'Get EMY daily update',
+    intents: ['DAILY_UPDATE'],
+    responseType: 'small_result_list',
+    dataSource: 'recent_emy_activity',
+    permission: 'viewer',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getCustomerSelfContent: {
+    name: 'getCustomerSelfContent',
+    label: 'Get signed-in customer content',
+    intents: ['CUSTOMER_SELF_CONTENT'],
+    responseType: 'small_result_list',
+    dataSource: 'viewer_customer_content',
+    permission: 'viewer',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getCustomerProfileCard: {
+    name: 'getCustomerProfileCard',
+    label: 'Create customer profile card',
+    intents: ['CUSTOMER_PROFILE'],
+    responseType: 'small_result_list',
+    dataSource: 'viewer_customer_profile',
+    permission: 'viewer',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getViewerProfileCards: {
+    name: 'getViewerProfileCards',
+    label: 'Create customer and business profile cards',
+    intents: ['PROFILE_CARDS'],
+    responseType: 'small_result_list',
+    dataSource: 'viewer_and_owned_business_profiles',
+    permission: 'viewer',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getMediaPreview: {
+    name: 'getMediaPreview',
+    label: 'Create media preview cards',
+    intents: ['MEDIA_PREVIEW'],
+    responseType: 'small_result_list',
+    dataSource: 'record_media_preview',
+    permission: 'viewer',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getBusinessCustomersAnalytics: {
+    name: 'getBusinessCustomersAnalytics',
+    label: 'Analyse business customers',
+    intents: ['BUSINESS_CUSTOMERS'],
+    responseType: 'analytics_chart',
+    dataSource: 'business_customer_relationships',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getOwnedProducts: {
+    name: 'getOwnedProducts',
+    label: 'Get owned product listings',
+    intents: ['PRODUCT_LIST'],
+    responseType: 'small_result_list',
+    dataSource: 'owned_business_products',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getOwnedClips: {
+    name: 'getOwnedClips',
+    label: 'Get owned clip listings',
+    intents: ['CLIP_LIST'],
+    responseType: 'small_result_list',
+    dataSource: 'owned_business_clips',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getOwnedPosts: {
+    name: 'getOwnedPosts',
+    label: 'Get owned post listings',
+    intents: ['POST_LIST'],
+    responseType: 'small_result_list',
+    dataSource: 'owned_business_posts',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getOwnedArticles: {
+    name: 'getOwnedArticles',
+    label: 'Get owned article listings',
+    intents: ['ARTICLE_LIST'],
+    responseType: 'small_result_list',
+    dataSource: 'owned_business_articles',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getOwnedBusinessCard: {
+    name: 'getOwnedBusinessCard',
+    label: 'Get owned business card',
+    intents: ['BUSINESS_PROFILE'],
+    responseType: 'small_result_list',
+    dataSource: 'owned_business_profile',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getOwnedBusinessCards: {
+    name: 'getOwnedBusinessCards',
+    label: 'Get owned business cards',
+    intents: ['BUSINESS_PROFILE_LIST'],
+    responseType: 'small_result_list',
+    dataSource: 'owned_business_profiles',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  searchProducts: {
+    name: 'searchProducts',
+    label: 'Search product listings',
+    intents: ['PRODUCT_SEARCH'],
+    responseType: 'small_result_list',
+    dataSource: 'public_product_search',
+    permission: 'public',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getMostViewedProduct: {
+    name: 'getMostViewedProduct',
+    label: 'Get most viewed product',
+    intents: ['PRODUCT_SINGLE_METRIC'],
+    responseType: 'inline_product_view',
+    dataSource: 'canonical_product_analytics',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getTopProductByMetric: {
+    name: 'getTopProductByMetric',
+    label: 'Get top product by metric',
+    intents: ['PRODUCT_SINGLE_METRIC'],
+    responseType: 'inline_product_view',
+    dataSource: 'canonical_product_analytics',
+    permission: 'business-owner',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  getTopProductsAnalytics: {
+    name: 'getTopProductsAnalytics',
+    label: 'Get top products analytics',
+    intents: ['PRODUCT_LIST_METRIC'],
+    responseType: 'analytics_chart',
+    dataSource: 'canonical_product_analytics',
+    permission: 'business-owner',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  getBusinessStatsOverview: {
+    name: 'getBusinessStatsOverview',
+    label: 'Get business statistics overview',
+    intents: ['BUSINESS_ANALYTICS'],
+    responseType: 'analytics_chart',
+    dataSource: 'canonical_business_analytics',
+    permission: 'business-owner',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  getMultiBusinessComparison: {
+    name: 'getMultiBusinessComparison',
+    label: 'Compare accessible businesses',
+    intents: ['BUSINESS_COMPARISON'],
+    responseType: 'analytics_chart',
+    dataSource: 'canonical_business_analytics',
+    permission: 'business-owner',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  compareContentViews: {
+    name: 'compareContentViews',
+    label: 'Compare EMY content view signals',
+    intents: ['CROSS_ENTITY_ANALYTICS'],
+    responseType: 'analytics_chart',
+    dataSource: 'canonical_cross_entity_analytics',
+    permission: 'business-owner',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  compareProductClipViews: {
+    name: 'compareProductClipViews',
+    label: 'Compare product and clip view signals',
+    intents: ['CROSS_ENTITY_ANALYTICS'],
+    responseType: 'analytics_chart',
+    dataSource: 'canonical_cross_entity_analytics',
+    permission: 'business-owner',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+  searchNearby: {
+    name: 'searchNearby',
+    label: 'Search nearby EMY records',
+    intents: ['SEARCH_NEARBY', 'CLIP_SEARCH', 'POST_SEARCH'],
+    responseType: 'small_result_list',
+    dataSource: 'public_location_search',
+    permission: 'public',
+    cardsAllowed: true,
+    locationSearchAllowed: true,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  createDraft: {
+    name: 'createDraft',
+    label: 'Create draft content',
+    intents: ['CREATE_DRAFT'],
+    responseType: 'draft_preview',
+    dataSource: 'draft_builder',
+    permission: 'viewer',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: true,
+    usesExistingView: false,
+  },
+  openInlineView: {
+    name: 'openInlineView',
+    label: 'Open existing item view inline',
+    intents: ['OPEN_ITEM', 'BUSINESS_PROFILE', 'CUSTOMER_PROFILE'],
+    responseType: 'inline_product_view',
+    dataSource: 'existing_item_view',
+    permission: 'viewer',
+    cardsAllowed: true,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: true,
+  },
+  compareItems: {
+    name: 'compareItems',
+    label: 'Compare EMY items',
+    intents: ['COMPARE'],
+    responseType: 'comparison_table',
+    dataSource: 'canonical_comparison',
+    permission: 'viewer',
+    cardsAllowed: false,
+    locationSearchAllowed: false,
+    requiresConfirmation: false,
+    usesExistingView: false,
+  },
+});
+
+function getAskEmyTool(name) {
+  if (!name) return null;
+  return ASK_EMY_TOOL_REGISTRY[name] || null;
+}
+
+function isValidAskEmyTool(tool) {
+  if (!tool || typeof tool !== 'object') return false;
+  if (!tool.name || !ASK_EMY_TOOL_REGISTRY[tool.name]) return false;
+  if (!VALID_RESPONSE_TYPES.has(tool.responseType)) return false;
+  if (!Array.isArray(tool.intents) || tool.intents.length === 0) return false;
+  if (!['public', 'viewer', 'business-owner', 'admin'].includes(tool.permission)) return false;
+  return true;
+}
+
+function routeAskEmyTool(plan = {}) {
+  const requestedTool = getAskEmyTool(plan.toolHint) || ASK_EMY_TOOL_REGISTRY.answerDirectly;
+  const responseType = VALID_RESPONSE_TYPES.has(plan.responseType)
+    ? plan.responseType
+    : requestedTool.responseType || 'chat_answer';
+
+  return {
+    tool: requestedTool,
+    toolName: requestedTool.name,
+    responseType,
+    recordCardsAllowed: Boolean(requestedTool.cardsAllowed && plan.recordCardsAllowed !== false),
+    locationSearchAllowed: Boolean(requestedTool.locationSearchAllowed && plan.locationSearchAllowed === true),
+    requiresConfirmation: Boolean(requestedTool.requiresConfirmation),
+    permission: requestedTool.permission,
+    dataSource: requestedTool.dataSource,
+    usesExistingView: Boolean(requestedTool.usesExistingView || plan.actionUsesExistingView),
+  };
+}
+
+function assertAskEmyToolSafe(tool) {
+  if (!isValidAskEmyTool(tool)) {
+    throw new Error(`Invalid Ask EMY tool policy: ${tool && tool.name ? tool.name : 'unknown'}`);
+  }
+  if (tool.permission === 'admin') {
+    throw new Error(`Admin tool must not be exposed in Ask EMY: ${tool.name}`);
+  }
+  if ((tool.intents.includes('IDENTITY') || tool.intents.includes('ACCOUNT') || tool.intents.includes('VIEWER_LOCATION') || tool.intents.includes('GUIDANCE')) && tool.cardsAllowed) {
+    throw new Error(`Assistant-only tool must not allow record cards: ${tool.name}`);
+  }
+  if (!tool.locationSearchAllowed && tool.name === 'searchNearby') {
+    throw new Error('searchNearby must be the only location-enabled search tool');
+  }
+  return true;
+}
+
+module.exports = {
+  ASK_EMY_TOOL_REGISTRY,
+  getAskEmyTool,
+  isValidAskEmyTool,
+  routeAskEmyTool,
+  assertAskEmyToolSafe,
+};

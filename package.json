@@ -1,0 +1,21 @@
+{
+  "name": "emy-linked-pages",
+  "private": true,
+  "description": "EMY static linked pages generator and local preview",
+  "scripts": {
+    "check:generator": "node scripts/check-generator.cjs",
+    "generate": "node generate-linked-pages.cjs",
+    "generate:check": "npm run check:generator && npm run generate",
+    "generate:locked-home": "node scripts/generate-locked-home.cjs",
+    "generate:template-home": "node scripts/generate-template-home.cjs",
+    "audit:customer-home": "node scripts/audit-customer-home-patches.cjs",
+    "parity:customer-home": "node scripts/customer-home-parity-guard.cjs",
+    "smoke": "node scripts/run-smoke.cjs",
+    "audit:clicks": "node scripts/audit-click-speed.cjs",
+    "verify": "npm run check:generator && npm run generate && npm run smoke",
+    "measure": "node scripts/measure-improvement.cjs",
+    "serve": "node serve-linked-pages.cjs",
+    "serve:keepalive": "node scripts/keep-ask-emy-up.cjs",
+    "serve:test": "node work/start-linked-pages-8001.cjs"
+  }
+}
