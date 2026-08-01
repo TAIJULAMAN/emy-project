@@ -1,0 +1,64 @@
+{
+  "hosting": {
+    "public": "linked-pages/restore-may20",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|png|jpg|jpeg|gif|svg|webp|mp4|webm)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public,max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/*.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/api/ask-emy",
+        "function": {
+          "functionId": "askEmyHttp",
+          "region": "europe-west2"
+        }
+      },
+      {
+        "source": "/api/ask-emy/status",
+        "function": {
+          "functionId": "askEmyStatus",
+          "region": "europe-west2"
+        }
+      },
+      {
+        "source": "/",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log"
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

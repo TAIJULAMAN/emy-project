@@ -1,0 +1,3241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" data-emy-font-inter-async />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-emy-font-inter-async />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" data-emy-font-inter-async />
+    <noscript data-emy-font-inter-async><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+<title>EMY | Ask EMY</title>
+    <script>
+      (function () {
+        try {
+          if (new URLSearchParams(window.location.search || '').has('emyAuth')) {
+            document.documentElement.setAttribute('data-emy-auth-pending', 'true');
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="assets/vendor/tailwindcss.js"></script>
+    <script src="auth-config.js"></script>
+    <script crossorigin src="assets/vendor/react.production.min.js"></script>
+    <script crossorigin src="assets/vendor/react-dom.production.min.js"></script>
+    <script src="assets/vendor/babel.min.js"></script>
+    <script src="assets/emy-babel-classic-preset.js"></script>
+    <style>
+      :root { --emy-page-scale: 0.85; --emy-page-shift: clamp(-220px, -10vw, -88px); }
+      html { scroll-behavior: smooth; background: #fbfaf8; }
+      body { margin: 0; min-height: 100vh; overflow-x: hidden; background: #fbfaf8; }
+      #root { min-height: 100vh; width: 100%; }
+      html[data-emy-auth-pending="true"],
+      html[data-emy-auth-pending="true"] body { background: #fff8ef; }
+      html[data-emy-auth-pending="true"] #root { visibility: hidden; }
+      #root .font-black,
+      #root .font-extrabold { font-weight: 700 !important; }
+      #root .font-bold { font-weight: 600 !important; }
+      #root .font-semibold { font-weight: 500 !important; }
+      #root [class~="text-7xl"] { font-size: 4rem !important; line-height: 1.04 !important; }
+      #root [class~="text-6xl"] { font-size: 3.4rem !important; line-height: 1.05 !important; }
+      #root [class~="text-5xl"] { font-size: 2.8rem !important; line-height: 1.08 !important; }
+      #root [class~="text-4xl"] { font-size: 2.15rem !important; line-height: 1.14 !important; }
+      #root [class~="rounded-3xl"],
+      #root [class*="rounded-[2"],
+      #root [class*="rounded-[3"],
+      #root [class*="rounded-[4"] { border-radius: 1.25rem !important; }
+      #root [class~="rounded-2xl"],
+      #root [class*="rounded-[1.5"] { border-radius: 0.9rem !important; }
+      #root [class~="p-10"] { padding: 1.75rem !important; }
+      #root [class~="p-8"] { padding: 1.5rem !important; }
+      #root [class~="p-7"] { padding: 1.35rem !important; }
+      #root [class~="p-6"] { padding: 1.2rem !important; }
+      #root [class~="px-10"] { padding-left: 1.75rem !important; padding-right: 1.75rem !important; }
+      #root [class~="px-8"] { padding-left: 1.45rem !important; padding-right: 1.45rem !important; }
+      #root [class~="px-6"] { padding-left: 1.2rem !important; padding-right: 1.2rem !important; }
+      #root [class~="py-6"] { padding-top: 1.05rem !important; padding-bottom: 1.05rem !important; }
+      #root [class~="py-5"] { padding-top: 0.9rem !important; padding-bottom: 0.9rem !important; }
+      #root [class~="py-4"] { padding-top: 0.78rem !important; padding-bottom: 0.78rem !important; }
+      #root .shadow-2xl { box-shadow: 0 18px 45px rgba(0, 27, 71, 0.10) !important; }
+      #root .shadow-xl { box-shadow: 0 12px 32px rgba(0, 27, 71, 0.08) !important; }
+      #root .shadow-lg { box-shadow: 0 8px 20px rgba(0, 27, 71, 0.07) !important; }
+      .emy-fullscreen-cover {
+        width: 100vw;
+        height: 100dvh;
+      }
+      .emy-visual-center {
+        position: relative;
+      }
+      @media (min-width: 768px) {
+        #root {
+          width: calc(100% / var(--emy-page-scale));
+          min-height: calc(100vh / var(--emy-page-scale));
+          margin-left: var(--emy-page-shift);
+          zoom: var(--emy-page-scale);
+        }
+        .emy-fullscreen-cover {
+          width: calc(100vw / var(--emy-page-scale));
+          height: calc(100dvh / var(--emy-page-scale));
+        }
+        #root [class~="md:text-7xl"] { font-size: 4.15rem !important; line-height: 1.04 !important; }
+        #root [class~="md:text-6xl"] { font-size: 3.55rem !important; line-height: 1.06 !important; }
+        #root [class~="md:text-5xl"] { font-size: 2.85rem !important; line-height: 1.12 !important; }
+        #root [class~="md:p-12"] { padding: 2.1rem !important; }
+        #root [class~="md:p-10"] { padding: 1.85rem !important; }
+        #root [class~="md:p-9"] { padding: 1.7rem !important; }
+        #root [class~="md:p-8"] { padding: 1.55rem !important; }
+      }
+    </style>
+  <style data-ask-emy-boot>
+      #root .ask-emy-boot {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 96px 0 0 clamp(42px, 8vw, 112px);
+        background: #fff8ef;
+      }
+      #root .ask-emy-boot-dots {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      #root .ask-emy-boot-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #ff6a00;
+        animation: askEmyBootPulse 900ms ease-in-out infinite;
+      }
+      #root .ask-emy-boot-dot:nth-child(2) { animation-delay: 120ms; }
+      #root .ask-emy-boot-dot:nth-child(3) { animation-delay: 240ms; }
+      @keyframes askEmyBootPulse {
+        0%, 80%, 100% { opacity: .45; transform: translateY(0); }
+        40% { opacity: 1; transform: translateY(-3px); }
+      }
+    </style>
+      <link rel="stylesheet" href="assets/emy-page-boot-gate.css" data-emy-page-boot-gate />
+    <script defer src="assets/emy-page-boot-gate.js" data-emy-page-boot-gate></script>
+      <link rel="stylesheet" href="assets/emy-comment-writing.css" data-emy-comment-writing />
+      <link rel="stylesheet" href="assets/emy-responsive-hover.css" data-emy-responsive-hover-style />
+      <link rel="stylesheet" href="assets/emy-modal-close-controls.css" data-emy-modal-close-controls />
+      <link rel="stylesheet" href="assets/emy-post-profile-circle-removal.css?v=839e0484f208" data-emy-post-profile-circle-removal-style />
+  </head>
+  <body>
+    <!-- emy-page-boot-loader:start -->
+    <div class="emy-page-boot-loader" data-emy-page-boot-loader aria-hidden="true">
+      <div class="emy-page-boot-layout">
+        <aside class="emy-page-boot-column">
+          <div class="emy-page-boot-card">
+            <span class="emy-page-boot-line medium"></span>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line long"></span></div>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line medium"></span></div>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line long"></span></div>
+          </div>
+          <div class="emy-page-boot-card">
+            <span class="emy-page-boot-line short"></span>
+            <span class="emy-page-boot-line long"></span>
+            <span class="emy-page-boot-line medium"></span>
+          </div>
+        </aside>
+        <section class="emy-page-boot-main">
+          <div class="emy-page-boot-nav">
+            <span class="emy-page-boot-avatar"></span>
+            <span class="emy-page-boot-line medium"></span>
+            <div class="emy-page-boot-actions"><span class="emy-page-boot-pill"></span><span class="emy-page-boot-pill"></span><span class="emy-page-boot-pill"></span></div>
+          </div>
+          <div class="emy-page-boot-hero">
+            <span class="emy-page-boot-line short"></span>
+            <span class="emy-page-boot-line long"></span>
+            <span class="emy-page-boot-line medium"></span>
+          </div>
+          <div class="emy-page-boot-list">
+            <span class="emy-page-boot-media"></span>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line long"></span></div>
+            <span class="emy-page-boot-line medium"></span>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- emy-page-boot-loader:end -->
+    <div id="root"><div class="ask-emy-boot" data-ask-emy-boot aria-label="Ask EMY is loading"><span class="ask-emy-boot-dots" aria-hidden="true"><span class="ask-emy-boot-dot"></span><span class="ask-emy-boot-dot"></span><span class="ask-emy-boot-dot"></span></span></div></div>
+    <script data-emy-media-store>
+
+        (function setupEmyMediaStoreRuntime() {
+          if (window.emyStoreFeedMedia && window.emyResolveFeedMedia && window.emyHydrateFeedMedia && window.emyRepairFeedRepostMedia) return;
+          const dbName = "emy-feed-media-db";
+          const storeName = "media";
+          const objectUrls = new Map();
+          const objectUrlPromises = new Map();
+          let dbPromise = null;
+          function mediaStoreOpen() {
+            if (!("indexedDB" in window)) return Promise.reject(new Error("IndexedDB unavailable"));
+            if (dbPromise) return dbPromise;
+            dbPromise = new Promise((resolve, reject) => {
+              const request = indexedDB.open(dbName, 1);
+              request.onupgradeneeded = () => {
+                const db = request.result;
+                if (!db.objectStoreNames.contains(storeName)) db.createObjectStore(storeName, { keyPath: "id" });
+              };
+              request.onsuccess = () => resolve(request.result);
+              request.onerror = () => reject(request.error || new Error("Media database unavailable"));
+            });
+            return dbPromise;
+          }
+          function mediaKindFromBlob(blob, fallback) {
+            const mime = String(blob && blob.type || "").toLowerCase();
+            const fallbackKind = cleanMediaStoreText(fallback).toLowerCase();
+            if (mime.indexOf("video/") === 0) return "video";
+            if (mime.indexOf("image/") === 0) return "image";
+            if (fallbackKind === "document" || fallbackKind === "raw" || mime) return "document";
+            return fallbackKind === "video" ? "video" : "image";
+          }
+          function cleanMediaStoreText(value) {
+            return String(value || "").replace(/\\s+/g, " ").trim();
+          }
+          function mediaStoreIsQuotaError(error) {
+            return !!error && (error.name === "QuotaExceededError" || error.name === "NS_ERROR_DOM_QUOTA_REACHED" || String(error.message || "").toLowerCase().includes("quota"));
+          }
+          function mediaStoreReferenceText() {
+            let text = "";
+            try {
+              const usefulKey = /(?:media|poster|image|photo|video|cover|thumbnail|product|feed|post|clip|reel|event|job|article|business|customer|chat|ref|src)/i;
+              const maxValueLength = 24000;
+              const maxTotalLength = 260000;
+              for (let index = 0; index < localStorage.length; index += 1) {
+                const key = localStorage.key(index);
+                if (!key) continue;
+                if (!usefulKey.test(key)) continue;
+                const value = localStorage.getItem(key) || "";
+                if (/^data:(?:image|video|application)\//i.test(value)) continue;
+                text += key + "\n" + value.slice(0, maxValueLength) + "\n";
+                if (text.length >= maxTotalLength) break;
+              }
+            } catch (error) {}
+            return text;
+          }
+          function mediaStoreAllRecords(db) {
+            return new Promise((resolve) => {
+              try {
+                const tx = db.transaction(storeName, "readonly");
+                const request = tx.objectStore(storeName).getAll();
+                request.onsuccess = () => resolve(Array.isArray(request.result) ? request.result : []);
+                request.onerror = () => resolve([]);
+              } catch (error) {
+                resolve([]);
+              }
+            });
+          }
+          function mediaStoreDeleteRecords(db, ids) {
+            const cleanIds = (ids || []).map(cleanMediaStoreText).filter(Boolean);
+            if (!cleanIds.length) return Promise.resolve(0);
+            return new Promise((resolve) => {
+              let deleted = 0;
+              try {
+                const tx = db.transaction(storeName, "readwrite");
+                const store = tx.objectStore(storeName);
+                cleanIds.forEach((id) => {
+                  try {
+                    store.delete(id);
+                    if (objectUrls.has(id)) {
+                      const cached = objectUrls.get(id);
+                      if (cached && cached.url) {
+                        try { URL.revokeObjectURL(cached.url); } catch (error) {}
+                      }
+                      objectUrls.delete(id);
+                    }
+                    objectUrlPromises.delete(id);
+                    deleted += 1;
+                  } catch (error) {}
+                });
+                tx.oncomplete = () => resolve(deleted);
+                tx.onerror = () => resolve(deleted);
+              } catch (error) {
+                resolve(deleted);
+              }
+            });
+          }
+          function mediaStoreCleanup(db, keepId) {
+            return Promise.resolve(0);
+            return mediaStoreAllRecords(db).then((records) => {
+              if (!records.length) return 0;
+              const references = mediaStoreReferenceText();
+              const keep = cleanMediaStoreText(keepId);
+              const unreferenced = records
+                .filter((record) => record && record.id && record.id !== keep && references.indexOf(record.id) === -1)
+                .sort((a, b) => new Date(a.createdAt || 0).getTime() - new Date(b.createdAt || 0).getTime());
+              const toDelete = unreferenced.slice(0, Math.max(20, Math.ceil(unreferenced.length * 0.7))).map((record) => record.id);
+              return mediaStoreDeleteRecords(db, toDelete);
+            });
+          }
+          function mediaStoreWriteRecord(db, record) {
+            return new Promise((resolve, reject) => {
+              try {
+                const tx = db.transaction(storeName, "readwrite");
+                tx.objectStore(storeName).put(record);
+                tx.oncomplete = () => resolve(record);
+                tx.onerror = () => reject(tx.error || new Error("Could not save media"));
+                tx.onabort = () => reject(tx.error || new Error("Could not save media"));
+              } catch (error) {
+                reject(error);
+              }
+            });
+          }
+          function mediaStoreCompressedImageBlob(blob) {
+            const mime = String(blob && blob.type || "").toLowerCase();
+            if (!blob || mime.indexOf("image/") !== 0 || /svg/.test(mime)) return Promise.resolve(blob);
+            if (blob.size && blob.size < 850000 && /jpe?g|webp/.test(mime)) return Promise.resolve(blob);
+            if (!window.Image || !document.createElement("canvas").toBlob) return Promise.resolve(blob);
+            return new Promise((resolve) => {
+              const url = URL.createObjectURL(blob);
+              const image = new Image();
+              let done = false;
+              const finish = (nextBlob) => {
+                if (done) return;
+                done = true;
+                try { URL.revokeObjectURL(url); } catch (error) {}
+                resolve(nextBlob || blob);
+              };
+              image.onload = () => {
+                try {
+                  const maxSide = blob.size > 3500000 ? 1280 : 1600;
+                  const width = image.naturalWidth || image.width || maxSide;
+                  const height = image.naturalHeight || image.height || maxSide;
+                  const scale = Math.min(1, maxSide / Math.max(width, height));
+                  if (scale >= 1 && blob.size < 1200000 && /jpe?g/.test(mime)) {
+                    finish(blob);
+                    return;
+                  }
+                  const canvas = document.createElement("canvas");
+                  canvas.width = Math.max(1, Math.round(width * scale));
+                  canvas.height = Math.max(1, Math.round(height * scale));
+                  const context = canvas.getContext("2d");
+                  if (!context) {
+                    finish(blob);
+                    return;
+                  }
+                  context.drawImage(image, 0, 0, canvas.width, canvas.height);
+                  canvas.toBlob((nextBlob) => {
+                    if (nextBlob && (!blob.size || nextBlob.size < blob.size)) finish(nextBlob);
+                    else finish(blob);
+                  }, "image/jpeg", blob.size > 3500000 ? 0.76 : 0.82);
+                } catch (error) {
+                  finish(blob);
+                }
+              };
+              image.onerror = () => finish(blob);
+              image.src = url;
+              window.setTimeout(() => finish(blob), 6000);
+            });
+          }
+          window.emyCleanupBrowserMediaStorage = function cleanupBrowserMediaStorage() {
+            const trimInline = window.emyTrimLargeInlineMediaStorage ? window.emyTrimLargeInlineMediaStorage().catch(() => 0) : Promise.resolve(0);
+            return trimInline.then((trimmed) => mediaStoreOpen().then((db) => mediaStoreCleanup(db, "").then((deleted) => (Number(trimmed) || 0) + (Number(deleted) || 0)))).catch(() => 0);
+          };
+          window.emyStoreFeedMedia = function storeFeedMedia(fileOrBlob, options = {}) {
+            const blob = fileOrBlob instanceof Blob ? fileOrBlob : null;
+            if (!blob) return Promise.reject(new Error("No media blob"));
+            const id = cleanMediaStoreText(options.id) || ("emy-media-" + Date.now() + "-" + Math.random().toString(36).slice(2));
+            return mediaStoreCompressedImageBlob(blob).then((storedBlob) => {
+              const record = {
+                id,
+                blob: storedBlob,
+                mediaType: mediaKindFromBlob(storedBlob, options.type),
+                mime: storedBlob.type || blob.type || "",
+                name: cleanMediaStoreText(options.name || fileOrBlob.name),
+                size: Number(storedBlob.size) || Number(blob.size) || 0,
+                originalSize: Number(blob.size) || 0,
+                compressed: storedBlob !== blob,
+                createdAt: new Date().toISOString()
+              };
+              return mediaStoreOpen().then((db) => mediaStoreWriteRecord(db, record).catch((error) => {
+                if (!mediaStoreIsQuotaError(error)) throw error;
+                return mediaStoreCleanup(db, id).then(() => mediaStoreWriteRecord(db, record));
+              }));
+            });
+          };
+          window.emyPrepareFeedMediaUpload = function prepareFeedMediaUpload(fileOrBlob, options = {}) {
+            const blob = fileOrBlob instanceof Blob ? fileOrBlob : null;
+            if (!blob) return Promise.resolve(null);
+            const type = mediaKindFromBlob(blob, options.type);
+            const name = cleanMediaStoreText(options.name || fileOrBlob.name || (type === "video" ? "feed-video.webm" : "feed-image.jpg"));
+            const onProgress = typeof options.onProgress === "function" ? options.onProgress : null;
+            const reportProgress = (percent, detail) => {
+              if (!onProgress) return;
+              try { onProgress(Math.max(0, Math.min(100, Math.round(Number(percent) || 0))), detail || {}); } catch (error) {}
+            };
+            const preparedBlobPromise = type === "image" ? mediaStoreCompressedImageBlob(blob) : Promise.resolve(blob);
+            reportProgress(1, { phase: "preparing" });
+            return preparedBlobPromise.then((uploadBlob) => {
+              const cloudOptions = {
+                role: cleanMediaStoreText(options.role || "customer"),
+                kind: cleanMediaStoreText(options.kind || "feed"),
+                folder: cleanMediaStoreText(options.folder || "emy/feed"),
+                name,
+                onProgress: reportProgress
+              };
+              const uploadToCloudinary = window.emyRealAuth && typeof window.emyRealAuth.uploadToCloudinary === "function"
+                ? window.emyRealAuth.uploadToCloudinary
+                : null;
+              const cloudPromise = uploadToCloudinary
+                ? Promise.resolve(uploadToCloudinary(uploadBlob || blob, cloudOptions)).then((upload) => {
+                  if (!upload || !upload.url) return null;
+                  const resourceType = cleanMediaStoreText(upload.resourceType || type).toLowerCase() === "video" ? "video" : "image";
+                  return {
+                    src: upload.url,
+                    ref: "",
+                    type: resourceType,
+                    name,
+                    storedInCloudinary: true,
+                    cloudinaryPublicId: cleanMediaStoreText(upload.publicId),
+                    cloudinaryResourceType: resourceType,
+                    cloudinaryBytes: Number(upload.bytes) || 0,
+                    cloudinaryDuration: Number(upload.duration) || 0
+                  };
+                }).catch((error) => {
+                  reportProgress(0, { phase: "failed", error: error && error.message || "Media upload failed." });
+                  if (options.allowBrowserFallback === false) throw error;
+                  return null;
+                })
+                : Promise.resolve(null);
+              return cloudPromise.then((cloudRecord) => {
+                if (cloudRecord && cloudRecord.src) return cloudRecord;
+                if (options.allowBrowserFallback === false) return null;
+                return window.emyStoreFeedMedia(uploadBlob || blob, { type, name }).then((record) => record ? {
+                  src: "",
+                  ref: record.id || "",
+                  type: record.mediaType || type,
+                  name: record.name || name,
+                  storedInBrowser: true
+                } : null).catch(() => null);
+              });
+            });
+          };
+          window.emyResolveFeedMedia = function resolveFeedMedia(ref) {
+            const id = cleanMediaStoreText(ref);
+            if (!id) return Promise.reject(new Error("Missing media reference"));
+            if (objectUrls.has(id)) return Promise.resolve(objectUrls.get(id));
+            if (objectUrlPromises.has(id)) return objectUrlPromises.get(id);
+            const pending = mediaStoreOpen().then((db) => new Promise((resolve, reject) => {
+              const tx = db.transaction(storeName, "readonly");
+              const request = tx.objectStore(storeName).get(id);
+              request.onsuccess = () => {
+                const record = request.result;
+                if (!record || !record.blob) {
+                  reject(new Error("Stored media not found"));
+                  return;
+                }
+                const url = URL.createObjectURL(record.blob);
+                const resolved = Object.assign({}, record, { url });
+                objectUrls.set(id, resolved);
+                resolve(resolved);
+              };
+              request.onerror = () => reject(request.error || new Error("Could not load media"));
+            })).finally(() => {
+              objectUrlPromises.delete(id);
+            });
+            objectUrlPromises.set(id, pending);
+            return pending;
+          };
+          const mediaMigrationKeys = [
+            "emyFeedCreatedPosts",
+            "emyFeedCreatedProducts",
+            "emyFeedCreatedClips",
+            "emyFeedCreatedJobs",
+            "emyFeedCreatedEvents",
+            "emyBusinessFeedPosts",
+            "emyBusinessPosts",
+            "emyBusinessArticles",
+            "emyBusinessArticlePosts",
+            "emyBusinessProducts",
+            "emyBusinessProductList",
+            "emyBusinessProductPosts",
+            "emyBusinessClips",
+            "emyBusinessReels",
+            "emyBusinessProductReels",
+            "emyFeedCreatedClipsByBusiness",
+            "emyUploadedClips",
+            "emyBusinessJobs",
+            "emyBusinessJobPosts",
+            "emyBusinessEvents",
+            "emyBusinessEventPosts"
+          ];
+          const mediaMigrationFields = [
+            { ref:"mediaRef", src:"mediaSrc" },
+            { ref:"ref", src:"src" },
+            { ref:"imageRef", src:"image", type:"image" },
+            { ref:"videoRef", src:"video", type:"video" },
+            { ref:"coverRef", src:"coverSrc" },
+            { ref:"eventCoverRef", src:"eventCoverSrc" },
+            { ref:"jobCoverRef", src:"jobCoverSrc" },
+            { ref:"posterRef", src:"posterSrc", poster:true, type:"image" },
+            { ref:"thumbnailRef", src:"thumbnailSrc", poster:true, type:"image" },
+            { ref:"coverPosterRef", src:"coverPosterSrc", poster:true, type:"image" },
+            { ref:"eventCoverPosterRef", src:"eventCoverPosterSrc", poster:true, type:"image" },
+            { ref:"jobCoverPosterRef", src:"jobCoverPosterSrc", poster:true, type:"image" }
+          ];
+          let mediaMigrationPromise = null;
+          let mediaMigrationStatus = {
+            running: false,
+            totalRefs: 0,
+            uploaded: 0,
+            reused: 0,
+            failed: 0,
+            updatedItems: 0,
+            updatedKeys: 0,
+            currentKey: "",
+            lastError: "",
+            startedAt: "",
+            finishedAt: ""
+          };
+          function mediaMigrationLooksStoredRef(value) {
+            const clean = cleanMediaStoreText(value);
+            if (!clean) return false;
+            if (/^(data:image\/|data:video\/|blob:|https?:\/\/|file:|\/|\.{1,2}\/|assets\/)/i.test(clean)) return false;
+            return /^emy-media-|^business-|^customer-|^profile-|^media-/i.test(clean);
+          }
+          function mediaMigrationReadJson(key, fallback) {
+            try {
+              const parsed = JSON.parse(localStorage.getItem(key) || "");
+              return parsed && typeof parsed === "object" ? parsed : fallback;
+            } catch (error) {
+              return fallback;
+            }
+          }
+          function mediaMigrationWriteJson(key, value) {
+            try {
+              localStorage.setItem(key, JSON.stringify(value));
+              return true;
+            } catch (error) {
+              mediaMigrationStatus.lastError = error && error.message || "Could not save migration state.";
+              return false;
+            }
+          }
+          function mediaMigrationReadArray(key) {
+            const parsed = mediaMigrationReadJson(key, []);
+            if (Array.isArray(parsed)) return parsed;
+            return parsed && typeof parsed === "object" ? Object.values(parsed) : [];
+          }
+          function mediaMigrationMap() {
+            return mediaMigrationReadJson("emyCloudinaryMigratedMediaRefs", {});
+          }
+          function mediaMigrationSaveMap(map) {
+            mediaMigrationWriteJson("emyCloudinaryMigratedMediaRefs", map || {});
+          }
+          function mediaMigrationEmit() {
+            try {
+              window.dispatchEvent(new CustomEvent("emy:media-migration-progress", { detail:Object.assign({}, mediaMigrationStatus) }));
+            } catch (error) {}
+          }
+          function mediaMigrationSetCloudFields(target, upload, poster) {
+            if (!target || !upload) return;
+            if (poster) {
+              target.cloudinaryPosterPublicId = upload.cloudinaryPublicId || upload.publicId || "";
+              return;
+            }
+            target.cloudinaryPublicId = upload.cloudinaryPublicId || upload.publicId || "";
+            target.cloudinaryResourceType = upload.cloudinaryResourceType || upload.resourceType || upload.type || "";
+            target.cloudinaryBytes = Number(upload.cloudinaryBytes || upload.bytes) || 0;
+            target.cloudinaryDuration = Number(upload.cloudinaryDuration || upload.duration) || 0;
+          }
+          function mediaMigrationTypeHint(target, field) {
+            const explicit = cleanMediaStoreText(field && field.type || target && (target.cloudinaryResourceType || target.mediaType || target.type || target.coverType || target.eventCoverType || target.jobCoverType)).toLowerCase();
+            if (explicit === "video" || explicit === "clip" || explicit === "reel") return "video";
+            if (explicit === "image" || field && field.poster) return "image";
+            if (field && field.ref && /video/i.test(field.ref)) return "video";
+            return "";
+          }
+          async function mediaMigrationUploadRef(ref, typeHint, migrationMap, dryRun) {
+            const cleanRef = cleanMediaStoreText(ref);
+            if (!mediaMigrationLooksStoredRef(cleanRef)) return null;
+            if (migrationMap[cleanRef] && migrationMap[cleanRef].src) {
+              mediaMigrationStatus.reused += 1;
+              return migrationMap[cleanRef];
+            }
+            const record = await window.emyResolveFeedMedia(cleanRef);
+            if (!record || !record.blob) throw new Error("Stored media not found: " + cleanRef);
+            if (dryRun) {
+              return {
+                src: "dry-run",
+                ref: cleanRef,
+                type: typeHint || record.mediaType || mediaKindFromBlob(record.blob, ""),
+                dryRun: true
+              };
+            }
+            const upload = await window.emyPrepareFeedMediaUpload(record.blob, {
+              type: typeHint || record.mediaType || mediaKindFromBlob(record.blob, ""),
+              name: record.name || cleanRef,
+              kind: "migration",
+              role: "customer",
+              allowBrowserFallback: false
+            });
+            if (!upload || !upload.src) throw new Error("Media upload failed: " + cleanRef);
+            const saved = Object.assign({}, upload, { migratedAt:new Date().toISOString(), originalRef:cleanRef });
+            migrationMap[cleanRef] = saved;
+            mediaMigrationSaveMap(migrationMap);
+            mediaMigrationStatus.uploaded += 1;
+            return saved;
+          }
+          async function mediaMigrationApplyField(target, field, migrationMap, dryRun) {
+            if (!target || typeof target !== "object" || !field) return false;
+            const ref = cleanMediaStoreText(target[field.ref]);
+            if (!mediaMigrationLooksStoredRef(ref)) return false;
+            mediaMigrationStatus.totalRefs += 1;
+            try {
+              const upload = await mediaMigrationUploadRef(ref, field.type || mediaMigrationTypeHint(target, field), migrationMap, dryRun);
+              if (!upload || !upload.src) return false;
+              if (dryRun) return true;
+              target[field.src] = upload.src;
+              target[field.ref] = "";
+              if (!field.poster) {
+                target.mediaRemoved = false;
+                target.mediaClearedAt = "";
+                if (!target.mediaSrc && field.src !== "mediaSrc") target.mediaSrc = upload.src;
+                if (!target.mediaType) target.mediaType = upload.type || upload.cloudinaryResourceType || mediaMigrationTypeHint(target, field) || "image";
+                if (target.mediaType === "image" && !target.image) target.image = upload.src;
+                if (target.mediaType === "video" && !target.video) target.video = upload.src;
+              }
+              mediaMigrationSetCloudFields(target, upload, !!field.poster);
+              return true;
+            } catch (error) {
+              mediaMigrationStatus.failed += 1;
+              mediaMigrationStatus.lastError = error && error.message || "Migration failed.";
+              return false;
+            } finally {
+              mediaMigrationEmit();
+            }
+          }
+          async function mediaMigrationApplySettings(settings, migrationMap, dryRun) {
+            if (!settings || typeof settings !== "object") return false;
+            let changed = false;
+            const ref = cleanMediaStoreText(settings.posterRef || settings.thumbnailRef);
+            if (mediaMigrationLooksStoredRef(ref)) {
+              mediaMigrationStatus.totalRefs += 1;
+              try {
+                const upload = await mediaMigrationUploadRef(ref, "image", migrationMap, dryRun);
+                if (upload && upload.src) {
+                  if (dryRun) return true;
+                  settings.posterSrc = upload.src;
+                  settings.thumbnailSrc = upload.src;
+                  settings.posterRef = "";
+                  settings.thumbnailRef = "";
+                  settings.cloudinaryPosterPublicId = upload.cloudinaryPublicId || upload.publicId || "";
+                  changed = true;
+                }
+              } catch (error) {
+                mediaMigrationStatus.failed += 1;
+                mediaMigrationStatus.lastError = error && error.message || "Migration failed.";
+              } finally {
+                mediaMigrationEmit();
+              }
+            }
+            return changed;
+          }
+          async function mediaMigrationApplyMediaItem(item, migrationMap, dryRun) {
+            if (!item || typeof item !== "object" || item.mediaRemoved === true || item.deleted === true || item.deletedAt) return false;
+            let changed = false;
+            for (let index = 0; index < mediaMigrationFields.length; index += 1) {
+              changed = await mediaMigrationApplyField(item, mediaMigrationFields[index], migrationMap, dryRun) || changed;
+            }
+            changed = await mediaMigrationApplySettings(item.settings || item.mediaSettings, migrationMap, dryRun) || changed;
+            return changed;
+          }
+          async function mediaMigrationApplyItem(item, migrationMap, dryRun) {
+            if (!item || typeof item !== "object" || item.deleted === true || item.deletedAt) return false;
+            let changed = false;
+            for (let index = 0; index < mediaMigrationFields.length; index += 1) {
+              changed = await mediaMigrationApplyField(item, mediaMigrationFields[index], migrationMap, dryRun) || changed;
+            }
+            changed = await mediaMigrationApplySettings(item.mediaSettings || item.coverSettings || item.eventCoverSettings || item.jobCoverSettings, migrationMap, dryRun) || changed;
+            if (Array.isArray(item.mediaItems)) {
+              for (let index = 0; index < item.mediaItems.length; index += 1) {
+                changed = await mediaMigrationApplyMediaItem(item.mediaItems[index], migrationMap, dryRun) || changed;
+              }
+              const first = item.mediaItems.find((entry) => entry && (entry.src || entry.ref));
+              if (!dryRun && first && first.src) {
+                if (!item.mediaSrc) item.mediaSrc = first.src;
+                if (!item.mediaType) item.mediaType = first.type || "image";
+                mediaMigrationSetCloudFields(item, first, false);
+              }
+            }
+            return changed;
+          }
+          window.emyBrowserMediaMigrationStatus = function browserMediaMigrationStatus() {
+            return Object.assign({}, mediaMigrationStatus);
+          };
+          window.emyMigrateBrowserMediaToCloudinary = function migrateBrowserMediaToCloudinary(options = {}) {
+            if (mediaMigrationPromise) return mediaMigrationPromise;
+            const keys = Array.isArray(options.keys) && options.keys.length ? options.keys.map(cleanMediaStoreText).filter(Boolean) : mediaMigrationKeys;
+            const dryRun = options.dryRun === true;
+            mediaMigrationStatus = {
+              running: true,
+              dryRun,
+              totalRefs: 0,
+              uploaded: 0,
+              reused: 0,
+              failed: 0,
+              updatedItems: 0,
+              updatedKeys: 0,
+              currentKey: "",
+              lastError: "",
+              startedAt: new Date().toISOString(),
+              finishedAt: ""
+            };
+            mediaMigrationEmit();
+            mediaMigrationPromise = (async () => {
+              const migrationMap = mediaMigrationMap();
+              for (let keyIndex = 0; keyIndex < keys.length; keyIndex += 1) {
+                const key = keys[keyIndex];
+                mediaMigrationStatus.currentKey = key;
+                mediaMigrationEmit();
+                const items = mediaMigrationReadArray(key);
+                if (!items.length) continue;
+                let keyChanged = false;
+                for (let itemIndex = 0; itemIndex < items.length; itemIndex += 1) {
+                  const changed = await mediaMigrationApplyItem(items[itemIndex], migrationMap, dryRun);
+                  if (changed) {
+                    keyChanged = true;
+                    mediaMigrationStatus.updatedItems += 1;
+                  }
+                  if (itemIndex % 3 === 2) await new Promise((resolve) => window.setTimeout(resolve, 0));
+                }
+                if (keyChanged && !dryRun) {
+                  if (mediaMigrationWriteJson(key, items)) mediaMigrationStatus.updatedKeys += 1;
+                }
+              }
+              mediaMigrationStatus.running = false;
+              mediaMigrationStatus.currentKey = "";
+              mediaMigrationStatus.finishedAt = new Date().toISOString();
+              mediaMigrationEmit();
+              return Object.assign({}, mediaMigrationStatus);
+            })().finally(() => {
+              mediaMigrationPromise = null;
+            });
+            return mediaMigrationPromise;
+          };
+          function mediaStoreBlobFromDataUrl(dataUrl) {
+            const match = String(dataUrl || "").match(/^data:([^;,]+)?(?:;[^,]*)?,(.*)$/);
+            if (!match) return null;
+            try {
+              const mime = match[1] || "application/octet-stream";
+              const binary = atob(match[2] || "");
+              const bytes = new Uint8Array(binary.length);
+              for (let index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+              return new Blob([bytes], { type: mime });
+            } catch (error) {
+              return null;
+            }
+          }
+          function mediaStoreKnownInlinePhotoKeys() {
+            return [
+              ["emyMainPendingSignupPhoto", "emyMainPendingSignupPhotoRef"],
+              ["emyMainPendingSignupPhotoSrc", "emyMainPendingSignupPhotoRef"],
+              ["emyCustomerProfilePhoto", "emyCustomerProfilePhotoRef"],
+              ["emyCustomerProfilePhotoSrc", "emyCustomerProfilePhotoRef"],
+              ["emyCustomerProfilePhotoBackup", "emyCustomerProfilePhotoRefBackup"],
+              ["emyCustomerProfilePhotoSrcBackup", "emyCustomerProfilePhotoRefBackup"],
+              ["emyBusinessProfilePhoto", "emyBusinessProfilePhotoRef"],
+              ["emyBusinessProfilePhotoSrc", "emyBusinessProfilePhotoRef"],
+              ["emyBusinessProfilePhotoBackup", "emyBusinessProfilePhotoRefBackup"],
+              ["emyBusinessProfilePhotoSrcBackup", "emyBusinessProfilePhotoRefBackup"],
+              ["emyBusinessProfileImage", "emyBusinessProfileImageRef"],
+              ["emyBusinessPhoto", "emyBusinessPhotoRef"],
+              ["emyBusinessAvatar", "emyBusinessAvatarRef"],
+              ["emyBusinessLogo", "emyBusinessLogoRef"],
+              ["emyMainPendingSignupBusinessPhoto", "emyMainPendingSignupBusinessPhotoRef"]
+            ];
+          }
+          function mediaStoreSetRefThenRemoveSource(sourceKey, refKey, ref) {
+            let saved = false;
+            try {
+              localStorage.setItem(refKey, ref);
+              saved = true;
+            } catch (error) {
+              try { localStorage.removeItem(sourceKey); } catch (removeError) {}
+              try {
+                localStorage.setItem(refKey, ref);
+                saved = true;
+              } catch (innerError) {}
+            }
+            if (saved) {
+              try { localStorage.removeItem(sourceKey); } catch (error) {}
+            }
+            return saved;
+          }
+          window.emyTrimLargeInlineMediaStorage = async function trimLargeInlineMediaStorage() {
+            let trimmed = 0;
+            const pairs = mediaStoreKnownInlinePhotoKeys();
+            const storedRefsByValue = new Map();
+            for (const pair of pairs) {
+              const sourceKey = pair[0];
+              const refKey = pair[1];
+              let value = "";
+              try { value = localStorage.getItem(sourceKey) || ""; } catch (error) { value = ""; }
+              if (!/^data:(image|video)\\//i.test(value) || value.length < 120000) continue;
+              let existingRef = "";
+              try { existingRef = localStorage.getItem(refKey) || ""; } catch (error) { existingRef = ""; }
+              if (existingRef) {
+                try { localStorage.removeItem(sourceKey); trimmed += 1; } catch (error) {}
+                continue;
+              }
+              const previousRef = storedRefsByValue.get(value);
+              if (previousRef && mediaStoreSetRefThenRemoveSource(sourceKey, refKey, previousRef)) {
+                trimmed += 1;
+                continue;
+              }
+              const blob = mediaStoreBlobFromDataUrl(value);
+              if (!blob) continue;
+              try {
+                const type = mediaKindFromBlob(blob, /^data:video\\//i.test(value) ? "video" : "image");
+                const record = await window.emyStoreFeedMedia(blob, { type, name: sourceKey });
+                const ref = record && record.id ? String(record.id) : "";
+                if (!ref) continue;
+                storedRefsByValue.set(value, ref);
+                if (mediaStoreSetRefThenRemoveSource(sourceKey, refKey, ref)) trimmed += 1;
+              } catch (error) {}
+            }
+            return trimmed;
+          };
+          window.setTimeout(() => {
+            if (window.emyTrimLargeInlineMediaStorage) window.emyTrimLargeInlineMediaStorage().catch(() => 0);
+          }, 900);
+          const mediaHydrationQueued = new WeakSet();
+          let mediaHydrationObserver = null;
+          function mediaNodeNearViewport(node) {
+            if (!node || !node.getBoundingClientRect) return true;
+            if (node.closest && node.closest("[data-item-detail-modal].is-open,.item-detail-modal.is-open,[data-clip-viewer-modal].is-open,.clip-viewer-modal.is-open")) return true;
+            try {
+              const rect = node.getBoundingClientRect();
+              const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+              const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 0;
+              const margin = Math.max(760, Math.round(viewportHeight * 1.15));
+              return rect.bottom >= -margin && rect.top <= viewportHeight + margin && rect.right >= -margin && rect.left <= viewportWidth + margin;
+            } catch (error) {
+              return true;
+            }
+          }
+          function mediaNodeShouldLazyHydrate(node, broadScope, count, avatarSelector) {
+            if (!node || (!broadScope && count <= 3)) return false;
+            if (node.dataset.emyMediaHydrated === "true" || node.dataset.emyPosterHydrated === "true") return false;
+            if (node.closest && node.closest(avatarSelector)) return false;
+            if (mediaNodeNearViewport(node)) return false;
+            return true;
+          }
+          function mediaHydrationObserverFor() {
+            if (!("IntersectionObserver" in window)) return null;
+            if (mediaHydrationObserver) return mediaHydrationObserver;
+            mediaHydrationObserver = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
+                const node = entry.target;
+                mediaHydrationObserver.unobserve(node);
+                mediaHydrationQueued.delete(node);
+                if (node && node.dataset) node.dataset.emyMediaLazyQueued = "false";
+                try { window.emyHydrateFeedMedia(node); } catch (error) {}
+              });
+            }, { rootMargin: "900px 0px 1200px", threshold: 0.01 });
+            return mediaHydrationObserver;
+          }
+          function queueLazyMediaHydration(node) {
+            if (!node || mediaHydrationQueued.has(node)) return;
+            if (node.dataset) node.dataset.emyMediaLazyQueued = "true";
+            const observer = mediaHydrationObserverFor();
+            mediaHydrationQueued.add(node);
+            if (observer) {
+              observer.observe(node);
+              return;
+            }
+            window.setTimeout(() => {
+              mediaHydrationQueued.delete(node);
+              if (node && node.dataset) node.dataset.emyMediaLazyQueued = "false";
+              try { window.emyHydrateFeedMedia(node); } catch (error) {}
+            }, 1600);
+          }
+          window.emyHydrateFeedMedia = function hydrateFeedMedia(root = document) {
+            const scope = root && root.querySelectorAll ? root : document;
+            const nodes = [];
+            if (root && root.nodeType === 1 && root.matches && root.matches("[data-emy-media-ref]")) nodes.push(root);
+            scope.querySelectorAll("[data-emy-media-ref]").forEach((node) => nodes.push(node));
+            const broadScope = scope === document || root === document || root === document.body || root === document.documentElement;
+            const interactionActive = window.emyHomeInteractionActive && window.emyHomeInteractionActive();
+            const activationActive = window.emyHomeActivationActive && window.emyHomeActivationActive();
+            if ((interactionActive || activationActive) && (broadScope || nodes.length > 3)) {
+              if (!window.__EMY_MEDIA_HYDRATE_AFTER_CLICK_PENDING__) {
+                window.__EMY_MEDIA_HYDRATE_AFTER_CLICK_PENDING__ = true;
+                window.setTimeout(() => {
+                  window.__EMY_MEDIA_HYDRATE_AFTER_CLICK_PENDING__ = false;
+                  try { window.emyHydrateFeedMedia(root); } catch (error) {}
+                }, activationActive ? 4200 : 7600);
+              }
+              return;
+            }
+            const avatarSelector = ".social-feed-avatar,.feed-avatar,.post-avatar,.reel-avatar,.home-created-avatar,.business-avatar,.business-top-avatar,.owner-avatar,.business-owned-avatar,.business-profile-hub-avatar,.clip-viewer-avatar,.item-business-avatar,.item-product-avatar,.my-business-avatar,.nearby-business-media,.nearby-popup-media,.profile-avatar,.profile-record-avatar,.customer-business-avatar,.thread-avatar,.message-avatar,.feed-comment-avatar,[data-feed-actor-avatar],[data-business-top-avatar],[data-business-owned-avatar],[data-owner-avatar],[data-item-business-avatar],[data-item-product-avatar],[data-public-avatar],[data-detail-avatar]";
+            const contentMediaSelector = "[data-business-posted-media],.social-feed-media,.feed-article-card-cover,.feed-job-hero,.feed-event-post-hero,.home-created-media,.photo,.item-detail-art,.feed-media-carousel,.feed-event-preview,.feed-product-card,.content-tile .tile-media,[data-emy-video-player]";
+            function nodeCarriesDetailMedia(node) {
+              if (!node || !node.closest) return false;
+              if (node.closest(avatarSelector)) return false;
+              return !!node.closest(contentMediaSelector);
+            }
+            function isInactiveCarouselSlideNode(node) {
+              const slide = node && node.closest && node.closest("[data-feed-carousel-slide]");
+              return !!(slide && !slide.classList.contains("is-active"));
+            }
+            nodes.forEach((node) => {
+              const ref = cleanMediaStoreText(node.dataset.emyMediaRef);
+              if (!ref || node.dataset.emyMediaHydrating === "true") return;
+              if (isInactiveCarouselSlideNode(node)) return;
+              if (node.tagName === "IMG") {
+                try { node.loading = node.loading || "lazy"; node.decoding = node.decoding || "async"; } catch (error) {}
+              } else if (node.tagName === "VIDEO" && !node.closest("[data-item-detail-modal].is-open,.item-detail-modal.is-open,[data-clip-viewer-modal].is-open,.clip-viewer-modal.is-open")) {
+                try { node.preload = "metadata"; node.setAttribute("preload", "metadata"); } catch (error) {}
+              }
+              if (mediaNodeShouldLazyHydrate(node, broadScope, nodes.length, avatarSelector)) {
+                queueLazyMediaHydration(node);
+                return;
+              }
+              node.dataset.emyMediaHydrating = "true";
+              window.emyResolveFeedMedia(ref).then((record) => {
+                if (!record || !record.url) return;
+                const currentUrl = cleanMediaStoreText(node.getAttribute("src") || node.currentSrc || "");
+                const alreadyLoaded = currentUrl === record.url || (node.dataset.emyMediaHydratedRef === ref && node.dataset.emyMediaHydratedUrl === record.url);
+                if (!alreadyLoaded) node.src = record.url;
+                node.dataset.emyMediaHydrated = "true";
+                node.dataset.emyMediaHydratedRef = ref;
+                node.dataset.emyMediaHydratedUrl = record.url;
+                if (node.tagName === "VIDEO") {
+                  if (!alreadyLoaded) node.load();
+                  const player = node.closest("[data-emy-video-player]");
+                  if (player) player.classList.remove("has-media-error");
+                }
+                const card = node.closest("[data-feed-id], [data-card]");
+                if (card && card.dataset && nodeCarriesDetailMedia(node)) {
+                  card.dataset.detailMediaSrc = record.url;
+                  card.dataset.detailMediaType = record.mediaType || (node.tagName === "VIDEO" ? "video" : "image");
+                  card.dataset.detailMediaRef = ref;
+                }
+                if (!alreadyLoaded && window.emySetupVideoPlayers) window.emySetupVideoPlayers(node.closest("[data-emy-video-player]") || node.parentElement || document);
+              }).catch(() => {
+                const player = node.closest("[data-emy-video-player]");
+                const error = player && player.querySelector("[data-emy-video-error]");
+                if (player) player.classList.add("has-media-error");
+                if (error) {
+                  error.textContent = "This saved video could not be loaded from this browser storage.";
+                  error.hidden = false;
+                }
+              }).finally(() => {
+                node.dataset.emyMediaHydrating = "false";
+              });
+            });
+            const posterNodes = [];
+            if (root && root.nodeType === 1 && root.matches && root.matches("[data-emy-poster-ref]")) posterNodes.push(root);
+            scope.querySelectorAll("[data-emy-poster-ref]").forEach((node) => posterNodes.push(node));
+            posterNodes.forEach((node) => {
+              const ref = cleanMediaStoreText(node.dataset.emyPosterRef);
+              if (!ref || node.dataset.emyPosterHydrating === "true") return;
+              if (isInactiveCarouselSlideNode(node)) return;
+              if (mediaNodeShouldLazyHydrate(node, broadScope, posterNodes.length, avatarSelector)) {
+                queueLazyMediaHydration(node);
+                return;
+              }
+              node.dataset.emyPosterHydrating = "true";
+              window.emyResolveFeedMedia(ref).then((record) => {
+                if (!record || !record.url) return;
+                if (node.tagName === "VIDEO") node.poster = record.url;
+                else node.style.backgroundImage = 'url("' + String(record.url).replace(/"/g, '\\"') + '")';
+                node.dataset.emyPosterHydrated = "true";
+                const card = node.closest("[data-feed-id], [data-card]");
+                if (card && card.dataset) {
+                  card.dataset.detailPosterSrc = record.url;
+                  card.dataset.detailPosterRef = ref;
+                }
+              }).catch(() => {}).finally(() => {
+                node.dataset.emyPosterHydrating = "false";
+              });
+            });
+          };
+          function readRepairArray(key) {
+            try {
+              const parsed = JSON.parse(localStorage.getItem(key) || "[]");
+              return Array.isArray(parsed) ? parsed : [];
+            } catch (error) {
+              return [];
+            }
+          }
+          function repairSourceItems() {
+            const keys = [
+              "emyFeedCreatedPosts",
+              "emyFeedCreatedJobs",
+              "emyFeedCreatedEvents",
+              "emyBusinessFeedPosts",
+              "emyBusinessPosts",
+              "emyBusinessJobs",
+              "emyBusinessJobPosts",
+              "emyBusinessEvents",
+              "emyBusinessEventPosts",
+              "emyBusinessProducts",
+              "emyBusinessProductList",
+              "emyBusinessProductPosts",
+              "emyBusinessReels",
+              "emyBusinessClips",
+              "emyBusinessProductReels",
+              "emyFeedCreatedClipsByBusiness",
+              "emyUploadedClips"
+            ];
+            const byId = new Map();
+            keys.forEach((key) => {
+              readRepairArray(key).forEach((item) => {
+                const id = cleanMediaStoreText(item && item.id);
+                if (id && !byId.has(id)) byId.set(id, item);
+              });
+            });
+            return byId;
+          }
+          function repairKnownProfileMedia(source, kind) {
+            const suffix = kind === "ref" ? "Ref" : "";
+            const item = source && typeof source === "object" ? source : {};
+            return [
+              "emyCustomerProfilePhoto" + suffix,
+              "emyCustomerProfilePhotoSrc" + suffix,
+              "emyCustomerAvatar" + suffix,
+              "emyCustomerPhoto" + suffix,
+              "emyCustomerProfileImage" + suffix,
+              "emyBusinessOwnerCustomerPhoto" + suffix,
+              "emyBusinessProfilePhoto" + suffix,
+              "emyBusinessProfileImage" + suffix,
+              "emyBusinessPhoto" + suffix,
+              "emyBusinessAvatar" + suffix,
+              "emyBusinessLogo" + suffix,
+              "emyMainPendingSignupPhoto" + suffix,
+              "emyMainPendingSignupBusinessPhoto" + suffix
+            ].map((key) => cleanMediaStoreText(localStorage.getItem(key))).concat([
+              item.avatarSrc,
+              item.avatar,
+              item.profilePhoto,
+              item.businessPhoto,
+              item.customerPhoto,
+              item.ownerPhoto,
+              item.viewerPhoto,
+              item.repostedByPhoto,
+              item.logo,
+              item.avatarRef,
+              item.profilePhotoRef,
+              item.businessPhotoRef,
+              item.customerPhotoRef,
+              item.ownerPhotoRef,
+              item.viewerPhotoRef,
+              item.repostedByPhotoRef,
+              item.logoRef
+            ].map(cleanMediaStoreText)).filter(Boolean);
+          }
+          function repairContentSrc(value, source) {
+            const clean = cleanMediaStoreText(value);
+            return clean && !repairKnownProfileMedia(source, "src").includes(clean) ? clean : "";
+          }
+          function repairContentRef(value, source) {
+            const clean = cleanMediaStoreText(value);
+            return clean && !repairKnownProfileMedia(source, "ref").includes(clean) ? clean : "";
+          }
+          function repairMediaPayload(source) {
+            const settings = source && (source.mediaSettings || source.coverSettings || source.eventCoverSettings || source.jobCoverSettings) || {};
+            const items = window.emyFeedMediaItemsFromItem ? window.emyFeedMediaItemsFromItem(source || {}) : [];
+            const mediaItems = items.map((item) => {
+              const itemRef = repairContentRef(item && (item.ref || item.mediaRef), source);
+              const itemSrc = itemRef ? "" : repairContentSrc(item && (item.src || item.mediaSrc || item.image || item.video || item.url), source);
+              if (!itemSrc && !itemRef) return null;
+              return Object.assign({}, item, {
+                src: itemSrc,
+                ref: itemRef,
+                mediaSrc: itemSrc,
+                mediaRef: itemRef
+              });
+            }).filter(Boolean);
+            const first = mediaItems[0] || {};
+            const ref = repairContentRef(first.ref || source && (source.mediaRef || source.imageRef || source.videoRef || source.coverRef || source.eventCoverRef || source.jobCoverRef), source);
+            const src = ref ? "" : repairContentSrc(first.src || source && (source.mediaSrc || source.image || source.video || source.coverSrc || source.eventCoverSrc || source.jobCoverSrc || source.thumbnail || source.thumb) || "", source);
+            const type = src || ref ? cleanMediaStoreText(first.type || source && (source.mediaType || source.coverType || source.eventCoverType || source.jobCoverType) || (source && source.video ? "video" : "image")).toLowerCase() : "";
+            const posterRef = cleanMediaStoreText(first.posterRef || first.thumbnailRef || source && (source.posterRef || source.thumbnailRef || source.coverPosterRef || source.eventCoverPosterRef || source.jobCoverPosterRef) || settings.posterRef || settings.thumbnailRef);
+            const posterSrc = posterRef ? "" : String(first.posterSrc || first.thumbnailSrc || source && (source.posterSrc || source.thumbnailSrc || source.coverPosterSrc || source.eventCoverPosterSrc || source.jobCoverPosterSrc) || settings.posterSrc || settings.thumbnailSrc || "");
+            return {
+              mediaItems,
+              mediaRef: ref,
+              mediaSrc: src,
+              mediaType: type === "video" ? "video" : type === "image" ? "image" : "",
+              posterRef,
+              posterSrc,
+              articleBody: source && source.articleBody || "",
+              articleShare: source && (source.articleShare || source.shareText) || "",
+              articleReadTime: source && (source.articleReadTime || source.readTime) || ""
+            };
+          }
+          window.emyRepairFeedRepostMedia = function repairFeedRepostMedia(items, options = {}) {
+            if (!Array.isArray(items) || !items.length) return Array.isArray(items) ? items : [];
+            const sources = repairSourceItems();
+            let changed = false;
+            const repaired = items.map((item) => {
+              const original = item && item.original;
+              const originalId = cleanMediaStoreText(item && (item.originalId || original && original.id));
+              const thought = cleanMediaStoreText(item && (item.repostThought || item.thought));
+              const needsThoughtAlias = !!(thought && item && !item.repostThought);
+              if (!original || !originalId || !sources.has(originalId)) {
+                if (needsThoughtAlias) {
+                  changed = true;
+                  return Object.assign({}, item, { repostThought: thought, thought });
+                }
+                return item;
+              }
+              const payload = repairMediaPayload(sources.get(originalId));
+              const hasDurableOriginalMedia = !!(original.mediaRef || (Array.isArray(original.mediaItems) && original.mediaItems.length) || (original.mediaSrc && !/^blob:/i.test(original.mediaSrc)));
+              if (hasDurableOriginalMedia && original.mediaType && (original.articleBody || !payload.articleBody)) return item;
+              const nextOriginal = Object.assign({}, original);
+              let itemChanged = false;
+              if (!hasDurableOriginalMedia) {
+                if (payload.mediaRef) {
+                  nextOriginal.mediaRef = payload.mediaRef;
+                  nextOriginal.mediaSrc = "";
+                  itemChanged = true;
+                } else if (payload.mediaSrc && (!nextOriginal.mediaSrc || /^blob:/i.test(nextOriginal.mediaSrc))) {
+                  nextOriginal.mediaSrc = payload.mediaSrc;
+                  itemChanged = true;
+                }
+                if (payload.mediaItems.length && !(Array.isArray(nextOriginal.mediaItems) && nextOriginal.mediaItems.length)) {
+                  nextOriginal.mediaItems = payload.mediaItems;
+                  itemChanged = true;
+                }
+              }
+              if (payload.mediaType && !nextOriginal.mediaType) {
+                nextOriginal.mediaType = payload.mediaType;
+                itemChanged = true;
+              }
+              if (payload.posterRef && !nextOriginal.posterRef) {
+                nextOriginal.posterRef = payload.posterRef;
+                nextOriginal.posterSrc = "";
+                itemChanged = true;
+              } else if (payload.posterSrc && !nextOriginal.posterSrc) {
+                nextOriginal.posterSrc = payload.posterSrc;
+                itemChanged = true;
+              }
+              if (payload.articleBody && !nextOriginal.articleBody) {
+                nextOriginal.articleBody = payload.articleBody;
+                itemChanged = true;
+              }
+              if (payload.articleShare && !nextOriginal.articleShare) {
+                nextOriginal.articleShare = payload.articleShare;
+                itemChanged = true;
+              }
+              if (payload.articleReadTime && !nextOriginal.articleReadTime) {
+                nextOriginal.articleReadTime = payload.articleReadTime;
+                itemChanged = true;
+              }
+              if (needsThoughtAlias) itemChanged = true;
+              if (!itemChanged) return item;
+              changed = true;
+              return Object.assign({}, item, needsThoughtAlias ? { repostThought: thought, thought } : {}, { original: nextOriginal });
+            });
+            if (changed && options.persist) {
+              try {
+                localStorage.setItem("emyFeedReposts", JSON.stringify(repaired));
+              } catch (error) {}
+            }
+            return repaired;
+          };
+        })();
+
+    </script>
+    <script type="text/babel" data-presets="emy-react-classic">
+const { useEffect, useMemo, useRef, useState } = React;
+
+const emyLogo = "https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png";
+const profileImage = "";
+
+const copy = {
+  logIn: "Sign In",
+  signUp: "Sign up",
+  loginWithEmy: "Sign in with EMY account details",
+  logIntoAccount: "Sign in to your account",
+  signInMessage: "To use Ask EMY, you need to sign in with your EMY account details.",
+  welcomeBack: "Welcome back! Please enter your details",
+  email: "Email",
+  password: "Password",
+  rememberMe: "Remember me",
+  forgotPassword: "Forgot Password?",
+  noAccount: "Don't have an account?",
+  alreadyAccount: "Already have an account?",
+  switchToSignUp: "Sign up",
+  switchToLogin: "Sign In",
+  signUpTitle: "Create your EMY account",
+  signUpMessage: "To use Ask EMY, you need an EMY account first. Create your account on EMY, then come back and sign in with your EMY details.",
+  createAccountOnEmy: "Create account on EMY",
+  selectRole: "Select your role",
+  customer: "Customer",
+  business: "Business",
+  enjoyLife: "And enjoy life during the time you just saved!",
+  firstName: "First Name",
+  lastName: "Last Name",
+  mobileNumber: "Mobile Number",
+  confirmPassword: "Confirm Password",
+  agreeTerms: "Yes! I Agree all Teams & Condition",
+  beta: "Beta",
+  nearMe: "Near me",
+  location: "Location",
+  streetOrPostcode: "Street or postcode",
+  locationExample: "e.g. SW1A 1AA or Baker Street",
+  searchRadius: "Search radius",
+  applyLocation: "Apply location",
+  miles: "miles",
+  mileShort: "mi",
+  heroText: "EMY helps you search for local businesses, services, products, places, and answers.",
+  placeholder: "Type your message here...",
+  loggedInPlaceholder: "Type your message here...",
+  footerStart: "By using Ask EMY, you agree to our",
+  terms: "Terms",
+  and: "and",
+  privacy: "Privacy Policy",
+  listening: "Dictating...",
+  voiceSearch: "Dictate",
+  stopListening: "Stop dictation",
+  sendMessage: "Send message",
+  askEmyVoice: "Ask EMY voice",
+  voiceReady: "Dictation added. Press send when ready.",
+  askEmyVoiceReady: "Ask EMY voice is listening.",
+  micBlocked: "Microphone access is blocked. Allow the microphone in your browser/site settings, then click the mic again.",
+  voiceNotSupported: "Voice search is not supported in this browser or preview. Try Chrome/Edge on HTTPS, or type your message.",
+  newChat: "New chat",
+  searchChats: "Search chats",
+  goToProfile: "Go to EMY Profile",
+  logOut: "Log out",
+  signedInAs: "Signed in as",
+  closeSearch: "Close search",
+  recentChats: "Recent Chats",
+  noRecent: "No recent chats yet",
+  noChatsFound: "No chats found",
+  searchRecentChats: "Search recent chats...",
+  closeSidebar: "Close sidebar",
+  pinSidebar: "Pin menu",
+  unpinSidebar: "Unpin menu",
+  deleteChat: "Delete chat",
+  pinChat: "Pin chat",
+  unpinChat: "Unpin chat",
+  pinnedChats: "Pinned Chats",
+  logout: "Log out",
+  viewProfile: "Go to EMY Profile",
+};
+
+const styles = `
+  #root .font-black { font-weight: 500 !important; }
+  #root .font-extrabold { font-weight: 500 !important; }
+  #root .font-bold { font-weight: 400 !important; }
+  #root .font-semibold { font-weight: 400 !important; }
+  #root input, #root textarea { font-weight: 400 !important; }
+  #root input::placeholder, #root textarea::placeholder { font-weight: 400 !important; }
+  #root input[class*='h-14'][class*='bg-transparent'] { font-size: 15px !important; line-height: 1.35 !important; font-weight: 400 !important; }
+  #root main { font-weight: 400 !important; }
+  #root main .font-medium, #root main .font-semibold, #root main .font-bold { font-weight: 400 !important; }
+  #root main .font-black, #root main .font-extrabold { font-weight: 500 !important; }
+  #root main p[class*='rounded-2xl'], #root main div[class*='rounded-2xl'] { font-weight: 400 !important; }
+  #root main h1, #root main h2, #root main h3, #root main strong, #root main b { font-weight: 500 !important; }
+  #root main p { font-weight: 400 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] { font-size: 14px; }
+  #root aside[aria-label='Ask EMY sidebar'] .font-medium, #root aside[aria-label='Ask EMY sidebar'] .font-semibold, #root aside[aria-label='Ask EMY sidebar'] .font-bold { font-weight: 400 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] .font-black, #root aside[aria-label='Ask EMY sidebar'] .font-extrabold { font-weight: 500 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] button { font-weight: 400 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] .text-base { font-size: 14px !important; line-height: 1.35 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] .text-lg { font-size: 15px !important; line-height: 1.35 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] .text-sm { font-size: 13px !important; line-height: 1.4 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] h2 { font-size: 11px !important; font-weight: 500 !important; letter-spacing: 0.16em !important; }
+  #root aside[aria-label='Ask EMY sidebar'] strong, #root aside[aria-label='Ask EMY sidebar'] b { font-weight: 500 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] p { font-weight: 400 !important; }
+  #root aside[aria-label='Ask EMY sidebar'] > div:first-child { padding: 14px 16px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] > div:first-child img { height: 34px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] > div:last-child { padding: 14px !important; height: calc(100% - 65px) !important; }
+  #root aside[aria-label='Ask EMY sidebar'] > div:last-child > div:first-child { padding: 12px !important; border-radius: 14px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] > div:last-child > div:first-child img { width: 40px !important; height: 40px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='rounded-2xl'] { border-radius: 10px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] button { padding-top: 8px !important; padding-bottom: 8px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='py-3'] { padding-top: 8px !important; padding-bottom: 8px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='px-4'] { padding-left: 12px !important; padding-right: 12px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='px-3'] { padding-left: 10px !important; padding-right: 10px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='mt-8'] { margin-top: 22px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='mt-4'] { margin-top: 10px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='mt-5'] { margin-top: 12px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] [class*='space-y-2'] > :not([hidden]) ~ :not([hidden]) { margin-top: 4px !important; }
+  #root aside[aria-label='Ask EMY sidebar'] .shadow-sm { box-shadow: 0 1px 2px rgba(0,27,71,0.04) !important; }
+  @keyframes glowMove {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(.9); opacity: .28; }
+    50% { transform: translate3d(35px, -25px, 0) scale(1.25); opacity: .7; }
+  }
+  @keyframes sweep {
+    0% { transform: translateX(-80%) rotate(-20deg); opacity: 0; }
+    45% { opacity: .55; }
+    100% { transform: translateX(130%) rotate(-20deg); opacity: 0; }
+  }
+  .emy-glow { animation: glowMove 7s ease-in-out infinite; }
+  .emy-sweep { animation: sweep 6s ease-in-out infinite; }
+`;
+
+function IconButton({ label, className = "", children, tooltipPosition = "bottom", ...props }) {
+  const tooltipClass = tooltipPosition === "top"
+    ? "pointer-events-none absolute bottom-full left-1/2 z-[260] mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-2 py-1 text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100"
+    : "pointer-events-none absolute left-1/2 top-full z-[260] mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-2 py-1 text-xs font-bold text-white opacity-0 shadow-lg transition group-hover:opacity-100";
+  return (
+    <button type="button" aria-label={label} className={"group relative cursor-pointer " + className} {...props}>
+      {children}
+      {tooltipPosition !== "none" && <span className={tooltipClass}>
+        {label}
+      </span>}
+    </button>
+  );
+}
+
+
+function Logo({ small = false }) {
+  return <img src={emyLogo} alt="EMY" className={`${small ? "h-9" : "h-11"} w-auto object-contain`} />;
+}
+
+function SearchIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
+      <path d="M20 20l-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function MicIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 14a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v4a4 4 0 0 0 4 4z" stroke="currentColor" strokeWidth="2" />
+      <path d="M19 10a7 7 0 0 1-14 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M12 17v4M8 21h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function LocationIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function AudioIcon({ className = "h-6 w-6" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 10v4M9 7v10M13 4v16M17 8v8M21 11v2" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function ArrowUpIcon({ className = "h-6 w-6" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 19V5M6.5 10.5L12 5l5.5 5.5" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function MenuIcon({ className = "h-6 w-6" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CloseIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function LogoutIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M10 7V5a2 2 0 0 1 2-2h7v18h-7a2 2 0 0 1-2-2v-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15 12H3M7 8l-4 4 4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function EyeIcon({ hidden = false, className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
+      {hidden && <path d="M4 4l16 16" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />}
+    </svg>
+  );
+}
+
+function GoogleIcon() {
+  return (
+    <svg className="h-8 w-8" viewBox="0 0 48 48" aria-hidden="true">
+      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z" />
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
+      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.5-5.2l-6.2-5.3C29.3 35.1 26.8 36 24 36c-5.2 0-9.6-3.3-11.3-7.8L6.2 33.2C9.5 39.6 16.2 44 24 44z" />
+      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.4-2.3 4.3-4.1 5.5l6.2 5.3C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg className="h-12 w-12" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" fill="#1877F2" />
+      <path fill="#fff" d="M29.6 25.4l.8-5.1h-4.9V17c0-1.4.7-2.8 2.9-2.8h2.2V9.9s-2-.3-3.9-.3c-4 0-6.6 2.4-6.6 6.8v3.9h-4.4v5.1h4.4V38h5.4V25.4h4.1z" />
+    </svg>
+  );
+}
+
+function startSocialAuth(provider, mode) {
+  const config = window.EMY_AUTH_CONFIG || {};
+  const fallbackRedirect = window.location.origin && window.location.origin !== "null" ? window.location.origin + "/auth/callback" : window.location.href.split("#")[0];
+  const redirectUri = config.redirectUri || fallbackRedirect;
+  const action = mode === "sign up" ? "sign-up" : "sign-in";
+
+  if (provider === "google") {
+    if (!config.googleClientId) {
+      alert("Google " + action + " is ready to connect, but it needs your Google OAuth Client ID and backend callback.");
+      return;
+    }
+    const params = new URLSearchParams();
+    params.set("client_id", config.googleClientId);
+    params.set("redirect_uri", redirectUri);
+    params.set("response_type", "code");
+    params.set("scope", "openid email profile");
+    params.set("prompt", "select_account");
+    params.set("state", action + ":google");
+    window.location.href = "https://accounts.google.com/o/oauth2/v2/auth?" + params.toString();
+    return;
+  }
+
+  if (!config.facebookAppId) {
+    alert("Facebook " + action + " is ready to connect, but it needs your Facebook App ID and backend callback.");
+    return;
+  }
+  const params = new URLSearchParams();
+  params.set("client_id", config.facebookAppId);
+  params.set("redirect_uri", redirectUri);
+  params.set("response_type", "code");
+  params.set("scope", "public_profile,email");
+  params.set("state", action + ":facebook");
+  window.location.href = "https://www.facebook.com/v20.0/dialog/oauth?" + params.toString();
+}
+
+function SocialAuthButtons({ mode = "sign in" }) {
+  const isSignUp = mode === "sign up";
+  return (
+    <div className="mt-7 text-center">
+      <p className="text-sm font-semibold text-[#001B47]">{isSignUp ? "Or Sign Up With" : "Or Login With"}</p>
+      <div className="mt-5 flex items-center justify-center gap-5">
+        <button type="button" onClick={() => startSocialAuth("google", mode)} className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg shadow-[#001B47]/10 ring-1 ring-[#001B47]/10 transition hover:-translate-y-0.5 hover:ring-orange-200" aria-label={isSignUp ? "Sign up with Google" : "Sign in with Google"}><GoogleIcon /></button>
+        <button type="button" onClick={() => startSocialAuth("facebook", mode)} className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg shadow-[#001B47]/10 ring-1 ring-[#001B47]/10 transition hover:-translate-y-0.5 hover:ring-orange-200" aria-label={isSignUp ? "Sign up with Facebook" : "Sign in with Facebook"}><FacebookIcon /></button>
+      </div>
+    </div>
+  );
+}
+
+function AuthRequiredPrompt({ onClose, onSignIn, onSignUp }) {
+  return (
+    <div className="emy-fullscreen-cover fixed inset-0 z-[120] flex items-center justify-center bg-[#001B47]/55 px-5 text-[#001B47] backdrop-blur-md" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="relative w-full max-w-md rounded-[2rem] bg-white p-8 text-center shadow-2xl">
+        <button type="button" onClick={onClose} className="absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-orange-50 text-xl font-black text-[#001B47] hover:bg-orange-100" aria-label="Close">x</button>
+        <img src={emyLogo} alt="EMY" className="mx-auto h-12 w-auto object-contain" />
+        <h2 className="mt-6 text-3xl font-black tracking-[-0.03em] text-[#001B47]">Sign In to search</h2>
+        <p className="mx-auto mt-3 max-w-sm text-sm font-semibold leading-6 text-[#001B47]/60">You need to Sign In or Sign Up before searching with Ask EMY.</p>
+        <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <button type="button" onClick={onSignIn} className="cursor-pointer rounded-2xl bg-orange-500 px-5 py-4 text-sm font-black text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600">Sign In</button>
+          <button type="button" onClick={onSignUp} className="cursor-pointer rounded-2xl border border-[#001B47]/10 bg-white px-5 py-4 text-sm font-black text-[#001B47] hover:bg-orange-50 hover:text-orange-600">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RoleCard({ label, onClick }) {
+  return (
+    <button type="button" onClick={onClick} className="flex h-[138px] w-[138px] cursor-pointer flex-col items-center justify-center rounded-xl border border-[#001B47]/10 bg-white text-[#001B47] shadow-[0_6px_16px_rgba(0,27,71,0.14)] transition hover:-translate-y-1 hover:border-orange-200 hover:text-orange-600">
+      <div className="mb-3 flex h-16 w-16 items-center justify-center rounded-full border-2 border-current text-2xl font-black">{label[0]}</div>
+      <span className="text-base font-black text-[#2d1d52]">{label}</span>
+    </button>
+  );
+}
+
+function SignUpIntro({ onClose, onSwitch, onCreate }) {
+  const openEmySignup = () => {
+    window.location.href = "index.html?emyAuth=signup";
+  };
+
+  return (
+    <div className="emy-fullscreen-cover fixed inset-0 z-[100] flex items-center justify-center bg-[#001B47]/60 px-5 text-[#001B47] backdrop-blur-md" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <style>{styles}</style>
+      <div className="relative w-full max-w-lg rounded-[2rem] bg-white p-8 text-center shadow-2xl">
+        <button type="button" onClick={onClose} className="absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-orange-50 text-xl font-black text-[#001B47] hover:bg-orange-100" aria-label="Close">×</button>
+        <img src={emyLogo} alt="EMY" className="mx-auto h-14 w-auto object-contain" />
+        <p className="mx-auto mt-6 inline-flex rounded-full border border-orange-100 bg-orange-50 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-orange-600">Ask EMY</p>
+        <h1 className="mt-5 text-3xl font-black tracking-[-0.03em] text-[#001B47]">{copy.signUpTitle}</h1>
+        <p className="mx-auto mt-4 max-w-md text-base font-semibold leading-7 text-[#001B47]/60">{copy.signUpMessage}</p>
+        <button type="button" onClick={openEmySignup} className="mt-7 w-full cursor-pointer rounded-2xl bg-orange-500 px-6 py-4 text-sm font-black text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600">{copy.createAccountOnEmy}</button>
+        <p className="mt-6 text-sm font-semibold text-[#001B47]/55">
+          {copy.alreadyAccount} <button type="button" onClick={() => onSwitch("signin")} className="cursor-pointer font-black text-[#001B47] underline decoration-orange-400 decoration-2 underline-offset-4 hover:text-orange-600">{copy.switchToLogin}</button>
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function RoleSelection({ onBack, onClose, onSelectRole }) {
+  return (
+    <div className="emy-fullscreen-cover fixed inset-0 z-[100] overflow-y-auto bg-[#fff8ef] text-[#171435]" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <style>{styles}</style>
+      <button type="button" onClick={onBack} className="absolute left-4 top-5 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-3xl font-black text-[#001B47] hover:bg-orange-50" aria-label="Back">‹</button>
+      <button type="button" onClick={onClose} className="absolute right-4 top-5 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white text-xl font-black text-[#001B47] shadow-lg hover:bg-orange-50" aria-label="Close">×</button>
+      <main className="mx-auto flex min-h-screen w-full max-w-[390px] flex-col items-center px-6 pb-10 pt-12">
+        <h1 className="text-center text-[22px] font-black leading-tight text-[#171435]">{copy.selectRole}</h1>
+        <div className="mt-[58px] flex w-full flex-col items-center gap-[50px]">
+          <RoleCard label={copy.customer} onClick={() => onSelectRole("customer")} />
+          <RoleCard label={copy.business} onClick={() => onSelectRole("business")} />
+        </div>
+      </main>
+    </div>
+  );
+}
+
+function RegistrationForm({ privacy, setPrivacy, onBack, onClose, onSwitch }) {
+  const inputClass = "mt-2 h-[42px] w-full rounded-md border border-[#d7d0cd] bg-white px-3 text-sm font-semibold text-[#171435] outline-none placeholder:text-[#9c96a0] focus:border-orange-500";
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("Registration submitted. Connect this form to the EMY registration backend when ready.");
+  };
+
+  return (
+    <div className="emy-fullscreen-cover fixed inset-0 z-[100] overflow-y-auto bg-[#fff8ef] text-[#171435]" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <style>{styles}</style>
+      <button type="button" onClick={onBack} className="fixed left-4 top-5 z-30 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-3xl font-black text-[#001B47] hover:bg-orange-50" aria-label="Back">‹</button>
+      <button type="button" onClick={onClose} className="fixed right-4 top-5 z-30 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white text-xl font-black text-[#001B47] shadow-lg hover:bg-orange-50" aria-label="Close">×</button>
+      <main className="relative mx-auto min-h-screen w-full max-w-[430px] px-4 pb-10 pt-12">
+        <div className="text-center">
+          <img src={emyLogo} alt="EMY" className="mx-auto h-[54px] w-auto object-contain" />
+          <h1 className="mt-4 text-[34px] font-black leading-tight tracking-[-0.04em] text-[#001B47]">{copy.signUp}</h1>
+          <p className="mt-2 text-[13px] font-semibold text-[#8a8594]">{copy.enjoyLife}</p>
+        </div>
+        <div className="mx-auto mt-6 flex h-[46px] w-[190px] overflow-hidden rounded-lg border border-[#d9d2ce] bg-white">
+          <button type="button" onClick={() => setPrivacy("private")} className={`h-full flex-1 cursor-pointer text-sm font-semibold ${privacy === "private" ? "bg-orange-500 text-white" : "bg-white text-[#6f6978]"}`}>Private</button>
+          <button type="button" onClick={() => setPrivacy("public")} className={`h-full flex-1 cursor-pointer border-l border-[#d9d2ce] text-sm font-semibold ${privacy === "public" ? "bg-orange-500 text-white" : "bg-white text-[#6f6978]"}`}>Public</button>
+        </div>
+        <form className="mt-6 space-y-3" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-2 gap-3">
+            <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.firstName}<span className="text-orange-500">*</span><input className={inputClass} placeholder={copy.firstName} /></label>
+            <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.lastName}<span className="text-orange-500">*</span><input className={inputClass} placeholder={copy.lastName} /></label>
+          </div>
+          <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.mobileNumber}<span className="text-orange-500">*</span><input className={inputClass} placeholder={copy.mobileNumber} /></label>
+          <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.email}<span className="text-orange-500">*</span><input type="email" className={inputClass} placeholder={copy.email} /></label>
+          <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.password}<span className="text-orange-500">*</span><input type="password" className={inputClass} placeholder="New Password" /></label>
+          <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.confirmPassword}<span className="text-orange-500">*</span><input type="password" className={inputClass} placeholder={copy.confirmPassword} /></label>
+          <label className="flex cursor-pointer items-center gap-2 pt-1 text-left text-[12px] font-semibold text-[#5f5967]"><input type="checkbox" className="h-4 w-4 accent-orange-500" />{copy.agreeTerms}</label>
+          <button type="submit" className="mt-5 h-[52px] w-full cursor-pointer rounded-xl bg-orange-500 text-base font-black text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600">{copy.signUp}</button>
+        </form>
+        <p className="mt-5 text-center text-sm font-semibold text-[#8a8594]">already have an account ? <button type="button" onClick={() => onSwitch("signin")} className="cursor-pointer font-black text-orange-600">{copy.switchToLogin}</button></p>
+      </main>
+    </div>
+  );
+}
+
+function CinematicPanel() {
+  return (
+    <section className="relative hidden overflow-hidden bg-[#001B47] lg:block">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(255,138,48,0.58),transparent_23%),radial-gradient(circle_at_18%_76%,rgba(255,122,0,0.22),transparent_28%),radial-gradient(circle_at_68%_72%,rgba(255,255,255,0.24),transparent_32%)]" />
+      <div className="emy-glow absolute left-[8%] top-[8%] h-[420px] w-[420px] rounded-full bg-orange-400/35 blur-3xl" />
+      <div className="emy-glow absolute bottom-[8%] right-[8%] h-[520px] w-[520px] rounded-full bg-white/18 blur-3xl" style={{ animationDelay: "-2.4s" }} />
+      <div className="emy-sweep absolute left-0 top-0 h-full w-[54%] bg-gradient-to-r from-transparent via-white/18 to-transparent blur-xl" />
+      <div className="absolute bottom-12 left-12 right-12 rounded-[2rem] border border-white/14 bg-white/10 p-8 text-white shadow-2xl backdrop-blur-md">
+        <img src={emyLogo} alt="EMY" className="h-14 w-auto rounded-xl bg-white/95 p-2 object-contain" />
+        <h2 className="mt-8 text-4xl font-black tracking-[-0.04em]">Ask EMY</h2>
+        <p className="mt-4 inline-flex rounded-full bg-orange-400/20 px-5 py-3 text-base font-black leading-7 text-orange-100 ring-1 ring-orange-200/30 shadow-lg shadow-orange-500/20">We did it for you</p>
+      </div>
+    </section>
+  );
+}
+
+function LoginPage({ onClose, onSwitch, onLogin }) {
+  const [showDetails, setShowDetails] = useState(false);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginAttempted, setLoginAttempted] = useState(false);
+  const [signupOverlay, setSignupOverlay] = useState(null);
+  const [signupPrivacy, setSignupPrivacy] = useState("private");
+  const emailHasError = loginAttempted && !loginEmail.trim();
+  const passwordHasError = loginAttempted && !loginPassword.trim();
+
+  const submitLoginDetails = (event) => {
+    event.preventDefault();
+    setLoginAttempted(true);
+    if (!loginEmail.trim() || !loginPassword.trim()) return;
+    onLogin(loginEmail.trim());
+  };
+
+  const openForgotPassword = () => {
+    const target = new URL("emy-forgot-password.html", window.location.href);
+    target.searchParams.set("role", "customer");
+    if (loginEmail.trim()) target.searchParams.set("email", loginEmail.trim());
+    window.location.href = target.toString();
+  };
+
+  return (
+    <div className="emy-fullscreen-cover fixed inset-0 z-[100] overflow-hidden bg-[#fff8ef] text-[#001B47]" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <style>{styles}</style>
+      <button type="button" onClick={onClose} className="absolute right-6 top-6 z-20 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white text-xl font-black text-[#001B47] shadow-lg hover:bg-orange-50" aria-label="Close">×</button>
+      <div className="grid h-full min-h-0 grid-cols-1 lg:grid-cols-2">
+        <section className="relative flex h-full min-h-0 flex-col overflow-y-auto bg-white px-6 py-6 lg:px-16">
+          <div className="flex items-center justify-between">
+            <img src={emyLogo} alt="EMY" className="h-12 w-auto object-contain" />
+            <div className="hidden items-center gap-2 rounded-full border border-[#001B47]/10 bg-white px-5 py-3 text-sm font-bold text-[#001B47] shadow-sm sm:flex"><span>You are signing in to</span><img src={emyLogo} alt="EMY" className="h-5 w-auto object-contain" /></div>
+          </div>
+          <div className="mx-auto flex min-h-0 w-full max-w-lg flex-1 flex-col justify-center py-8">
+            {!showDetails ? (
+              <>
+                <h1 className="text-center text-4xl font-semibold tracking-[-0.03em] text-[#001B47] md:text-5xl">{copy.logIntoAccount}</h1>
+                <p className="mx-auto mt-4 max-w-md text-center text-sm font-semibold leading-6 text-[#001B47]/55">{copy.signInMessage}</p>
+                <div className="mt-12"><button type="button" onClick={() => setShowDetails(true)} className="flex h-14 w-full cursor-pointer items-center justify-center gap-3 rounded-full bg-[#001B47] px-6 text-base font-black text-white shadow-lg hover:bg-orange-600"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white p-1 shadow-sm"><img src={emyLogo} alt="EMY" className="h-full w-full object-contain" /></span>{copy.loginWithEmy}</button></div>
+                <p className="mt-8 text-center text-sm font-semibold text-[#001B47]/55">{copy.noAccount} <button type="button" onClick={() => setSignupOverlay("intro")} className="cursor-pointer font-black text-[#001B47] underline decoration-orange-400 decoration-2 underline-offset-4 hover:text-orange-600">{copy.switchToSignUp}</button></p>
+              </>
+            ) : (
+              <>
+                <button type="button" onClick={() => setShowDetails(false)} className="mb-5 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full px-3 py-2 text-sm font-black text-[#001B47] hover:bg-orange-50">‹ Back</button>
+                <div className="text-center"><img src={emyLogo} alt="EMY" className="mx-auto h-[54px] w-auto object-contain" /><h1 className="mt-5 text-[34px] font-black tracking-[-0.04em] text-[#001B47]">{copy.logIn}</h1><p className="mt-2 text-[13px] font-semibold text-[#8a8594]">{copy.welcomeBack}</p></div>
+                <form className="mt-8 space-y-4" onSubmit={submitLoginDetails}>
+                  <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.email}<span className="text-orange-500">*</span><input type="email" value={loginEmail} onChange={(event) => setLoginEmail(event.target.value)} className={`mt-2 h-[46px] w-full rounded-md border bg-white px-3 text-sm font-semibold text-[#171435] outline-none focus:border-orange-500 ${emailHasError ? "border-rose-400" : "border-[#d7d0cd]"}`} placeholder={copy.email} />{emailHasError && <span className="mt-1 block text-[11px] font-semibold text-rose-500">Please enter Email Address.</span>}</label>
+                  <label className="block text-left text-[13px] font-black text-[#2d1d52]">{copy.password}<span className="text-orange-500">*</span><div className="relative mt-2"><input type={showPassword ? "text" : "password"} value={loginPassword} onChange={(event) => setLoginPassword(event.target.value)} className={`h-[46px] w-full rounded-md border bg-white px-3 pr-12 text-sm font-semibold text-[#171435] outline-none focus:border-orange-500 ${passwordHasError ? "border-rose-400" : "border-[#d7d0cd]"}`} placeholder={copy.password} /><button type="button" onClick={() => setShowPassword((visible) => !visible)} className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-orange-600 hover:bg-orange-50" aria-label={showPassword ? "Hide password" : "Show password"}><EyeIcon hidden={showPassword} /></button></div>{passwordHasError && <span className="mt-1 block text-[11px] font-semibold text-rose-500">Please enter Password.</span>}</label>
+                  <div className="flex items-center justify-between pt-1 text-sm font-semibold text-[#5f5967]"><label className="flex cursor-pointer items-center gap-2"><input type="checkbox" defaultChecked className="h-4 w-4 accent-orange-500" />{copy.rememberMe}</label><button type="button" onClick={openForgotPassword} className="cursor-pointer font-semibold text-[#001B47] hover:text-orange-600">{copy.forgotPassword}</button></div>
+                  <button type="submit" className="mt-6 h-[54px] w-full cursor-pointer rounded-xl bg-orange-500 text-base font-black text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600">{copy.logIn}</button>
+                </form>
+                <SocialAuthButtons mode="sign in" />
+                <p className="mt-7 text-center text-sm font-semibold text-[#8a8594]">{copy.noAccount} <button type="button" onClick={() => setSignupOverlay("intro")} className="cursor-pointer font-black text-orange-600">{copy.switchToSignUp}</button></p>
+              </>
+            )}
+          </div>
+          <p className="mx-auto max-w-lg text-center text-xs font-semibold leading-5 text-[#001B47]/45">{copy.footerStart} <a href="terms.html" className="font-black text-[#001B47] underline decoration-orange-300 decoration-2 underline-offset-4 hover:text-orange-600">{copy.terms}</a> {copy.and} <a href="privacy.html" className="font-black text-[#001B47] underline decoration-orange-300 decoration-2 underline-offset-4 hover:text-orange-600">{copy.privacy}</a>.</p>
+        </section>
+        <CinematicPanel />
+      </div>
+      {signupOverlay === "intro" && <SignUpIntro onClose={() => setSignupOverlay(null)} onSwitch={() => setSignupOverlay(null)} onCreate={() => setSignupOverlay("role")} />}
+      {signupOverlay === "role" && <RoleSelection onBack={() => setSignupOverlay("intro")} onClose={() => setSignupOverlay(null)} onSelectRole={() => setSignupOverlay("form")} />}
+      {signupOverlay === "form" && <RegistrationForm privacy={signupPrivacy} setPrivacy={setSignupPrivacy} onBack={() => setSignupOverlay("role")} onClose={() => setSignupOverlay(null)} onSwitch={() => setSignupOverlay(null)} />}
+    </div>
+  );
+}
+
+function AuthModal({ type, onClose, onSwitch, onLogin }) {
+  const [showRegistration, setShowRegistration] = useState(false);
+  const [selectedRole, setSelectedRole] = useState(null);
+  const [privacy, setPrivacy] = useState("private");
+  if (type === "signup" && !showRegistration) return <SignUpIntro onClose={onClose} onSwitch={onSwitch} onCreate={() => setShowRegistration(true)} />;
+  if (type === "signup" && showRegistration && !selectedRole) return <RoleSelection onBack={() => setShowRegistration(false)} onClose={onClose} onSelectRole={setSelectedRole} />;
+  if (type === "signup" && showRegistration && selectedRole) return <RegistrationForm privacy={privacy} setPrivacy={setPrivacy} onBack={() => setSelectedRole(null)} onClose={onClose} onSwitch={onSwitch} />;
+  return <LoginPage onClose={onClose} onSwitch={onSwitch} onLogin={onLogin} />;
+}
+
+function Header({ onAuth, user, onLogout, onToggleMenu, isMenuOpen, onAccount }) {
+  return (
+    <header className={`fixed left-0 top-0 z-50 flex items-center justify-between px-5 py-4 text-[#001B47] transition-all duration-300 md:px-8 ${user && isMenuOpen ? "right-[320px]" : "right-0"}`}>
+      <button type="button" className="flex cursor-pointer items-center" aria-label="EMY home"><Logo /></button>
+      {user ? (
+        <div className="flex items-center gap-3">
+          <a href="about-ask-emy.html" className="inline-flex cursor-pointer rounded-full px-3 py-3 text-sm font-black text-[#001B47]/70 transition hover:bg-orange-50 hover:text-orange-600 md:px-4">About Ask EMY</a>
+          <button type="button" onClick={onAccount} aria-label={copy.viewProfile} title={copy.viewProfile} className="flex h-11 max-w-[148px] cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-[#001B47]/10 bg-white/90 px-2 pr-3 shadow-sm transition hover:bg-orange-50 hover:text-orange-600">
+            <AskAccountAvatar account={user} className="h-9 w-9 shrink-0 rounded-full object-cover ring-2 ring-orange-100" />
+            <span className="hidden max-w-[76px] truncate text-sm font-black leading-none text-[#001B47] sm:block">Profile</span>
+          </button>
+          <IconButton label={copy.searchChats} onClick={onToggleMenu} className="flex h-11 w-11 items-center justify-center rounded-full text-[#001B47] hover:bg-orange-50 hover:text-orange-600"><MenuIcon /></IconButton>
+          <IconButton label={copy.logOut} onClick={onLogout} className="hidden h-11 w-11 items-center justify-center rounded-full text-[#001B47]/60 hover:bg-orange-50 hover:text-orange-600 sm:flex"><LogoutIcon /></IconButton>
+        </div>
+      ) : (
+        <div className="flex items-center gap-3 md:gap-4"><a href="index.html" className="hidden cursor-pointer rounded-full px-4 py-3 text-sm font-black text-[#001B47]/70 transition hover:bg-orange-50 hover:text-orange-600 sm:inline-flex">EMY Home</a><a href="about-ask-emy.html" className="inline-flex cursor-pointer rounded-full px-3 py-3 text-sm font-black text-[#001B47]/70 transition hover:bg-orange-50 hover:text-orange-600 md:px-4">About Ask EMY</a><button type="button" onClick={() => onAuth("signin")} className="cursor-pointer rounded-full border border-[#001B47]/10 bg-white/70 px-5 py-3 text-sm font-bold text-[#001B47] shadow-sm transition hover:bg-orange-50 hover:text-orange-600">{copy.logIn}</button><button type="button" onClick={() => onAuth("signup")} className="cursor-pointer rounded-full bg-[#001B47] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-[#001B47]/10 transition hover:bg-orange-600">{copy.signUp}</button></div>
+      )}
+    </header>
+  );
+}
+
+function AccountIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
+      <path d="M4.5 21a7.5 7.5 0 0 1 15 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M18 5h3v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M21 5l-4.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function TrashIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M3 6h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path d="M8 6V4h8v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 6l1 15h10l1-15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 11v6M14 11v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PinIcon({ className = "h-4 w-4", filled = false }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} aria-hidden="true">
+      <path d="M14.5 3.5l6 6-3.2 1.3-3.6 3.6.4 4.2-2 2-4.7-4.7-4.9 4.9-1.4-1.4 4.9-4.9-4.7-4.7 2-2 4.2.4 3.6-3.6 1.4-3.1z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ChatRow({ chat, activeChatId, onOpenChat, onTogglePin, onDeleteChat }) {
+  const rowClass = chat.id === activeChatId ? "bg-orange-50" : "hover:bg-[#001B47]/5";
+  return (
+    <div className={"flex items-center gap-2 rounded-2xl px-3 py-3 " + rowClass}>
+      <button type="button" onClick={() => onOpenChat(chat.id)} className="min-w-0 flex-1 cursor-pointer truncate text-left text-base font-bold text-[#001B47]">
+        {chat.title}
+      </button>
+      <IconButton label={chat.pinned ? copy.unpinChat : copy.pinChat} onClick={() => onTogglePin(chat.id)} className={"flex h-8 w-8 items-center justify-center rounded-full hover:bg-orange-50 " + (chat.pinned ? "text-orange-500" : "text-[#001B47]/45 hover:text-orange-500")}>
+        <PinIcon className="h-4 w-4" filled={chat.pinned} />
+      </IconButton>
+      <IconButton label={copy.deleteChat} onClick={() => onDeleteChat(chat.id)} className="flex h-9 w-9 items-center justify-center rounded-full text-rose-500 hover:bg-rose-50">
+        <TrashIcon />
+      </IconButton>
+    </div>
+  );
+}
+
+function AskAccountAvatar({ account, className, alt = "" }) {
+  const imageRef = String(account?.imageRef || "").trim();
+  const image = String(account?.image || "").trim();
+  const [resolvedImage, setResolvedImage] = useState("");
+  const [isBroken, setIsBroken] = useState(false);
+  const avatarRef = useRef(null);
+  useEffect(() => {
+    let cancelled = false;
+    setIsBroken(false);
+    setResolvedImage("");
+    if (imageRef && window.emyResolveFeedMedia) {
+      window.emyResolveFeedMedia(imageRef).then((record) => {
+        if (!cancelled && record && record.url) setResolvedImage(record.url);
+      }).catch(() => {});
+    }
+    return () => { cancelled = true; };
+  }, [imageRef, image]);
+  const safeDirectImage = /^(data:image\/|blob:|https?:\/\/|\/|\.\/|\.\.\/|assets\/)/i.test(image) ? image : "";
+  const displayImage = resolvedImage || (safeDirectImage && (!imageRef || !window.emyResolveFeedMedia || /^(data:image\/|blob:)/i.test(safeDirectImage)) ? safeDirectImage : "");
+  useEffect(() => {
+    if (!isBroken && displayImage && imageRef && avatarRef.current && window.emyHydrateFeedMedia) window.emyHydrateFeedMedia(avatarRef.current);
+  }, [imageRef, displayImage, isBroken]);
+  const label = alt || account?.name || "";
+  const initial = String(account?.name || account?.email || "S").trim().charAt(0).toUpperCase() || "S";
+  if (!displayImage || isBroken) {
+    return <span role="img" aria-label={label} className={(className || "") + " inline-flex items-center justify-center bg-orange-50 text-[#001B47] font-black"}>{initial}</span>;
+  }
+  return <img ref={avatarRef} src={displayImage} data-emy-media-ref={imageRef || undefined} alt="" aria-label={label} onError={() => setIsBroken(true)} className={className} />;
+}
+
+function UserProfileCard({ user, compact = false, onLogout, onAccount, onSwitchAccount }) {
+  const activeRole = activeAskAccountRole();
+  const otherRole = activeRole === "business" ? "customer" : "business";
+  const otherAccount = readEmyAskAccountOptions().find((account) => account.role === otherRole);
+  const switchLabel = otherRole === "business" ? "Switch to Business" : "Switch to Customer";
+
+  if (compact) {
+    return (
+      <div className="flex items-center gap-3 rounded-2xl border border-[#001B47]/8 bg-white px-3 py-2 shadow-sm">
+        <AskAccountAvatar account={user} className="h-10 w-10 rounded-full object-cover ring-2 ring-orange-100" />
+        <div className="hidden min-w-0 text-left sm:block">
+          <p className="truncate text-sm font-black text-[#001B47]">{user.name}</p>
+          <p className="truncate text-xs font-semibold text-[#001B47]/45">{user.email}</p>
+        </div>
+        <IconButton label={copy.viewProfile} onClick={onAccount} className="flex h-9 w-9 items-center justify-center rounded-full text-[#001B47]/55 hover:bg-orange-50 hover:text-orange-600">
+          <AccountIcon />
+        </IconButton>
+        <IconButton label={copy.logout} onClick={onLogout} className="flex h-9 w-9 items-center justify-center rounded-full text-[#001B47]/55 hover:bg-orange-50 hover:text-orange-600">
+          <LogoutIcon />
+        </IconButton>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-[1.4rem] border border-orange-100 bg-[#fff8ef] p-4">
+      <p className="text-xs font-black uppercase tracking-[0.18em] text-orange-500">{copy.signedInAs}</p>
+      <div className="mt-3 flex items-center gap-3">
+        <AskAccountAvatar account={user} className="h-12 w-12 rounded-full object-cover ring-2 ring-orange-100" />
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-base font-black text-[#001B47]">{user.name}</p>
+          <p className="truncate text-xs font-semibold text-[#001B47]/50">{user.email}</p>
+        </div>
+      </div>
+      {otherAccount && (
+        <button type="button" onClick={() => onSwitchAccount && onSwitchAccount(otherRole)} className="mt-4 flex w-full cursor-pointer items-center gap-3 rounded-2xl border border-[#001B47]/8 bg-white px-3 py-3 text-left shadow-sm transition hover:border-orange-200 hover:bg-orange-50">
+          <AskAccountAvatar account={otherAccount} className="h-10 w-10 rounded-full object-cover ring-2 ring-orange-100" />
+          <span className="min-w-0 flex-1">
+            <span className="block text-[11px] font-black uppercase tracking-[0.16em] text-orange-500">{switchLabel}</span>
+            <span className="block truncate text-sm font-black text-[#001B47]">{otherAccount.name}</span>
+            <span className="block truncate text-xs font-semibold text-[#001B47]/45">{otherAccount.email}</span>
+          </span>
+        </button>
+      )}
+      <div className="mt-4 grid grid-cols-1 gap-2">
+        <button type="button" onClick={onAccount} className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-black text-[#001B47] shadow-sm hover:bg-orange-50 hover:text-orange-600">
+          <AccountIcon className="h-4 w-4" />
+          {copy.viewProfile}
+        </button>
+        <button type="button" onClick={onLogout} className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-black text-[#001B47] shadow-sm hover:bg-orange-50 hover:text-orange-600">
+          <LogoutIcon className="h-4 w-4" />
+          {copy.logout}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function LoggedInMenu({ isOpen, onClose, isPinned, onTogglePinned, chats, activeChatId, onNewChat, onOpenChat, onDeleteChat, onTogglePin, user, onLogout, onAccount, onSwitchAccount }) {
+  const [isSearching, setIsSearching] = useState(false);
+  const [chatSearch, setChatSearch] = useState("");
+
+  if (!isOpen || !user) return null;
+
+  const searchTerm = chatSearch.toLowerCase().trim();
+  const filteredChats = chats.filter((chat) => chat.title.toLowerCase().includes(searchTerm));
+  const pinnedChats = filteredChats.filter((chat) => chat.pinned);
+  const recentChats = filteredChats.filter((chat) => !chat.pinned);
+
+  const toggleSearch = () => {
+    if (isSearching) setChatSearch("");
+    setIsSearching((open) => !open);
+  };
+
+  return (
+    <aside role="complementary" aria-label="Ask EMY sidebar" className="fixed right-0 top-0 z-[90] h-full w-[min(100vw,336px)] overflow-hidden border-l border-orange-100 bg-white text-[#001B47] shadow-2xl">
+      <div className="flex items-center justify-between border-b border-orange-100 bg-[#fff8ef]/80 px-6 py-6">
+        <span className="flex items-center gap-2"><img src={emyLogo} alt="EMY" className="h-11 w-auto object-contain" /><a href="about-ask-emy.html" aria-label="About Ask EMY" className="group relative flex h-12 w-12 shrink-0 items-center justify-center overflow-visible">
+          <span className="pointer-events-none absolute bottom-full left-1/2 z-[120] mb-2 w-48 -translate-x-1/2 translate-y-2 rounded-2xl border border-orange-200 bg-white/95 px-3 py-2 text-left text-xs font-bold leading-snug text-[#001B47] opacity-0 shadow-xl shadow-[#001B47]/10 backdrop-blur transition group-hover:translate-y-0 group-hover:opacity-100">Hi, I'm EMY. Click me to find out more about me.</span>
+          <svg className="h-12 w-12 animate-bounce drop-shadow-xl transition group-hover:scale-110" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.9 8.1c.35-1.08 1.36-1.8 2.5-1.8h5.2c1.14 0 2.15.72 2.5 1.8l1.7 8.7c.35 1.78-1.01 3.45-2.82 3.45H8.02c-1.81 0-3.17-1.67-2.82-3.45l1.7-8.7Z" fill="#f76512" stroke="#cf5200" strokeLinejoin="round" strokeWidth="1"/><path d="M15.9 6.55c.58.35 1.02.9 1.2 1.55l1.7 8.7c.29 1.48-.6 2.88-1.96 3.32l-.98-.08c.74-.62 1.04-1.6.82-2.72l-1.25-6.7c-.28-1.5-.1-2.8.47-4.07Z" fill="#ad3e00" opacity=".2"/><path d="M6.35 10.05c2.15.62 4.02.48 5.66-.3 1.78-.85 3.62-.92 5.46-.22l.38 1.84c-2.32-.78-4.28-.63-6.04.22-1.62.78-3.45.9-5.78.28l.32-1.82Z" fill="#ffb067" opacity=".34"/><path d="M8.8 6.35c.32-1.92 1.42-3 3.2-3s2.88 1.08 3.2 3" stroke="#fff" strokeLinecap="round" strokeWidth="1.18" opacity=".9"/><path d="M9.25 13.2c.46-.36.92-.36 1.38 0" stroke="#fff" strokeLinecap="round" strokeWidth="1.02" opacity=".96"/><path d="M13.37 13.2c.46-.36.92-.36 1.38 0" stroke="#fff" strokeLinecap="round" strokeWidth="1.02" opacity=".96"/><path d="M9.8 15.82c1.34.94 3.06.94 4.4 0" stroke="#fff" strokeLinecap="round" strokeWidth="1.18" opacity=".96"/></svg>
+        </a></span>
+        <div className="flex items-center gap-2">
+          <IconButton label={isPinned ? copy.unpinSidebar : copy.pinSidebar} onClick={onTogglePinned} className={"flex h-9 w-9 items-center justify-center rounded-xl hover:bg-orange-50 " + (isPinned ? "bg-orange-50 text-orange-500" : "text-[#001B47] hover:text-orange-600")}>
+            <PinIcon className="h-4 w-4" filled={isPinned} />
+          </IconButton>
+          {!isPinned && (
+            <IconButton label={copy.closeSidebar} onClick={onClose} className="flex h-10 w-10 items-center justify-center rounded-xl text-[#001B47] hover:bg-orange-50 hover:text-orange-600">
+              <MenuIcon className="h-5 w-5" />
+            </IconButton>
+          )}
+        </div>
+      </div>
+
+      <div className="h-[calc(100%-93px)] overflow-y-auto p-6">
+        <UserProfileCard user={user} onLogout={onLogout} onAccount={onAccount} onSwitchAccount={onSwitchAccount} />
+
+        <div className="mt-5" />
+        <button type="button" onClick={onNewChat} className="flex w-full cursor-pointer items-center gap-1 rounded-2xl px-3 py-3 text-left text-base font-bold text-[#001B47] hover:bg-orange-50 hover:text-orange-600">
+          <span className="text-lg font-black leading-none text-[#001B47]">+</span>
+          <span>{copy.newChat}</span>
+        </button>
+
+        <IconButton label={isSearching ? copy.closeSearch : copy.searchChats} onClick={toggleSearch} className={"mt-1 flex w-full items-center gap-3 rounded-2xl px-3 py-3 text-left text-base font-bold " + (isSearching ? "bg-orange-50 text-orange-600" : "text-[#001B47] hover:bg-orange-50 hover:text-orange-600")}>
+          <SearchIcon className="h-5 w-5 text-orange-500" />
+          <span>{isSearching ? copy.closeSearch : copy.searchChats}</span>
+        </IconButton>
+
+        {isSearching && (
+          <div className="mt-3 flex items-center gap-2 rounded-2xl border border-[#001B47]/10 bg-[#fff8ef] px-4 py-3">
+            <SearchIcon className="h-4 w-4 shrink-0 text-orange-500" />
+            <input value={chatSearch} onChange={(event) => setChatSearch(event.target.value)} autoFocus placeholder={copy.searchRecentChats} className="min-w-0 flex-1 bg-transparent text-sm font-bold text-[#001B47] outline-none placeholder:text-[#001B47]/35" />
+            <IconButton label={copy.closeSearch} onClick={() => { setIsSearching(false); setChatSearch(""); }} className="flex h-7 w-7 items-center justify-center rounded-full text-[#001B47]/45 hover:bg-white hover:text-orange-600">x</IconButton>
+          </div>
+        )}
+
+        {chats.length === 0 && <p className="mt-8 text-sm font-semibold text-[#001B47]/40">{copy.noRecent}</p>}
+        {chats.length > 0 && filteredChats.length === 0 && <p className="mt-8 text-sm font-semibold text-[#001B47]/40">{copy.noChatsFound}</p>}
+
+        {pinnedChats.length > 0 && (
+          <section>
+            <h2 className="mt-8 text-sm font-black uppercase tracking-[0.18em] text-[#001B47]/40">{copy.pinnedChats}</h2>
+            <div className="mt-4 space-y-2">
+              {pinnedChats.map((chat) => (
+                <ChatRow key={chat.id} chat={chat} activeChatId={activeChatId} onOpenChat={onOpenChat} onTogglePin={onTogglePin} onDeleteChat={onDeleteChat} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {recentChats.length > 0 && (
+          <section>
+            <h2 className="mt-8 text-sm font-black uppercase tracking-[0.18em] text-[#001B47]/40">{copy.recentChats}</h2>
+            <div className="mt-4 space-y-2">
+              {recentChats.map((chat) => (
+                <ChatRow key={chat.id} chat={chat} activeChatId={activeChatId} onOpenChat={onOpenChat} onTogglePin={onTogglePin} onDeleteChat={onDeleteChat} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </aside>
+  );
+}
+
+function isMeaningfulAskLocationQuery(query) {
+  const text = String(query || "").trim();
+  return text.length >= 3 && /[A-Za-z0-9]/.test(text);
+}
+
+function cleanAskRadius(value) {
+  const numeric = Number(value);
+  return Number.isFinite(numeric) ? Math.min(10, Math.max(1, Math.round(numeric))) : 5;
+}
+
+function shortAskLocationLabel(address) {
+  const text = String(address || "").trim();
+  if (!text || text === "Near me") return "Near me";
+  const parts = text.split(",").map((part) => part.trim()).filter(Boolean);
+  const label = parts.length > 1 ? parts.slice(0, 2).join(", ") : text;
+  return label.length > 54 ? label.slice(0, 51).trim() + "..." : label;
+}
+
+function uniqueAskLocationSuggestions(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const key = String(item.address || "").toLowerCase();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 6);
+}
+
+async function lookupAskLocationSuggestions(query) {
+  const text = String(query || "").trim();
+  if (!isMeaningfulAskLocationQuery(text)) return [];
+  const suggestions = [];
+  const compactPostcode = text.replace(/\s+/g, "").toUpperCase();
+  try {
+    const postcodeResponse = await fetch("https://api.postcodes.io/postcodes/" + encodeURIComponent(compactPostcode) + "/autocomplete", { headers: { Accept: "application/json" } });
+    if (postcodeResponse.ok) {
+      const postcodeData = await postcodeResponse.json();
+      const postcodes = Array.isArray(postcodeData && postcodeData.result) ? postcodeData.result : [];
+      postcodes.slice(0, 5).forEach((postcode) => suggestions.push({ address: postcode, latitude: null, longitude: null }));
+    }
+  } catch (error) {}
+  try {
+    const url = "https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&countrycodes=gb&limit=6&q=" + encodeURIComponent(text);
+    const response = await fetch(url, { headers: { Accept: "application/json" } });
+    if (response.ok) {
+      const data = await response.json();
+      (Array.isArray(data) ? data : []).forEach((item) => {
+        const latitude = Number(item.lat);
+        const longitude = Number(item.lon);
+        if (item.display_name && Number.isFinite(latitude) && Number.isFinite(longitude)) {
+          suggestions.push({ address: item.display_name, latitude, longitude });
+        }
+      });
+    }
+  } catch (error) {}
+  return uniqueAskLocationSuggestions(suggestions);
+}
+
+async function resolveAskLocationCoordinates(address, preferredSuggestion) {
+  const text = String(address || "").trim();
+  if (!isMeaningfulAskLocationQuery(text)) return null;
+  const selected = preferredSuggestion && String(preferredSuggestion.address || "").trim().toLowerCase() === text.toLowerCase() ? preferredSuggestion : null;
+  if (selected && Number.isFinite(Number(selected.latitude)) && Number.isFinite(Number(selected.longitude))) {
+    return { address: selected.address, latitude: Number(selected.latitude), longitude: Number(selected.longitude) };
+  }
+  const compactPostcode = text.replace(/\s+/g, "").toUpperCase();
+  const looksLikeUkPostcode = /^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z]{2}$/.test(compactPostcode);
+  if (looksLikeUkPostcode) {
+    try {
+      const postcodeResponse = await fetch("https://api.postcodes.io/postcodes/" + encodeURIComponent(compactPostcode), { headers: { Accept: "application/json" } });
+      if (postcodeResponse.ok) {
+        const postcodeData = await postcodeResponse.json();
+        const result = postcodeData && postcodeData.result;
+        if (result && Number.isFinite(Number(result.latitude)) && Number.isFinite(Number(result.longitude))) {
+          return { address: result.postcode || text, latitude: Number(result.latitude), longitude: Number(result.longitude) };
+        }
+      }
+    } catch (error) {}
+  }
+  try {
+    const url = "https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&countrycodes=gb&limit=1&q=" + encodeURIComponent(text);
+    const response = await fetch(url, { headers: { Accept: "application/json" } });
+    if (!response.ok) return null;
+    const data = await response.json();
+    const first = Array.isArray(data) ? data[0] : null;
+    const latitude = Number(first && first.lat);
+    const longitude = Number(first && first.lon);
+    if (!first || !Number.isFinite(latitude) || !Number.isFinite(longitude)) return null;
+    return { address: first.display_name || text, latitude, longitude };
+  } catch (error) {
+    return null;
+  }
+}
+
+async function reverseAskLocationCoordinates(latitude, longitude) {
+  try {
+    const url = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" + encodeURIComponent(latitude) + "&lon=" + encodeURIComponent(longitude);
+    const response = await fetch(url, { headers: { Accept: "application/json" } });
+    if (!response.ok) return "";
+    const data = await response.json();
+    return data.display_name || "";
+  } catch (error) {
+    return "";
+  }
+}
+
+function nextAskSavedLocations(address, savedLocations) {
+  const clean = String(address || "").trim();
+  return [clean, ...savedLocations.filter((item) => item.toLowerCase() !== clean.toLowerCase())]
+    .filter(isMeaningfulAskLocationQuery)
+    .slice(0, 5);
+}
+
+function LocationFilter({ location, setLocation, radius, setRadius, savedLocations, setSavedLocations, placement = "bottom" }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [draftLocation, setDraftLocation] = useState(location === "Near me" ? "" : location);
+  const [status, setStatus] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedSuggestion, setSelectedSuggestion] = useState(null);
+  const [isResolving, setIsResolving] = useState(false);
+  const suggestionRequestRef = useRef(0);
+  const locationFilterRef = useRef(null);
+  const radiusOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const storedAskLocation = readStoredAskLocation();
+  const isCurrentLocation = location === "Near me" || (storedAskLocation.locationSource === "current" && storedAskLocation.location === location);
+  const label = location === "Near me" ? copy.nearMe : location.trim() ? shortAskLocationLabel(location) : copy.streetOrPostcode;
+  const cleanSavedLocations = savedLocations.filter(isMeaningfulAskLocationQuery);
+  const popupPosition = placement === "top" ? "fixed bottom-28 left-1/2 z-[260] -translate-x-1/2" : "absolute left-0 top-14 z-[220]";
+
+  useEffect(() => {
+    setDraftLocation(location === "Near me" ? "" : location);
+  }, [location]);
+
+  useEffect(() => {
+    if (cleanSavedLocations.length !== savedLocations.length) {
+      setSavedLocations(cleanSavedLocations);
+      saveStoredAskLocation({ location, radius, savedLocations: cleanSavedLocations });
+    }
+  }, [savedLocations]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const closeOnOutside = (event) => {
+      if (locationFilterRef.current && !locationFilterRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOnOutside);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutside);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const clean = draftLocation.trim();
+    setSelectedSuggestion(null);
+    clearTimeout(suggestionRequestRef.current);
+    if (!clean) {
+      setSuggestions([]);
+      setStatus("");
+      return;
+    }
+    if (!isMeaningfulAskLocationQuery(clean)) {
+      setSuggestions([]);
+      setStatus("Enter a real postcode, street, or town.");
+      return;
+    }
+    suggestionRequestRef.current = setTimeout(async () => {
+      const requestId = Date.now();
+      suggestionRequestRef.current = requestId;
+      setStatus("Searching locations...");
+      const nextSuggestions = await lookupAskLocationSuggestions(clean);
+      if (suggestionRequestRef.current !== requestId) return;
+      setSuggestions(nextSuggestions);
+      setStatus(nextSuggestions.length ? "Choose a matching location or apply the exact address." : "No matching location found yet. Try a postcode, road, or town.");
+    }, 300);
+    return () => clearTimeout(suggestionRequestRef.current);
+  }, [draftLocation, isOpen]);
+
+  const persistLocation = ({ address, latitude, longitude, source, nextRadius = radius, nextSaved = cleanSavedLocations }) => {
+    const cleanAddress = String(address || "").trim() || "Near me";
+    setLocation(cleanAddress);
+    setRadius(cleanAskRadius(nextRadius));
+    setSavedLocations(nextSaved);
+    saveStoredAskLocation({
+      location: cleanAddress,
+      radius: cleanAskRadius(nextRadius),
+      savedLocations: nextSaved,
+      latitude,
+      longitude,
+      locationLabel: shortAskLocationLabel(cleanAddress),
+      locationSource: source,
+    });
+  };
+
+  const selectNearMe = () => {
+    setStatus("Finding your current location...");
+    setIsResolving(true);
+    setSuggestions([]);
+    setRadius(5);
+    if (!navigator.geolocation) {
+      setIsResolving(false);
+      setStatus("Current location is not available in this browser. Choose a real address instead.");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const address = await reverseAskLocationCoordinates(latitude, longitude);
+      persistLocation({ address: address || "Near me", latitude, longitude, source: "current", nextRadius: 5, nextSaved: cleanSavedLocations });
+      setDraftLocation("");
+      setStatus(address ? "Current location saved." : "Current location saved. Address lookup will connect through the location backend.");
+      setIsResolving(false);
+      setIsOpen(false);
+    }, () => {
+      setIsResolving(false);
+      setStatus("Location permission was not allowed. Choose a real address instead.");
+    }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
+  };
+
+  const selectSavedLocation = async (item) => {
+    setStatus("Checking saved location...");
+    setIsResolving(true);
+    const resolved = await resolveAskLocationCoordinates(item);
+    if (!resolved) {
+      setIsResolving(false);
+      setStatus("We could not verify this saved location. Please edit it with a real postcode or address.");
+      return;
+    }
+    const nextSaved = nextAskSavedLocations(resolved.address, cleanSavedLocations);
+    persistLocation({ address: resolved.address, latitude: resolved.latitude, longitude: resolved.longitude, source: "saved", nextSaved });
+    setDraftLocation(resolved.address);
+    setIsResolving(false);
+    setIsOpen(false);
+  };
+
+  const saveLocation = async () => {
+    const clean = draftLocation.trim();
+    if (!isMeaningfulAskLocationQuery(clean)) {
+      setStatus("Enter a real postcode, street, or town.");
+      return;
+    }
+    setStatus("Checking location coordinates...");
+    setIsResolving(true);
+    const resolved = await resolveAskLocationCoordinates(clean, selectedSuggestion);
+    if (!resolved) {
+      setIsResolving(false);
+      setStatus("We could not find that location. Please enter a real postcode or address.");
+      return;
+    }
+    const nextSaved = nextAskSavedLocations(resolved.address, cleanSavedLocations);
+    persistLocation({ address: resolved.address, latitude: resolved.latitude, longitude: resolved.longitude, source: "saved", nextSaved });
+    setDraftLocation(resolved.address);
+    setStatus("Location saved.");
+    setIsResolving(false);
+    setIsOpen(false);
+  };
+
+  const deleteLocation = (event, item) => {
+    event.stopPropagation();
+    const nextSaved = cleanSavedLocations.filter((saved) => saved !== item);
+    setSavedLocations(nextSaved);
+    saveStoredAskLocation({ location, radius, savedLocations: nextSaved });
+    if (location === item) {
+      setLocation("Near me");
+      saveStoredAskLocation({ location: "Near me", radius, savedLocations: nextSaved, latitude: null, longitude: null, locationSource: "current" });
+    }
+    if (draftLocation === item) setDraftLocation("");
+  };
+
+  const toggleLocationMenu = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setIsOpen((value) => !value);
+  };
+
+  return (
+    <div ref={locationFilterRef} className="relative flex min-w-0 shrink-0">
+      <button type="button" aria-expanded={isOpen} onPointerDown={toggleLocationMenu} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") toggleLocationMenu(event); }} className="flex h-12 min-w-[112px] max-w-[44vw] cursor-pointer items-center gap-2 rounded-full border border-[#001B47]/8 bg-white px-3 text-xs font-medium text-[#001B47]/62 shadow-sm hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600 sm:max-w-[260px] sm:px-4 sm:text-sm"><LocationIcon className="h-4 w-4 shrink-0" /><span className="min-w-0 truncate">{label}</span><span className="shrink-0 rounded-full bg-orange-50 px-2 py-1 text-[11px] font-semibold text-orange-600">{radius} {copy.mileShort}</span></button>
+      {isOpen && (
+        <div className={popupPosition + " max-h-[72vh] w-80 max-w-[calc(100vw-2rem)] overflow-y-auto rounded-3xl border border-[#001B47]/8 bg-white p-4 text-left shadow-[0_24px_70px_rgba(0,27,71,0.22)] backdrop-blur-xl"}>
+          <div className="mb-2 flex items-center justify-between px-1"><p className="text-xs font-black uppercase tracking-[0.18em] text-orange-500">{copy.location}</p><button type="button" onClick={() => setIsOpen(false)} className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-orange-50 text-sm font-black text-[#001B47]/70 hover:bg-orange-100 hover:text-orange-600" aria-label="Close location"><span aria-hidden="true">x</span></button></div>
+          <button type="button" onClick={selectNearMe} disabled={isResolving} className={"mb-3 flex w-full cursor-pointer items-center justify-between rounded-2xl px-4 py-3 text-sm font-black " + (isCurrentLocation ? "bg-orange-100 text-orange-600" : "bg-orange-50 text-[#001B47] hover:bg-orange-100 hover:text-orange-600")}><span className="flex min-w-0 items-center gap-2"><LocationIcon className="h-4 w-4 shrink-0" /><span className="truncate">{copy.nearMe}</span></span><span className="rounded-full bg-white/80 px-2 py-1 text-[11px] font-black">5 {copy.miles}</span></button>
+          {cleanSavedLocations.map((item) => (
+            <div key={item} className={"mb-2 flex items-center gap-2 rounded-2xl px-3 py-2 " + (location === item ? "bg-[#f0f1f3]" : "bg-[#001B47]/5")}>
+              <button type="button" onClick={() => selectSavedLocation(item)} className="flex min-w-0 flex-1 cursor-pointer items-center gap-2 text-left text-sm font-black text-[#001B47]/75 hover:text-orange-600"><LocationIcon className="h-4 w-4 shrink-0 text-orange-500" /><span className="truncate">{shortAskLocationLabel(item)}</span></button>
+              <button type="button" onClick={(event) => deleteLocation(event, item)} className="flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full bg-white text-sm font-black text-[#001B47]/45 shadow-sm hover:bg-orange-50 hover:text-orange-600" aria-label={"Delete " + item}>x</button>
+            </div>
+          ))}
+          <label className="block text-xs font-bold text-[#001B47]/55">{copy.streetOrPostcode}</label>
+          <div className="mt-2 flex items-center gap-2 rounded-2xl border border-[#001B47]/10 bg-white px-3 py-2"><LocationIcon className="h-4 w-4 shrink-0 text-orange-500" /><input value={draftLocation} onChange={(event) => setDraftLocation(event.target.value)} placeholder={copy.locationExample} className="h-9 w-full bg-transparent text-sm font-bold text-[#001B47] outline-none placeholder:text-[#001B47]/35" /></div>
+          {suggestions.length > 0 && (
+            <div className="mt-2 max-h-44 overflow-y-auto rounded-2xl border border-[#001B47]/8 bg-white shadow-lg shadow-[#001B47]/5">
+              {suggestions.map((item) => (
+                <button key={item.address} type="button" onClick={() => { setDraftLocation(item.address); setSelectedSuggestion(item); setSuggestions([]); setStatus("Location selected. Apply to save it."); }} className="block w-full cursor-pointer px-3 py-2 text-left hover:bg-orange-50">
+                  <span className="block truncate text-sm font-black text-[#001B47]">{shortAskLocationLabel(item.address)}</span>
+                  <span className="block truncate text-[11px] font-semibold text-[#001B47]/45">{item.address}</span>
+                </button>
+              ))}
+            </div>
+          )}
+          {status && <p className="mt-2 text-xs font-bold leading-5 text-[#001B47]/55">{status}</p>}
+          <div className="mt-4 flex items-center justify-between"><p className="text-xs font-bold text-[#001B47]/55">{copy.searchRadius}</p><p className="text-sm font-black text-orange-600">{radius} {copy.miles}</p></div>
+          <div className="mt-3 grid grid-cols-5 gap-2">{radiusOptions.map((mile) => <button key={mile} type="button" onClick={() => setRadius(mile)} className={"cursor-pointer rounded-2xl px-3 py-2 text-sm font-black " + (radius === mile ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20" : "bg-orange-50 text-orange-600 hover:bg-orange-100")}>{mile}</button>)}</div>
+          <button type="button" onClick={saveLocation} disabled={isResolving} className="mt-4 w-full cursor-pointer rounded-2xl bg-[#001B47] px-4 py-3 text-sm font-black text-white hover:bg-orange-600 disabled:cursor-wait disabled:bg-[#001B47]/60">{isResolving ? "Checking..." : copy.applyLocation}</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SearchBar({ location, setLocation, radius, setRadius, savedLocations, setSavedLocations, user, onAuthRequired, sidebarOpen = false }) {
+  const [query, setQuery] = useState("");
+  const [isListening, setIsListening] = useState(false);
+  const [voiceStatus, setVoiceStatus] = useState("");
+  const recognitionRef = useRef(null);
+  const hasQuery = query.trim().length > 0;
+
+  const submit = () => {
+    if (!hasQuery) return;
+    if (!user) {
+      onAuthRequired();
+      return;
+    }
+    const chatId = createAskChatId();
+    saveStoredAskLocation({ location, radius, savedLocations });
+    saveStoredAskSidebarOpen(sidebarOpen);
+    window.location.href = askResultsUrl(query.trim(), chatId, location, radius, sidebarOpen);
+  };
+
+  const stopDictation = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+    }
+    recognitionRef.current = null;
+    setIsListening(false);
+    setVoiceStatus("");
+  };
+
+  const startDictation = () => {
+    if (!user) {
+      onAuthRequired();
+      return;
+    }
+
+    if (typeof window === "undefined") return;
+
+    if (isListening) {
+      stopDictation();
+      return;
+    }
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      setVoiceStatus(copy.voiceNotSupported);
+      return;
+    }
+
+    try {
+      const recognition = new SpeechRecognition();
+      recognitionRef.current = recognition;
+      recognition.lang = "en-GB";
+      recognition.interimResults = true;
+      recognition.continuous = true;
+
+      recognition.onstart = () => {
+        setIsListening(true);
+        setVoiceStatus(copy.listening);
+      };
+
+      recognition.onend = () => {
+        recognitionRef.current = null;
+        setIsListening(false);
+      };
+
+      recognition.onerror = (event) => {
+        recognitionRef.current = null;
+        setIsListening(false);
+        const blocked = event.error === "not-allowed" || event.error === "service-not-allowed";
+        setVoiceStatus(blocked ? copy.micBlocked : copy.voiceNotSupported);
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = Array.from(event.results).map((result) => result[0].transcript).join(" ").trim();
+        if (transcript) {
+          setQuery(transcript);
+          setVoiceStatus(copy.voiceReady);
+        }
+      };
+
+      recognition.start();
+    } catch (error) {
+      setIsListening(false);
+      recognitionRef.current = null;
+      setVoiceStatus(copy.voiceNotSupported);
+    }
+  };
+
+  const toggleAskEmyVoice = () => {
+    if (hasQuery) {
+      submit();
+      return;
+    }
+    startDictation();
+  };
+
+  return (
+    <div className="relative z-40 mx-auto mt-7 w-full max-w-[960px]">
+      <div className={"rounded-[2rem] border bg-white/85 p-2 shadow-[0_18px_60px_rgba(0,27,71,0.08)] backdrop-blur-2xl " + (isListening ? "border-orange-300" : "border-[#001B47]/10")}>
+        <div className="flex items-center gap-3">
+          <LocationFilter location={location} setLocation={setLocation} radius={radius} setRadius={setRadius} savedLocations={savedLocations} setSavedLocations={setSavedLocations} />
+          <div className="flex min-w-0 flex-1 items-center gap-3">
+            <SearchIcon className="hidden h-5 w-5 shrink-0 text-[#001B47]/35 sm:block" />
+            <input value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => event.key === "Enter" && submit()} placeholder={isListening ? copy.listening : getAskGreetingPlaceholder()} className="h-14 w-full bg-transparent text-base font-normal text-[#001B47] outline-none placeholder:text-[#001B47]/45 md:text-lg" />
+          </div>
+
+          <IconButton label={isListening ? copy.stopListening : copy.voiceSearch} onClick={startDictation} className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition hover:bg-orange-50 hover:text-orange-600 " + (isListening ? "bg-orange-100 text-orange-600" : "text-[#001B47]")}>
+            <MicIcon />
+          </IconButton>
+
+          <IconButton label={hasQuery ? copy.sendMessage : isListening ? copy.stopListening : copy.askEmyVoice} onClick={toggleAskEmyVoice} className={"flex h-12 w-12 shrink-0 items-center justify-center rounded-full p-3 text-white shadow-lg transition hover:-translate-y-0.5 " + (hasQuery ? "bg-orange-500 shadow-orange-500/20 hover:bg-orange-600" : isListening ? "bg-orange-600 shadow-orange-500/25" : "bg-[#001B47] shadow-[#001B47]/15 hover:bg-orange-600")}>
+            {hasQuery ? <ArrowUpIcon /> : <AudioIcon />}
+          </IconButton>
+        </div>
+
+        {(isListening || voiceStatus) && (
+          <div className="flex flex-wrap items-center gap-3 px-5 pb-2 pt-2 text-xs font-bold">
+            {isListening && <span className="inline-flex h-2.5 w-2.5 animate-pulse rounded-full bg-orange-500" />}
+            {voiceStatus && <span className={isListening ? "text-orange-600" : "text-[#001B47]/45"}>{voiceStatus}</span>}
+            {isListening && <button type="button" onClick={stopDictation} className="cursor-pointer rounded-full border border-orange-200 bg-white px-4 py-2 text-xs font-black text-[#001B47] shadow-sm hover:bg-orange-50 hover:text-orange-600">Close dictation</button>}
+            {!isListening && voiceStatus && <button type="button" onClick={() => setVoiceStatus("")} className="cursor-pointer rounded-full border border-orange-200 bg-white px-4 py-2 text-xs font-black text-[#001B47] shadow-sm hover:bg-orange-50 hover:text-orange-600">Close message</button>}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+
+const EMY_ASK_USER_KEY = "emyAskCurrentUser";
+const EMY_ASK_CHATS_KEY = "emyAskSavedChatsAiOnlyV1";
+const EMY_ASK_ACTIVE_CHAT_KEY = "emyAskActiveChatIdAiOnlyV1";
+const EMY_ASK_LOCATION_KEY = "emyAskLocation";
+const EMY_ASK_SIDEBAR_KEY = "emyAskSidebarOpen";
+const EMY_ASK_SIDEBAR_PINNED_KEY = "emyAskSidebarPinned";
+function normaliseAskRole(role) {
+  const clean = String(role || "").toLowerCase();
+  return clean === "business" ? "business" : "customer";
+}
+function activeAskAccountRole() {
+  return normaliseAskRole(activeEmyRole());
+}
+function scopedAskStorageKey(key, role = activeAskAccountRole()) {
+  return key + ":" + normaliseAskRole(role);
+}
+function defaultAskUser() {
+  const name = "EMY Account";
+  return {
+    name,
+    email: "EMY account",
+    image: "",
+    imageRef: "",
+    role: activeAskAccountRole(),
+  };
+}
+function askFallbackAvatar(name) {
+  return "";
+}
+function normaliseAskUser(user) {
+  const name = typeof user?.name === "string" && user.name.trim() ? user.name.trim() : "EMY Account";
+  const email = typeof user?.email === "string" && user.email.trim() ? user.email.trim() : "EMY account";
+  const imageRef = typeof user?.imageRef === "string" && user.imageRef.trim() ? user.imageRef.trim() : "";
+  const image = typeof user?.image === "string" && user.image.trim() ? user.image.trim() : "";
+  const role = normaliseAskRole(user?.role || activeEmyRole());
+  const businessName = typeof user?.businessName === "string" && user.businessName.trim()
+    ? user.businessName.trim()
+    : "";
+  const businessKey = typeof user?.businessKey === "string" && user.businessKey.trim()
+    ? user.businessKey.trim()
+    : typeof user?.profileKey === "string" && user.profileKey.trim()
+      ? user.profileKey.trim()
+      : businessName ? askUserAliasKey(businessName) : "";
+  return { name, email, image, imageRef, role, businessName, businessKey };
+}
+function readAskJson(key, fallback = {}) {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(key) || "");
+    return parsed && typeof parsed === "object" ? parsed : fallback;
+  } catch (error) {
+    return fallback;
+  }
+}
+function nameFromEmail(email, fallback = "EMY Account") {
+  const cleanEmail = typeof email === "string" ? email.trim() : "";
+  return cleanEmail ? cleanEmail.split("@")[0].replace(/[._-]+/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase()) : fallback;
+}
+function askUserAliasKey(value) {
+  return String(value || "").trim().toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 140);
+}
+function activeEmyRole() {
+  const params = new URLSearchParams(typeof window !== "undefined" ? window.location.search : "");
+  const mode = String(params.get("mode") || "").toLowerCase();
+  const view = String(params.get("view") || "").toLowerCase();
+  const pathName = String(typeof window !== "undefined" ? window.location.pathname : "").toLowerCase();
+  if (mode === "business") return "business";
+  if (mode === "customer") return "customer";
+  if (/emy-customer-/i.test(pathName)) return "customer";
+  if (/emy-business-profile\.html/i.test(pathName)) {
+    if (String(params.get("setup") || "") === "1" || view === "business" || ["business", "statistics", "services", "chat", "customers", "upload", "profile", "edit"].includes(mode)) return "business";
+    if (params.has("business") || view === "customer") return "customer";
+    if (
+      localStorage.getItem("emyBusinessProfileDraft") ||
+      localStorage.getItem("emyBusinessProfilePhoto") ||
+      localStorage.getItem("emyBusinessProfilePhotoSrc") ||
+      localStorage.getItem("emyBusinessProfilePhotoRef") ||
+      localStorage.getItem("emyBusinessDisplayName") ||
+      localStorage.getItem("emyBusinessName")
+    ) return "business";
+  }
+  const signedRole = String(localStorage.getItem("emyMainSignedInRole") || "").toLowerCase();
+  const pendingRole = String(localStorage.getItem("emyMainPendingSignupRole") || "").toLowerCase();
+  const signedOut = localStorage.getItem("emyMainSignedOut") === "1";
+  if (signedRole === "customer" || signedRole === "business") return signedRole;
+  if (signedOut) return "";
+  if (pendingRole === "customer" || pendingRole === "business") return pendingRole;
+  return "";
+}
+function readEmyCustomerAccountUser(requireActiveRole = false) {
+  try {
+    const role = activeEmyRole();
+    if (requireActiveRole && role && role !== "customer") return null;
+    const signedEmail = localStorage.getItem("emyMainSignedInEmail") || "";
+    const pendingEmail = localStorage.getItem("emyMainPendingSignupEmail") || "";
+    const email = signedEmail || pendingEmail;
+    const firstName = localStorage.getItem("emyMainPendingSignupFirstName") || "";
+    const lastName = localStorage.getItem("emyMainPendingSignupLastName") || "";
+    const displayName = localStorage.getItem("emyCustomerDisplayName") || [firstName, lastName].map((part) => part.trim()).filter(Boolean).join(" ");
+    const pendingRoleForPhoto = String(localStorage.getItem("emyMainPendingSignupRole") || "").toLowerCase();
+    const photo = localStorage.getItem("emyCustomerProfilePhoto") ||
+      localStorage.getItem("emyCustomerProfilePhotoSrc") ||
+      (pendingRoleForPhoto === "customer" ? localStorage.getItem("emyMainPendingSignupPhoto") : "") ||
+      (pendingRoleForPhoto === "customer" ? localStorage.getItem("emyMainPendingSignupPhotoSrc") : "") ||
+      "";
+    const photoRef = localStorage.getItem("emyCustomerProfilePhotoRef") ||
+      (pendingRoleForPhoto === "customer" ? localStorage.getItem("emyMainPendingSignupPhotoRef") : "") ||
+      "";
+    const hasCustomerSession = role === "customer" && Boolean(email || displayName || photo || photoRef);
+    const hasCustomerProfile = Boolean(displayName || email || photo || photoRef);
+    if (!hasCustomerSession && !hasCustomerProfile) return null;
+    const name = displayName || nameFromEmail(email, "EMY Customer");
+    return normaliseAskUser({ name, email: email || "Customer account", image: photo, imageRef: photoRef, role: "customer" });
+  } catch (error) {
+    return null;
+  }
+}
+function readEmyBusinessAccountUser(requireActiveRole = false) {
+  try {
+    const role = activeEmyRole();
+    if (requireActiveRole && role && role !== "business") return null;
+    const profile = readAskJson("emyBusinessProfileDraft", {});
+    const signedEmail = localStorage.getItem("emyMainSignedInEmail") || "";
+    const pendingEmail = localStorage.getItem("emyMainPendingSignupEmail") || "";
+    const email = String(profile.businessEmail || signedEmail || pendingEmail || "").trim();
+    const businessName = String(profile.businessName || localStorage.getItem("emyBusinessDisplayName") || localStorage.getItem("emyBusinessName") || "").trim();
+    const firstName = localStorage.getItem("emyMainPendingSignupFirstName") || "";
+    const lastName = localStorage.getItem("emyMainPendingSignupLastName") || "";
+    const fallbackName = [firstName, lastName].map((part) => part.trim()).filter(Boolean).join(" ");
+    const customerMediaValues = new Set([
+      localStorage.getItem("emyCustomerProfilePhoto"),
+      localStorage.getItem("emyCustomerProfilePhotoSrc"),
+      localStorage.getItem("emyCustomerProfilePhotoRef"),
+      localStorage.getItem("emyCustomerProfileImage"),
+      localStorage.getItem("emyCustomerProfileImageRef"),
+      localStorage.getItem("emyCustomerAvatar"),
+      localStorage.getItem("emyCustomerAvatarRef"),
+      localStorage.getItem("emyCustomerPhoto"),
+      localStorage.getItem("emyCustomerPhotoRef"),
+      localStorage.getItem("emyMainPendingSignupPhoto"),
+      localStorage.getItem("emyMainPendingSignupPhotoSrc"),
+      localStorage.getItem("emyMainPendingSignupPhotoRef")
+    ].map((value) => String(value || "").trim()).filter(Boolean));
+    const firstBusinessMedia = (values) => values
+      .map((value) => String(value || "").trim())
+      .find((value) => value && !customerMediaValues.has(value)) || "";
+    const photo = firstBusinessMedia([
+      localStorage.getItem("emyBusinessProfilePhoto"),
+      localStorage.getItem("emyBusinessProfilePhotoSrc"),
+      localStorage.getItem("emyMainPendingSignupBusinessPhoto"),
+      profile.profilePhoto,
+      profile.profilePhotoSrc,
+      profile.photo,
+      profile.photoSrc
+    ]);
+    const photoRef = firstBusinessMedia([
+      localStorage.getItem("emyBusinessProfilePhotoRef"),
+      localStorage.getItem("emyMainPendingSignupBusinessPhotoRef"),
+      profile.profilePhotoRef,
+      profile.photoRef
+    ]);
+    const hasBusinessSession = role === "business" && Boolean(email || businessName || photo || photoRef || fallbackName);
+    const hasBusinessProfile = Boolean(businessName || email || photo || photoRef);
+    if (!hasBusinessSession && !hasBusinessProfile) return null;
+    return normaliseAskUser({
+      name: businessName || fallbackName || nameFromEmail(email, "EMY Business"),
+      email: email || "Business account",
+      image: photo,
+      imageRef: photoRef,
+      role: "business",
+      businessName,
+      businessKey: String(profile.businessKey || profile.profileKey || localStorage.getItem("emyBusinessKey") || localStorage.getItem("emyBusinessProfileKey") || "").trim(),
+    });
+  } catch (error) {
+    return null;
+  }
+}
+function readEmyAccountUserForRole(role) {
+  return normaliseAskRole(role) === "business" ? readEmyBusinessAccountUser(false) : readEmyCustomerAccountUser(false);
+}
+function readEmyActiveAccountUser() {
+  const role = activeEmyRole();
+  if (!role && localStorage.getItem("emyMainSignedOut") === "1") return null;
+  if (role === "business") return readEmyBusinessAccountUser(true);
+  if (role === "customer") return readEmyCustomerAccountUser(true);
+  return readEmyCustomerAccountUser(false) || readEmyBusinessAccountUser(false);
+}
+function readEmyAskAccountOptions() {
+  return ["customer", "business"].map((role) => {
+    const user = readEmyAccountUserForRole(role);
+    return user ? { ...user, role } : null;
+  }).filter(Boolean);
+}
+function switchEmyAskAccount(role) {
+  const nextRole = normaliseAskRole(role);
+  try {
+    localStorage.setItem("emyMainSignedInRole", nextRole);
+    localStorage.removeItem("emyMainSignedOut");
+    const nextUser = readEmyAccountUserForRole(nextRole) || normaliseAskUser({ name: nextRole === "business" ? "EMY Business" : "EMY Customer", email: nextRole === "business" ? "Business account" : "Customer account", role: nextRole });
+    if (nextUser.email && !/ account$/i.test(nextUser.email)) localStorage.setItem("emyMainSignedInEmail", nextUser.email);
+    localStorage.setItem(EMY_ASK_USER_KEY, JSON.stringify(nextUser));
+    window.dispatchEvent(new CustomEvent("emy:account-changed", { detail: { role: nextRole, user: nextUser } }));
+    return nextUser;
+  } catch (error) {
+    return readEmyActiveAccountUser();
+  }
+}
+function readStoredAskUser() {
+  const accountUser = readEmyActiveAccountUser();
+  if (accountUser) {
+    try { localStorage.setItem(EMY_ASK_USER_KEY, JSON.stringify(accountUser)); } catch (error) {}
+    return accountUser;
+  }
+  try {
+    const stored = localStorage.getItem(EMY_ASK_USER_KEY);
+    if (!stored) return null;
+    const parsed = normaliseAskUser(JSON.parse(stored));
+    const isOldPreviewUser = (parsed.email.split("@")[0] || "").toLowerCase() === "isaac" && parsed.email.toLowerCase().endsWith("@emy.com") || parsed.image.includes("images.unsplash.com");
+    return isOldPreviewUser ? null : parsed;
+  } catch (error) {
+    return null;
+  }
+}
+function saveStoredAskUser(user) {
+  try {
+    const normalised = normaliseAskUser(user);
+    localStorage.setItem(EMY_ASK_USER_KEY, JSON.stringify(normalised));
+    const email = String(normalised.email || "").trim();
+    if (email && !/ account$/i.test(email)) {
+      if (!activeEmyRole()) localStorage.setItem("emyMainSignedInRole", "customer");
+      localStorage.setItem("emyMainSignedInEmail", email);
+      localStorage.removeItem("emyMainSignedOut");
+    }
+  } catch (error) {}
+}
+function makeAskUserFromLogin(email) {
+  const accountUser = readEmyActiveAccountUser();
+  if (accountUser) return accountUser;
+  const cleanEmail = typeof email === "string" ? email.trim() : "";
+  return normaliseAskUser({
+    name: nameFromEmail(cleanEmail, "EMY Account"),
+    email: cleanEmail || "EMY account",
+    image: "",
+  });
+}
+function clearStoredAskUser() {
+  try {
+    localStorage.removeItem(EMY_ASK_USER_KEY);
+  } catch (error) {}
+}
+function clearEmyAccountSession() {
+  clearStoredAskUser();
+  try {
+    localStorage.removeItem("emyMainSignedInRole");
+    localStorage.removeItem("emyMainSignedInEmail");
+    localStorage.setItem("emyMainSignedOut", "1");
+  } catch (error) {}
+}
+function emyLoginUrl() {
+  return "index.html?emyAuth=signin";
+}
+function emyProfileUrl() {
+  const role = activeEmyRole();
+  if (role === "business") return "emy-business-profile.html?mode=business";
+  return "emy-customer-profile.html";
+}
+function goToEmyLogin() {
+  clearEmyAccountSession();
+  window.location.href = emyLoginUrl();
+}
+function goToEmyProfile() {
+  window.location.href = emyProfileUrl();
+}
+function createAskChatId() {
+  return "chat-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8);
+}
+const STALE_ASK_EMY_READY_TEXT = ["Hi Isaac", "Ask EMY is " + "ready."].join(", ");
+const REPAIRED_ASK_EMY_READY_TEXT = "I'm here.";
+const GENERIC_ASK_EMY_GREETING_TEXT = "Hi. I'm here.";
+const STALE_ASK_EMY_LOADING_TEXT = ["Ask EMY is checking the business data", "and preparing an answer..."].join(" ");
+function storedAskFirstName() {
+  try {
+    const user = typeof readStoredAskUser === "function" ? readStoredAskUser() : {};
+    const clean = (value) => String(value || "").trim().replace(/\s+/g, " ");
+    const direct = clean(user && (user.firstName || user.customerFirstName || user.givenName)) || clean(localStorage.getItem("emyCustomerFirstName") || localStorage.getItem("emyMainPendingSignupFirstName"));
+    const display = clean(user && (user.displayName || user.name || user.profileName)) || clean(localStorage.getItem("emyCustomerDisplayName") || localStorage.getItem("emyMainSignedInEmail"));
+    const businessName = clean(user && (user.businessName || user.business));
+    const candidate = direct || (display && display.toLowerCase() !== businessName.toLowerCase() ? display.split(" ")[0] : "");
+    if (!candidate || /^(emy|customer|business|account|test|user)$/i.test(candidate)) return "";
+    return candidate.slice(0, 32);
+  } catch (error) {
+    return "";
+  }
+}
+function personalisedAskGreetingText() {
+  const firstName = storedAskFirstName();
+  return firstName ? "Hi " + firstName + ". Good to see you again." : "Hi. Good to see you.";
+}
+function storedAskTextLooksPlaceholder(value) {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return true;
+  const compact = text.replace(/[^a-z0-9]+/g, "");
+  if (!compact) return true;
+  if (/^(test|testing|demo|dummy|sample|placeholder|lorem|ipsum|asdf|qwer|qwerty|foo|bar|blah|none|null|undefined|product|post|clip|item|ddaas)$/i.test(compact)) return true;
+  if (/^([a-z0-9])\1{1,}$/i.test(compact)) return true;
+  if (/^[a-z]{1,2}$/i.test(compact)) return true;
+  if (/\b(gjh|qwd|hjkl|asdf|qwerty|pjnh|iuo|lnih|hbbid|ddaas)\b/i.test(text)) return true;
+  return text.split(/[^a-z0-9]+/).filter(Boolean).some((word) => word.length >= 7 && /[a-z]/i.test(word) && /[bcdfghjklmnpqrstvwxyz]{5,}/i.test(word));
+}
+function storedAskDirectionsDestinationFromQuery(query) {
+  const text = String(query || "").trim();
+  if (!text) return "";
+  const match = text.match(/\b(?:to|for)\s+(.+?)\s*$/i);
+  if (!match) return "";
+  const destination = String(match[1] || "")
+    .replace(/\b(?:please|pls|plz|direction|directions|route|map|maps|show|open|take me|navigate)\b/gi, " ")
+    .replace(/\?+$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!destination || /^(there|it|that|them|they|those|here)$/i.test(destination)) return "";
+  return destination.slice(0, 180);
+}
+function storedAskTypedDirectionsDestination(message, previousUserMessage = null) {
+  return storedAskDirectionsDestinationFromQuery(message && message.query)
+    || storedAskDirectionsDestinationFromQuery(previousUserMessage && previousUserMessage.text)
+    || "";
+}
+function storedAskMapResultMatchesTypedBusiness(result, typedDestination) {
+  const destinationAlias = askUserAliasKey(typedDestination);
+  if (!destinationAlias) return false;
+  return [
+    result && result.business,
+    result && result.businessName,
+    result && result.businessKey,
+    result && result.profileKey,
+    result && result.ownerKey,
+    result && result.sellerKey,
+  ].some((value) => {
+    const alias = askUserAliasKey(value);
+    return alias && (alias === destinationAlias || alias.includes(destinationAlias) || destinationAlias.includes(alias));
+  });
+}
+function storedAskMapResultLooksInvented(result, typedDestination) {
+  const type = String(result && result.type || "").trim().toLowerCase();
+  if (type !== "map" && type !== "directions") return false;
+  const destinationText = String(result && (result.destination || result.place || result.address || result.location) || "").trim();
+  const destinationAlias = askUserAliasKey(typedDestination);
+  if (!destinationAlias) return false;
+  if (storedAskMapResultMatchesTypedBusiness(result, typedDestination)) return false;
+  const fields = [
+    destinationText,
+    result && result.name,
+    result && result.desc,
+    result && result.description,
+    result && result.mapUrl,
+    result && result.directionsUrl,
+    result && result.url,
+  ].map((value) => String(value || "").trim()).filter(Boolean);
+  return fields.some((value) => {
+    const alias = askUserAliasKey(value);
+    return alias === destinationAlias
+      || alias.endsWith("-to-" + destinationAlias)
+      || alias.includes("directions-to-" + destinationAlias)
+      || alias.includes("route-from-") && alias.includes("-to-" + destinationAlias);
+  });
+}
+function repairStoredAskResults(message, previousUserMessage = null) {
+  const results = Array.isArray(message && message.results) ? message.results : [];
+  if (!results.length) return results;
+  const text = String(message.text || "").toLowerCase();
+  const typedDestination = storedAskTypedDirectionsDestination(message, previousUserMessage);
+  if (/saved ask emy search location|exact gps|exact physical address|gps coordinates|i can see your saved ask emy search location/.test(text)) return [];
+  return results.filter((result) => {
+    const name = String(result && result.name || "").trim().toLowerCase();
+    const desc = String(result && (result.desc || result.description || result.summary) || "").trim().toLowerCase();
+    const business = String(result && (result.business || result.businessName) || "").trim().toLowerCase();
+    const type = String(result && result.type || "").trim().toLowerCase();
+    const destination = String(result && (result.destination || result.place || result.address || result.location) || "").trim().toLowerCase();
+    const latitude = Number(result && (result.latitude || result.lat));
+    const longitude = Number(result && (result.longitude || result.lng || result.lon));
+    const image = String(result && (result.image || result.imageUrl) || "").trim();
+    const place = String(result && (result.place || result.location) || "").trim();
+    const category = String(result && result.category || "").trim();
+    if (name === "emy test customer") return false;
+    if (business === "isaac stephane mbongue nkam") return false;
+    if (/^(your post was published|clip upload completed|post upload completed|upload completed|new clip|new post)$/i.test(desc)) return false;
+    if ((type === "map" || type === "directions") && (/^0\s*,\s*0$/.test(destination) || Number.isFinite(latitude) && Number.isFinite(longitude) && Math.abs(latitude) < 0.0001 && Math.abs(longitude) < 0.0001)) return false;
+    if (typedDestination && storedAskMapResultLooksInvented(result, typedDestination)) return false;
+    if (["product", "job", "event", "service"].includes(type) && storedAskTextLooksPlaceholder(name)) return false;
+    if (type === "business" && name === "emy" && !desc && !image && !place && !category) return false;
+    return true;
+  });
+}
+function storedAskMessageLooksBrokenMap(message, previousUserMessage = null) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  const query = String(message.query || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  const results = Array.isArray(message.results) ? message.results : [];
+  if (!/\b(map|route|directions?|destination|pin)\b/.test(text + " " + query + " " + previousText)) return false;
+  if (/destination:\s*0\s*,\s*0\b/.test(text) || /\b0\s*,\s*0\b/.test(text) && /\bmap pin\b/.test(text)) return true;
+  const typedDestination = storedAskTypedDirectionsDestination(message, previousUserMessage);
+  return results.some((result) => {
+    const type = String(result && result.type || "").toLowerCase();
+    if (type !== "map" && type !== "directions") return false;
+    const destination = String(result && (result.destination || result.place || result.address || result.location) || "").trim().toLowerCase();
+    const latitude = Number(result && (result.latitude || result.lat));
+    const longitude = Number(result && (result.longitude || result.lng || result.lon));
+    return /^0\s*,\s*0$/.test(destination)
+      || Number.isFinite(latitude) && Number.isFinite(longitude) && Math.abs(latitude) < 0.0001 && Math.abs(longitude) < 0.0001
+      || typedDestination && storedAskMapResultLooksInvented(result, typedDestination);
+  });
+}
+function storedAskMessageMentionsMissingCards(message) {
+  if (!message || message.pending || message.autoRecoveredCards || Array.isArray(message.results) && message.results.length) return false;
+  const text = String(message.text || "").toLowerCase();
+  if (!text) return false;
+  const mentionsRecord = /\b(job|jobs|job opening|hiring|role|product|products|service|services|business|businesses|clip|clips|video|videos|post|posts|event|events|map|maps|route|routes|direction|directions)\b/.test(text);
+  const claimsResult = /\b(here is|here's|here are|i found|found|available|opening|showing|listed|below|card|cards|result|results)\b/.test(text);
+  return mentionsRecord && claimsResult;
+}
+function storedAskMessageLooksTextOnlyProductRanking(message) {
+  if (!message || message.pending || Array.isArray(message.results) && message.results.length) return false;
+  const text = String(message.text || "").toLowerCase();
+  if (!text) return false;
+  const productRankText = /\b(most sold product|top products|popular products|other popular products|ranked by views|ranked by engagement|views and engagement|best[-\s]?selling|top[-\s]?selling|people buy the most)\b/.test(text);
+  const productFields = /\b(category|price|views|likes|saved|business):\b/.test(text);
+  return productRankText && productFields;
+}
+function storedAskMessageHasRawMediaLinkLines(message) {
+  if (!message || message.pending) return false;
+  return /(^|\n)\s*-\s*(Image|Link):\s*(https?:\/\/|emy-[^\s]+\.html|\/)/i.test(String(message.text || ""));
+}
+function removeStoredAskRawMediaLinkLines(value) {
+  return String(value || "")
+    .split(/\n/)
+    .filter((line) => !/^\s*-\s*(Image|Link):\s*(https?:\/\/|emy-[^\s]+\.html|\/)/i.test(line))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+function storedAskTextLooksProductRankingQuestion(value) {
+  const text = String(value || "").toLowerCase().replace(/\bviewd\b/g, "viewed").replace(/\s+/g, " ").trim();
+  if (!text || !/\b(products?|items?|stock|listings?)\b/.test(text)) return false;
+  const rankedMetric = /\b(most|top|best|highest|popular|rank|ranking|ranked)\b[\s\S]{0,70}\b(views?|viewed|visits?|liked|saved|engagement|performance|interest|popular)\b/.test(text);
+  const metricRanked = /\b(views?|viewed|visits?|liked|saved|engagement|performance|interest|popular)\b[\s\S]{0,70}\b(most|top|best|highest|popular|rank|ranking|ranked)\b/.test(text);
+  return rankedMetric || metricRanked;
+}
+function storedAskMessageLooksProductRankingSearchFallback(message, previousUserMessage = null) {
+  if (!message || message.pending || message.autoRecoveredCards || Array.isArray(message.results) && message.results.length) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  const badNoResult = /\b(product listed on emy for .*most|shop selling .*most|try widening the radius|searching for a broader product category|search area)\b/.test(text)
+    && /\b(most\s+view|most\s+viewed|most\s+popular|top\s+view|top\s+viewed|rank|ranking)\b/.test((text + " " + previousText).replace(/\bviewd\b/g, "viewed"));
+  return badNoResult && storedAskTextLooksProductRankingQuestion(previousText);
+}
+function storedAskMessageLooksBusinessProductFollowUpNoResult(message, previousUserMessage = null) {
+  if (!message || message.pending || message.autoRecoveredCards || Array.isArray(message.results) && message.results.length) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  if (!/\b(no matching result|don't see a matching result|do not see a matching result|try widening the radius|changing the location)\b/.test(text)) return false;
+  return /\b(product|products)\b/.test(previousText)
+    && /\b(my business|my shop|my store|your business|this business|that business|the business|it|its|they|their|them|that|this)\b/.test(previousText);
+}
+function storedAskMessageLooksProductDetailWall(message) {
+  if (!message || message.pending || message.autoRecoveredCards) return false;
+  const text = String(message.text || "");
+  const results = Array.isArray(message.results) ? message.results : [];
+  const productResults = results.filter((result) => String(result && result.type || "").toLowerCase() === "product");
+  if (productResults.length < 3) return false;
+  const productBlock = /\n\s*products\s*\n/i.test(text) || /\bproduct options\b/i.test(text);
+  const rawMediaLines = /\n\s*-\s*(image|link):\s*/i.test(text);
+  const repeatedDetailRows = (text.match(/\n\s*-\s*(business|ownership|relationship|price|availability|category):/gi) || []).length;
+  return productBlock && (rawMediaLines || repeatedDetailRows >= 8);
+}
+function storedAskMessageLooksMixedOwnedContentDump(message, previousUserMessage = null) {
+  if (!message || message.pending || message.autoRecoveredCards) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  if (!/\b(ones?|items?|records?|cards?|results?|content)\b[\s\S]{0,50}\b(i|we|my|mine|own|owned)\b/.test(previousText)) return false;
+  const mixedCounts = /\bproducts:\s*\d+[\s\S]{0,160}\b(clips?|posts?|articles?|jobs?):\s*\d+/.test(text);
+  const ownedDump = /\byou own content under\b/.test(text) || /\btop owned products by engagement\b/.test(text);
+  const mixedResults = Array.isArray(message.results) && new Set(message.results.map((result) => String(result && result.type || "").toLowerCase()).filter(Boolean)).size > 1;
+  return ownedDump || mixedCounts || mixedResults && /\bwhat i can see\b/.test(text);
+}
+function storedAskTextLooksProfileIntent(value) {
+  const text = String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
+  if (!text || /\bprofile views?\b/.test(text)) return false;
+  const imageIntent = /\b(image|photo|picture|avatar)\b/.test(text)
+    && /\b(my|mine|me|account|profile|customer|client|business|shop|store|company)\b/.test(text);
+  const openIntent = /\b(profile|account)\b/.test(text)
+    && /\b(show|open|view|go to|take me|bring|pull up|display)\b/.test(text)
+    && /\b(my|mine|customer|client|business|shop|store|company|profile|account)\b/.test(text);
+  return imageIntent || openIntent;
+}
+function storedAskTextLooksViewerProfileQuestion(value) {
+  const text = String(value || "").toLowerCase().replace(/\bi\s+m\b/g, "i am").replace(/\bim\b/g, "am").replace(/\s+/g, " ").trim();
+  if (!text) return false;
+  if (storedAskTextLooksViewerLocationQuestion(text)) return false;
+  return /\b(do you know me|know me|know who i am|do you know who i am|who am i|who i am|who am i\?|what do you know about me|tell me about me|tell me about my account|what do you know about my account|my account details|my account information)\b/.test(text);
+}
+function repairedStoredAskViewerProfileText(message) {
+  const text = String(message && message.text || "");
+  const nameMatch = text.match(/\b(?:you're|you are)\s+([^\n.]+?)(?:\.|\n|$)/i)
+    || text.match(/\baccount name:\s*([^\n]+)/i);
+  const storedName = (() => {
+    try {
+      const user = typeof readStoredAskUser === "function" ? readStoredAskUser() : {};
+      return String(user && (user.displayName || user.name || user.profileName || user.customerName) || "").trim();
+    } catch (error) {
+      return "";
+    }
+  })();
+  const name = String(nameMatch && nameMatch[1] || storedName || "").replace(/\s+/g, " ").trim();
+  return name ? "You're " + name + "." : "I can see you're signed in to EMY.";
+}
+function storedAskMessageLooksProfileIntentRelationshipDump(message, previousUserMessage = null) {
+  if (!message || message.pending || message.autoRecoveredCards) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "");
+  if (!storedAskTextLooksProfileIntent(previousText)) return false;
+  return /\bcustomer relationships? visible\b/.test(text)
+    || /\bcustomer privacy\b/.test(text) && /\b(customer relationship|only customer|visible customer)\b/.test(text)
+    || /\bhas \d+ customer relationships? on emy\b/.test(text);
+}
+function storedAskMessageLooksOwnershipWordingBug(message) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  return /it looks like ["']?zcsdcaasx["']? is an article from your business/.test(text)
+    || /you see ['"]your business['"] because these items belong to the business/.test(text);
+}
+function storedAskTextLooksProductCreationQuestion(value) {
+  const text = String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
+  if (!text) return false;
+  if (!/\b(products?|items?|stock|listings?)\b/.test(text)) return false;
+  if (/^(show|find|search|browse|more)\b/.test(text)) return false;
+  return /\b(create|add|upload|publish|post|list|make|draft|prepare|set up|setup)\b[\s\S]{0,90}\b(?:products?|items?|stock|listings?)\b/.test(text)
+    || /\b(?:products?|items?|stock|listings?)\b[\s\S]{0,90}\b(create|add|upload|publish|post|list|make|draft|prepare|set up|setup)\b/.test(text)
+    || /\b(how|hoe|hwo|howe)\s+(?:do|can|should)\s+(?:i|you|we)\b[\s\S]{0,100}\b(?:products?|items?|stock|listings?)\b/.test(text);
+}
+function storedAskMessageLooksProductCreationSearchFallback(message, previousUserMessage = null) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  const badNoResult = /\b(product listed on emy for .*create|shop selling .*create|try widening the radius|searching for a broader product category|search area)\b/.test(text);
+  return badNoResult && (storedAskTextLooksProductCreationQuestion(previousText) || /\b(create|add|publish|upload)\b[\s\S]{0,60}\bproducts?\b/.test(text));
+}
+function storedAskTextLooksVagueProductNeedQuestion(value) {
+  const text = String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
+  if (!text || !/\b(products?|items?|stock|listings?)\b/.test(text)) return false;
+  if (/^(show|find|search|browse|more|list)\b/.test(text)) return false;
+  if (storedAskTextLooksProductCreationQuestion(text)) return false;
+  return /\b(i|we|you)?\s*(?:need|want|require|looking for|look for|get|buy)\s+(?:a\s+|an\s+|some\s+|any\s+|new\s+|the\s+|my\s+)?(?:products?|items?|something)\b/.test(text)
+    || /\b(?:products?|items?)\s+(?:needed|required|wanted)\b/.test(text);
+}
+function storedAskMessageLooksVagueProductNeedSearchFallback(message, previousUserMessage = null) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  const badNoResult = /\b(product listed on emy for need|product listed on emy for want|product listed on emy for require|try widening the radius|searching for a broader product category|search area)\b/.test(text);
+  return badNoResult && storedAskTextLooksVagueProductNeedQuestion(previousText);
+}
+function storedAskNormaliseIntentWord(word) {
+  const text = String(word || "").toLowerCase();
+  const canonical = ["product", "products", "item", "items", "stock", "listing", "listings"];
+  if (!text || text.length < 4 || canonical.includes(text)) return text;
+  const sorted = text.split("").sort().join("");
+  const match = canonical.find((candidate) => candidate.length === text.length && candidate[0] === text[0] && candidate.split("").sort().join("") === sorted);
+  return match || text;
+}
+function storedAskNormaliseIntentText(value) {
+  return String(value || "").toLowerCase().replace(/\s+/g, " ").trim().replace(/\b[a-z][a-z0-9]*\b/g, (word) => storedAskNormaliseIntentWord(word));
+}
+function storedAskTextLooksOwnedProductsRequest(value) {
+  const text = storedAskNormaliseIntentText(value);
+  if (!text || !/\b(products?|items?|stock|listings?)\b/.test(text)) return false;
+  if (/^(find|search|browse)\b/.test(text) && !/\b(my|mine|own|owned|your)\b/.test(text)) return false;
+  return /\b(show|list|open|see|display|get|bring)\b[\s\S]{0,70}\b(my|mine|own|owned|your)\b[\s\S]{0,40}\b(products?|items?|stock|listings?)\b/.test(text)
+    || /\b(my|mine|own|owned|your)\b[\s\S]{0,40}\b(products?|items?|stock|listings?)\b/.test(text) && /\b(yes|yeah|yep|yup|ok|okay|show|list|open|see|display|get|bring)\b/.test(text);
+}
+function storedAskMessageLooksOwnedProductSearchFallback(message, previousUserMessage = null) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  const badNoResult = /\b(product listed on emy for yes|product listed on emy for my|product listed on emy for own|try widening the radius|searching for a broader product category|search area)\b/.test(text);
+  return badNoResult && storedAskTextLooksOwnedProductsRequest(previousText);
+}
+function storedAskTextLooksBusinessSetupQuestion(value) {
+  const text = String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
+  if (!text) return false;
+  if (/^(show|find|search|browse|more|list)\b/.test(text)) return false;
+  const setupVerb = /\b(start|setup|set up|create|launch|build|open|register|make)\b/.test(text);
+  const businessTarget = /\b(business|shop|company|store|business profile|profile|emy)\b/.test(text);
+  return setupVerb && businessTarget
+    || /\b(i want to|i need to|help me|can you help|could you help)\b[\s\S]{0,80}\b(set up|setup|start|create|launch|open)\b[\s\S]{0,80}\b(business|shop|company|store|profile)\b/.test(text);
+}
+function storedAskMessageLooksBusinessSetupGuidanceWithCards(message, previousUserMessage = null) {
+  if (!message || message.pending || !Array.isArray(message.results) || !message.results.length) return false;
+  const text = String(message.text || "").toLowerCase();
+  const previousText = String(previousUserMessage && previousUserMessage.text || "").toLowerCase();
+  const answerLooksLikeSetup = /\b(to set up a business|business profile first|create or open a business profile|what to prepare|business name|opening hours|profile image|cover image)\b/.test(text);
+  const answerLooksLikeSearch = /\b(i found|showing them|search area|matches|result cards|product cards|clip cards)\b/.test(text);
+  return !answerLooksLikeSearch && (storedAskTextLooksBusinessSetupQuestion(previousText) || answerLooksLikeSetup);
+}
+function storedAskMessageLooksOldRepeatedGreeting(message) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  return /still here[\s,]*[^.]*\.?\s*you do not need a perfect question/.test(text)
+    || /you do not need a perfect question\.?\s*say the goal in your own words/.test(text);
+}
+function storedAskMessageLooksOldCannedGreeting(message) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  return /\bhi\s+[^,\n.]+,\s*i['’]?m here\.?\s*tell me what you want to move forward\b/.test(text)
+    || /\btell me what you want to move forward:\s*set up or improve a business\b/.test(text)
+    || /\bset up or improve a business,\s*find customers or suppliers,\s*understand your data\b/.test(text);
+}
+function storedAskMessageLooksViewerLocationDefensiveDump(message) {
+  if (!message || message.pending) return false;
+  const text = String(message.text || "").toLowerCase();
+  return /\bwhat i will not use\b/.test(text) && /\bi will not use honey shop's customer list\b/.test(text)
+    || /\byou mean your own customer\/user location, not honey shop\b/.test(text);
+}
+function storedAskTextLooksViewerLocationQuestion() {
+  return false;
+}
+function repairStoredAskMessage(message, previousUserMessage = null) {
+  return message;
+}
+function repairStoredAskChat(chat, role) {
+  return { ...chat, accountRole: chat.accountRole || role };
+}
+function readStoredAskChats() {
+  try {
+    const role = activeAskAccountRole();
+    const scopedKey = scopedAskStorageKey(EMY_ASK_CHATS_KEY, role);
+    const stored = localStorage.getItem(scopedKey) || (role === "customer" ? localStorage.getItem(EMY_ASK_CHATS_KEY) : "");
+    const parsed = stored ? JSON.parse(stored) : [];
+    if (!Array.isArray(parsed)) return [];
+    const repairedChats = parsed.filter((chat) => chat && chat.id && chat.title && Array.isArray(chat.messages)).map((chat) => repairStoredAskChat(chat, role));
+    if (stored && JSON.stringify(parsed) !== JSON.stringify(repairedChats)) {
+      localStorage.setItem(scopedKey, JSON.stringify(repairedChats.slice(0, 50)));
+    }
+    return repairedChats;
+  } catch (error) {
+    return [];
+  }
+}
+function saveStoredAskChats(chats) {
+  try {
+    const role = activeAskAccountRole();
+    const cleanChats = Array.isArray(chats) ? chats.filter((chat) => chat && chat.id && chat.title).map((chat) => repairStoredAskChat(chat, role)).slice(0, 50) : [];
+    localStorage.setItem(scopedAskStorageKey(EMY_ASK_CHATS_KEY, role), JSON.stringify(cleanChats));
+  } catch (error) {}
+}
+function readStoredAskActiveChatId() {
+  try {
+    const role = activeAskAccountRole();
+    return String(localStorage.getItem(scopedAskStorageKey(EMY_ASK_ACTIVE_CHAT_KEY, role)) || localStorage.getItem(EMY_ASK_ACTIVE_CHAT_KEY) || "").trim();
+  } catch (error) {
+    return "";
+  }
+}
+function saveStoredAskActiveChatId(chatId) {
+  try {
+    const cleanId = String(chatId || "").trim();
+    if (!cleanId) return;
+    const role = activeAskAccountRole();
+    localStorage.setItem(scopedAskStorageKey(EMY_ASK_ACTIVE_CHAT_KEY, role), cleanId);
+    if (role === "customer") localStorage.setItem(EMY_ASK_ACTIVE_CHAT_KEY, cleanId);
+  } catch (error) {}
+}
+function normaliseAskLocation(value = {}) {
+  const rawLocation = typeof value.location === "string" ? value.location.trim() : "";
+  const cleanRawLocation = rawLocation && (rawLocation === "Near me" || (rawLocation.length >= 3 && /[A-Za-z0-9]/.test(rawLocation))) ? rawLocation : "";
+  const numericRadius = Number(value.radius);
+  const cleanRadius = Number.isFinite(numericRadius) ? Math.min(10, Math.max(1, Math.round(numericRadius))) : 5;
+  const latitude = Number(value.latitude);
+  const longitude = Number(value.longitude);
+  const cleanSavedLocations = Array.isArray(value.savedLocations)
+    ? value.savedLocations.map((item) => String(item || "").trim()).filter((item) => item.length >= 3 && /[A-Za-z0-9]/.test(item)).filter((item, index, list) => list.findIndex((saved) => saved.toLowerCase() === item.toLowerCase()) === index).slice(0, 5)
+    : [];
+  return {
+    location: cleanRawLocation || "Near me",
+    radius: cleanRadius,
+    savedLocations: cleanSavedLocations,
+    latitude: Number.isFinite(latitude) ? latitude : null,
+    longitude: Number.isFinite(longitude) ? longitude : null,
+    locationLabel: typeof value.locationLabel === "string" ? value.locationLabel.trim() : "",
+    locationSource: value.locationSource === "current" || value.locationSource === "saved" ? value.locationSource : "",
+  };
+}
+function readAskCustomerAccountLocation() {
+  try {
+    const stored = localStorage.getItem("emyCustomerSavedPlaces");
+    const parsed = stored ? JSON.parse(stored) : [];
+    if (!Array.isArray(parsed)) return normaliseAskLocation();
+    const places = parsed
+      .filter((place) => place && typeof place.address === "string" && place.address.trim())
+      .map((place) => ({
+        address: place.address.trim(),
+        radius: Number(place.radius),
+        latitude: Number(place.latitude),
+        longitude: Number(place.longitude),
+      }));
+    if (!places.length) return normaliseAskLocation();
+    const selected = places[0];
+    return normaliseAskLocation({
+      location: selected.address,
+      radius: selected.radius,
+      savedLocations: places.map((place) => place.address),
+      latitude: selected.latitude,
+      longitude: selected.longitude,
+      locationLabel: selected.address,
+      locationSource: "saved",
+    });
+  } catch (error) {
+    return normaliseAskLocation();
+  }
+}
+function readStoredAskLocation(params) {
+  const role = activeAskAccountRole();
+  let current = role === "customer" ? readAskCustomerAccountLocation() : normaliseAskLocation();
+  try {
+    const keys = [
+      scopedAskStorageKey(EMY_ASK_LOCATION_KEY, role),
+      role === "business" ? "emyBusinessAskLocation" : "emyCustomerAskLocation",
+      role === "customer" ? EMY_ASK_LOCATION_KEY : "",
+    ].filter(Boolean);
+    for (const key of keys) {
+      const stored = localStorage.getItem(key);
+      if (!stored) continue;
+      const parsed = normaliseAskLocation(JSON.parse(stored));
+      const hasStoredLocation = parsed.location !== "Near me" || parsed.savedLocations.length > 0 || parsed.latitude !== null || parsed.longitude !== null || parsed.locationSource;
+      if (hasStoredLocation) {
+        current = parsed;
+        break;
+      }
+    }
+  } catch (error) {}
+  if (params && typeof params.get === "function") {
+    const location = params.get("location");
+    const radius = params.get("radius");
+    current = normaliseAskLocation({
+      ...current,
+      location: location || current.location,
+      radius: radius || current.radius,
+    });
+  }
+  return current;
+}
+function saveStoredAskLocation(value) {
+  try {
+    const role = activeAskAccountRole();
+    let previous = normaliseAskLocation();
+    try {
+      const stored = localStorage.getItem(scopedAskStorageKey(EMY_ASK_LOCATION_KEY, role)) || localStorage.getItem(role === "business" ? "emyBusinessAskLocation" : "emyCustomerAskLocation") || (role === "customer" ? localStorage.getItem(EMY_ASK_LOCATION_KEY) : "");
+      if (stored) previous = normaliseAskLocation(JSON.parse(stored));
+    } catch (error) {}
+    const next = normaliseAskLocation({ ...previous, ...value });
+    const hasLatitude = Object.prototype.hasOwnProperty.call(value || {}, "latitude");
+    const hasLongitude = Object.prototype.hasOwnProperty.call(value || {}, "longitude");
+    if ((!hasLatitude || !hasLongitude) && previous.location !== next.location) {
+      next.latitude = null;
+      next.longitude = null;
+    }
+    localStorage.setItem(scopedAskStorageKey(EMY_ASK_LOCATION_KEY, role), JSON.stringify(next));
+    localStorage.setItem(role === "business" ? "emyBusinessAskLocation" : "emyCustomerAskLocation", JSON.stringify(next));
+    if (role === "customer") localStorage.setItem(EMY_ASK_LOCATION_KEY, JSON.stringify(next));
+  } catch (error) {}
+}
+function readStoredAskSidebarOpen(params) {
+  let isOpen = false;
+  try {
+    isOpen = localStorage.getItem(EMY_ASK_SIDEBAR_KEY) === "open";
+  } catch (error) {}
+  if (params && typeof params.get === "function") {
+    const value = params.get("sidebar");
+    if (value === "open") isOpen = true;
+    if (value === "closed") isOpen = false;
+  }
+  return readStoredAskSidebarPinned() || isOpen;
+}
+function saveStoredAskSidebarOpen(isOpen) {
+  try {
+    localStorage.setItem(EMY_ASK_SIDEBAR_KEY, isOpen ? "open" : "closed");
+  } catch (error) {}
+}
+function readStoredAskSidebarPinned() {
+  try {
+    return localStorage.getItem(EMY_ASK_SIDEBAR_PINNED_KEY) === "pinned";
+  } catch (error) {
+    return false;
+  }
+}
+function saveStoredAskSidebarPinned(isPinned) {
+  try {
+    localStorage.setItem(EMY_ASK_SIDEBAR_PINNED_KEY, isPinned ? "pinned" : "unpinned");
+  } catch (error) {}
+}
+function askResultsUrl(query, chatId, location, radius, sidebarOpen) {
+  const params = new URLSearchParams();
+  if (query) params.set("q", query);
+  if (chatId) params.set("chat", chatId);
+  params.set("location", location || "Near me");
+  params.set("radius", String(radius || 5));
+  if (typeof sidebarOpen === "boolean") params.set("sidebar", sidebarOpen ? "open" : "closed");
+  return "ask-emy-results.html?" + params.toString();
+}
+function askHomeUrl(location, radius, sidebarOpen) {
+  const params = new URLSearchParams();
+  params.set("location", location || "Near me");
+  params.set("radius", String(radius || 5));
+  if (typeof sidebarOpen === "boolean") params.set("sidebar", sidebarOpen ? "open" : "closed");
+  return "ask-emy.html?" + params.toString();
+}
+function getAskGreetingPlaceholder() {
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? "good morning" : hour < 18 ? "good afternoon" : "good evening";
+  return "Hello, " + greeting + "! How can I help you? \u{1F60A}";
+}
+
+function App() {
+  const initialAskLocation = useMemo(() => readStoredAskLocation(new URLSearchParams(window.location.search)), []);
+  const [location, setLocation] = useState(initialAskLocation.location);
+  const [radius, setRadius] = useState(initialAskLocation.radius);
+  const [savedLocations, setSavedLocations] = useState(initialAskLocation.savedLocations);
+  useEffect(() => { saveStoredAskLocation({ location, radius, savedLocations }); }, [location, radius, savedLocations]);
+  const [authModal, setAuthModal] = useState(null);
+  const initialSidebarOpen = useMemo(() => readStoredAskSidebarOpen(new URLSearchParams(window.location.search)), []);
+  const [menuOpen, setMenuOpen] = useState(initialSidebarOpen);
+  const [sidebarPinned, setSidebarPinned] = useState(() => readStoredAskSidebarPinned());
+  const toggleSidebarPinned = () => {
+    setSidebarPinned((current) => {
+      const next = !current;
+      saveStoredAskSidebarPinned(next);
+      if (next) setMenuOpen(true);
+      return next;
+    });
+  };
+  const [user, setUser] = useState(() => readStoredAskUser());
+  const [authPrompt, setAuthPrompt] = useState(false);
+  const [chats, setChats] = useState(() => readStoredAskChats());
+  useEffect(() => { if (sidebarPinned && !menuOpen) setMenuOpen(true); }, [sidebarPinned, menuOpen]);
+  useEffect(() => { if (menuOpen) setChats(readStoredAskChats()); }, [menuOpen]);
+  useEffect(() => { saveStoredAskSidebarOpen(Boolean(menuOpen || sidebarPinned)); }, [menuOpen, sidebarPinned]);
+  const suggestions = ["Best local services today", "Shops open now", "Businesses with offers"];
+  const requireAuthForSearch = () => setAuthPrompt(true);
+  const loginUser = (email) => { const nextUser = makeAskUserFromLogin(email); setUser(nextUser); saveStoredAskUser(nextUser); setAuthModal(null); };
+  const logoutUser = () => { goToEmyLogin(); };
+  const startNewChat = () => { saveStoredAskSidebarOpen(menuOpen); window.location.href = askHomeUrl(location, radius, menuOpen); };
+  const openSavedChat = (chatId) => { saveStoredAskSidebarOpen(menuOpen); window.location.href = "ask-emy-results.html?chat=" + encodeURIComponent(chatId) + "&location=" + encodeURIComponent(location) + "&radius=" + encodeURIComponent(radius) + "&sidebar=" + (menuOpen ? "open" : "closed"); };
+  const deleteSavedChat = (chatId) => { setChats((current) => { const next = current.filter((chat) => chat.id !== chatId); saveStoredAskChats(next); return next; }); };
+  const toggleSavedChatPin = (chatId) => { setChats((current) => { const next = current.map((chat) => chat.id === chatId ? { ...chat, pinned: !chat.pinned } : chat); saveStoredAskChats(next); return next; }); };
+  const goToEmyAccount = () => { goToEmyProfile(); };
+  const switchAskAccount = (role) => {
+    const nextUser = switchEmyAskAccount(role);
+    const nextLocation = readStoredAskLocation(new URLSearchParams(window.location.search));
+    setUser(nextUser || readStoredAskUser());
+    setLocation(nextLocation.location);
+    setRadius(nextLocation.radius);
+    setSavedLocations(nextLocation.savedLocations);
+    setChats(readStoredAskChats());
+    setMenuOpen(true);
+  };
+
+  return (
+    <div className="relative min-h-screen overflow-visible bg-[#fbfaf8] text-[#001B47] antialiased" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <style>{styles}</style>
+      <div className="pointer-events-none absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-orange-100/60 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 top-36 h-80 w-80 rounded-full bg-orange-200/40 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-20 h-80 w-80 rounded-full bg-[#001B47]/5 blur-3xl" />
+      <LoggedInMenu isOpen={menuOpen} onClose={() => { if (!sidebarPinned) setMenuOpen(false); }} isPinned={sidebarPinned} onTogglePinned={toggleSidebarPinned} user={user} onLogout={logoutUser} onNewChat={startNewChat} chats={chats} activeChatId={null} onOpenChat={openSavedChat} onDeleteChat={deleteSavedChat} onTogglePin={toggleSavedChatPin} onAccount={goToEmyAccount} onSwitchAccount={switchAskAccount} />
+      <Header onAuth={setAuthModal} user={user} onLogout={logoutUser} onToggleMenu={() => setMenuOpen((current) => sidebarPinned ? true : !current)} isMenuOpen={menuOpen} onAccount={goToEmyAccount} />
+      <div className={`relative z-10 transition-all duration-300 ${user && menuOpen ? "pr-[320px]" : "pr-0"}`}>
+        <main className="flex min-h-screen flex-col items-center justify-center px-5 pb-28 pt-28 md:pt-32">
+          <section className="emy-visual-center mx-auto w-full max-w-5xl text-center">
+            <div className="mx-auto flex flex-col items-center justify-center gap-4"><div className="inline-flex items-center justify-center gap-2"><span className="text-[15px] font-extrabold leading-none tracking-[-0.02em] text-[#001B47]/75 md:text-base">Ask</span><span className="h-7 w-px rounded-full bg-[#d7dbe5]" /><Logo small /><a href="about-ask-emy.html" aria-label="About Ask EMY" className="group relative flex h-12 w-12 shrink-0 items-center justify-center overflow-visible">
+          <span className="pointer-events-none absolute bottom-full left-1/2 z-[120] mb-2 w-48 -translate-x-1/2 translate-y-2 rounded-2xl border border-orange-200 bg-white/95 px-3 py-2 text-left text-xs font-bold leading-snug text-[#001B47] opacity-0 shadow-xl shadow-[#001B47]/10 backdrop-blur transition group-hover:translate-y-0 group-hover:opacity-100">Hi, I'm EMY. Click me to find out more about me.</span>
+          <svg className="h-12 w-12 animate-bounce drop-shadow-xl transition group-hover:scale-110" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.9 8.1c.35-1.08 1.36-1.8 2.5-1.8h5.2c1.14 0 2.15.72 2.5 1.8l1.7 8.7c.35 1.78-1.01 3.45-2.82 3.45H8.02c-1.81 0-3.17-1.67-2.82-3.45l1.7-8.7Z" fill="#f76512" stroke="#cf5200" strokeLinejoin="round" strokeWidth="1"/><path d="M15.9 6.55c.58.35 1.02.9 1.2 1.55l1.7 8.7c.29 1.48-.6 2.88-1.96 3.32l-.98-.08c.74-.62 1.04-1.6.82-2.72l-1.25-6.7c-.28-1.5-.1-2.8.47-4.07Z" fill="#ad3e00" opacity=".2"/><path d="M6.35 10.05c2.15.62 4.02.48 5.66-.3 1.78-.85 3.62-.92 5.46-.22l.38 1.84c-2.32-.78-4.28-.63-6.04.22-1.62.78-3.45.9-5.78.28l.32-1.82Z" fill="#ffb067" opacity=".34"/><path d="M8.8 6.35c.32-1.92 1.42-3 3.2-3s2.88 1.08 3.2 3" stroke="#fff" strokeLinecap="round" strokeWidth="1.18" opacity=".9"/><path d="M9.25 13.2c.46-.36.92-.36 1.38 0" stroke="#fff" strokeLinecap="round" strokeWidth="1.02" opacity=".96"/><path d="M13.37 13.2c.46-.36.92-.36 1.38 0" stroke="#fff" strokeLinecap="round" strokeWidth="1.02" opacity=".96"/><path d="M9.8 15.82c1.34.94 3.06.94 4.4 0" stroke="#fff" strokeLinecap="round" strokeWidth="1.18" opacity=".96"/></svg>
+        </a></div><p className="rounded-full border border-orange-100 bg-orange-50 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-orange-500">{copy.beta}</p></div>
+            <p className="mx-auto mt-5 max-w-3xl px-3 text-center text-sm font-semibold leading-6 text-[#001B47]/56 md:text-[15px]">{copy.heroText}</p>
+            <SearchBar location={location} setLocation={setLocation} radius={radius} setRadius={setRadius} savedLocations={savedLocations} setSavedLocations={setSavedLocations} user={user} onAuthRequired={requireAuthForSearch} sidebarOpen={menuOpen} />
+            <div className="relative z-0 mx-auto mt-7 flex max-w-4xl flex-wrap items-center justify-center gap-3 opacity-80">{suggestions.map((item) => <button key={item} type="button" onClick={() => { if (!user) { requireAuthForSearch(); return; } const chatId = createAskChatId(); saveStoredAskLocation({ location, radius, savedLocations }); saveStoredAskSidebarOpen(menuOpen); window.location.href = askResultsUrl(item, chatId, location, radius, menuOpen); }} className="pointer-events-auto cursor-pointer rounded-full border border-[#001B47]/8 bg-white/55 px-5 py-3 text-sm font-bold text-[#001B47]/50 shadow-sm backdrop-blur hover:bg-orange-50 hover:text-orange-600">{item}</button>)}</div>
+            <p className="mt-8 px-5 text-center text-sm font-semibold text-[#001B47]/45">{copy.footerStart} <a href="terms.html" className="font-black text-[#001B47] underline decoration-orange-300 decoration-2 underline-offset-4 hover:text-orange-600">{copy.terms}</a> {copy.and} <a href="privacy.html" className="font-black text-[#001B47] underline decoration-orange-300 decoration-2 underline-offset-4 hover:text-orange-600">{copy.privacy}</a>.</p>
+          </section>
+        </main>
+      </div>
+      {authPrompt && <AuthRequiredPrompt onClose={() => setAuthPrompt(false)} onSignIn={() => { setAuthPrompt(false); setAuthModal("signin"); }} onSignUp={() => { setAuthPrompt(false); setAuthModal("signup"); }} />}
+      {authModal && <AuthModal type={authModal} onClose={() => setAuthModal(null)} onSwitch={setAuthModal} onLogin={loginUser} />}
+    </div>
+  );
+}
+
+function __LinkedEMYPage() {
+
+  return <App />;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<__LinkedEMYPage />);
+    </script>
+      <script defer src="assets/emy-item-detail-options-enhancer.js" data-emy-item-detail-options-enhancer></script>
+      <script defer src="assets/emy-clip-scroll-restart.js" data-emy-clip-scroll-restart></script>
+      <script defer src="assets/emy-modal-close-guard.js" data-emy-modal-close-guard></script>
+      <script defer src="assets/emy-account-session-nav.js" data-emy-account-session-nav></script>
+      <script defer src="assets/emy-video-controls-enhancer.js" data-emy-video-controls-enhancer></script>
+  
+    <link rel="stylesheet" href="assets/emy-business-like-sync.css" data-emy-business-like-style />
+    <script defer src="assets/emy-business-like-sync.js" data-emy-business-like-sync></script>
+    <link rel="stylesheet" href="assets/emy-product-mascot-like.css" data-emy-product-mascot-like-style />
+    <script defer src="assets/emy-product-mascot-like.js" data-emy-product-mascot-like-sync></script>
+    <script defer src="assets/emy-post-profile-circle-removal.js?v=fcdbbf010030" data-emy-post-profile-circle-removal></script>
+
+  </body>
+</html>

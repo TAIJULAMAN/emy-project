@@ -1,0 +1,38 @@
+.business-like-button {
+        transition: border-color .16s ease, background .16s ease, color .16s ease, box-shadow .16s ease, transform .16s ease;
+      }
+      .business-like-button:active {
+        transform: scale(.97);
+      }
+      .business-like-button strong,
+      .business-like-button .emy-business-like-icon {
+        transition: opacity .12s ease, transform .12s ease;
+      }
+      .emy-business-like-icon {
+        display: inline-grid;
+        place-items: center;
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        overflow: visible;
+        border-radius: 5px;
+        flex-shrink: 0;
+      }
+      .emy-business-like-icon svg,
+      .emy-business-like-bag {
+        display: block;
+        width: 20px;
+        height: 20px;
+        overflow: visible;
+        object-fit: contain;
+      }
+      .business-like-button.is-liked .emy-business-like-icon svg,
+      .business-like-button.is-active .emy-business-like-icon svg {
+        animation: emyBusinessLikeBagHello .72s ease-in-out both;
+      }
+      @keyframes emyBusinessLikeBagHello {
+        0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+        28% { transform: translateY(-3px) rotate(-8deg) scale(1.08); }
+        54% { transform: translateY(1px) rotate(7deg) scale(.98); }
+        78% { transform: translateY(-1px) rotate(-3deg) scale(1.03); }
+      }
