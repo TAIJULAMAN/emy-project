@@ -1,0 +1,85 @@
+.clip-viewer-side {
+      align-self: center;
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+      min-width: 0;
+      max-width: 392px;
+    }
+    .clip-viewer-side .clip-viewer-info {
+      width: 100%;
+    }
+    .clip-viewer-frame { position: relative; }
+    .clip-viewer-like-chip {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      z-index: 11;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      max-width: calc(100% - 34px);
+      border: 1px solid rgba(255,106,0,.34);
+      border-radius: 999px;
+      background: rgba(255,255,255,.96);
+      color: #d85a00;
+      cursor: pointer;
+      padding: 0 13px 0 9px;
+      font: 850 13px/1 Inter, Arial, sans-serif;
+      letter-spacing: 0;
+      box-shadow: 0 18px 36px rgba(0,27,71,.18), 0 12px 28px rgba(255,106,0,.12);
+      transform: none;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+    }
+    .clip-viewer-like-chip:hover {
+      border-color: rgba(255,106,0,.56);
+      background: #fff7ef;
+      transform: translateY(-1px);
+    }
+    .clip-viewer-like-chip.is-active {
+      background: #fff4e8;
+      border-color: rgba(255,106,0,.48);
+      color: #c14f00;
+    }
+    .clip-viewer-like-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      overflow: hidden;
+      border-radius: 7px;
+    }
+    .clip-viewer-like-icon svg,
+    .clip-viewer-like-icon img {
+      display: block;
+      width: 24px;
+      height: 24px;
+      overflow: visible;
+      object-fit: contain;
+    }
+    .clip-viewer-like-chip.is-bouncing .clip-viewer-like-icon svg,
+    .clip-viewer-like-chip.is-bouncing .clip-viewer-like-icon img {
+      animation: emyClipMascotLikeBounce .72s ease-in-out both;
+    }
+    .clip-viewer-like-label,
+    .clip-viewer-like-count {
+      white-space: nowrap;
+    }
+    .clip-viewer-like-count {
+      min-width: 8px;
+      font-weight: 900;
+    }
+    @keyframes emyClipMascotLikeBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      28% { transform: translateY(-4px) rotate(-8deg) scale(1.1); }
+      54% { transform: translateY(1px) rotate(7deg) scale(.98); }
+      78% { transform: translateY(-1px) rotate(-3deg) scale(1.04); }
+    }
+    @media (max-width: 680px) {
+      .clip-viewer-side { position: absolute; left: 18px; right: 82px; bottom: 24px; z-index: 5; max-width: none; gap: 8px; pointer-events: none; }
+      .clip-viewer-side .clip-viewer-info { position: static !important; left: auto !important; right: auto !important; bottom: auto !important; max-width: none !important; }
+      .clip-viewer-like-chip { min-height: 42px; gap: 7px; padding: 0 11px 0 8px; font-size: 12.5px; pointer-events: auto; }
+    }

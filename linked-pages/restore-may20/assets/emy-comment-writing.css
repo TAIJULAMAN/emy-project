@@ -1,0 +1,157 @@
+.item-product-comments .item-product-section-title,
+      .clip-viewer-comments-title,
+      .clip-viewer-comments-head strong {
+        color: var(--emy-navy, #001b47) !important;
+        font-family: inherit !important;
+        font-size: 17px !important;
+        line-height: 1.25 !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+      }
+      .item-product-comments .item-product-section-title strong,
+      .clip-viewer-comments-title b {
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+      }
+      .item-product-comments .item-product-section-title span,
+      .item-product-comments [data-item-product-comment-total],
+      [data-feed-comment-total],
+      .clip-viewer-comments-title span,
+      .social-feed-comments-link {
+        color: #667085 !important;
+        font-family: inherit !important;
+        font-size: 12px !important;
+        line-height: 1.25 !important;
+        font-weight: 500 !important;
+        letter-spacing: 0 !important;
+      }
+      .item-product-comments .item-product-section-note {
+        color: #667085 !important;
+        font-family: inherit !important;
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-comment-bubble,
+      .feed-comment-reply-bubble,
+      .annexed-feed-middle .social-feed-card .feed-comment-bubble,
+      .home-created-card .feed-comment-bubble,
+      .home-created-card .feed-comment-reply-bubble,
+      [data-unified-feed-cards="true"] .feed-comment-bubble,
+      [data-unified-feed-cards="true"] .feed-comment-reply-bubble,
+      .results .feed-comment-bubble,
+      .results .feed-comment-reply-bubble,
+      .item-product-comment-bubble,
+      .item-product-comment-text,
+      .item-product-comment-reply-row .item-product-comment-bubble,
+      .clip-viewer-comment-bubble,
+      .clip-viewer-comment-bubble [data-clip-comment-text],
+      .clip-viewer-comment-bubble [data-clip-comment-reply-text] {
+        color: #344054 !important;
+        font-family: inherit !important;
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-comment-bubble strong,
+      .feed-comment-reply-bubble strong,
+      .annexed-feed-middle .social-feed-card .feed-comment-bubble strong,
+      .home-created-card .feed-comment-bubble strong,
+      .home-created-card .feed-comment-reply-bubble strong,
+      [data-unified-feed-cards="true"] .feed-comment-bubble strong,
+      [data-unified-feed-cards="true"] .feed-comment-reply-bubble strong,
+      .results .feed-comment-bubble strong,
+      .results .feed-comment-reply-bubble strong,
+      .item-product-comment-bubble strong,
+      .clip-viewer-comment-bubble strong {
+        color: var(--emy-navy, #001b47) !important;
+        font-family: inherit !important;
+        font-size: 12px !important;
+        line-height: 1.22 !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-comment-actions,
+      .item-product-comment-actions,
+      .clip-viewer-comment-actions {
+        color: #7a869e !important;
+        font-family: inherit !important;
+        font-size: 11px !important;
+        line-height: 1 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-comment-actions button,
+      .item-product-comment-actions button,
+      .clip-viewer-comment-actions button,
+      [data-emy-comment-replies-toggle] {
+        font-family: inherit !important;
+        font-weight: 500 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-comment-action-count,
+      .item-product-comment-actions [data-item-product-comment-like-count],
+      .item-product-comment-actions [data-item-product-comment-dislike-count],
+      .clip-viewer-comment-actions [data-clip-comment-like-count],
+      .clip-viewer-comment-actions [data-clip-comment-dislike-count],
+      .clip-viewer-comment-actions [data-clip-reply-like-count],
+      .clip-viewer-comment-actions [data-clip-reply-dislike-count] {
+        color: #7a869e !important;
+        font-family: inherit !important;
+        font-size: 11px !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-comment-form input,
+      .feed-comment-form textarea,
+      .feed-comment-reply-form input,
+      .feed-comment-reply-form textarea,
+      .item-product-comment-preview input,
+      .item-product-comment-preview textarea,
+      .item-product-comment-reply-form input,
+      .item-product-comment-reply-form textarea,
+      .item-product-comment-edit-field,
+      .item-product-chat-edit-field,
+      .clip-viewer-comment-form input,
+      .clip-viewer-comment-form textarea,
+      .clip-viewer-comment-reply-form input,
+      .clip-viewer-comment-reply-form textarea,
+      .clip-viewer-comment-edit-field,
+      [data-feed-comment-edit-field] {
+        color: #344054 !important;
+        font-family: inherit !important;
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-comment-form input::placeholder,
+      .feed-comment-form textarea::placeholder,
+      .feed-comment-reply-form input::placeholder,
+      .feed-comment-reply-form textarea::placeholder,
+      .item-product-comment-preview input::placeholder,
+      .item-product-comment-preview textarea::placeholder,
+      .item-product-comment-reply-form input::placeholder,
+      .item-product-comment-reply-form textarea::placeholder,
+      .clip-viewer-comment-form input::placeholder,
+      .clip-viewer-comment-form textarea::placeholder,
+      .clip-viewer-comment-reply-form input::placeholder,
+      .clip-viewer-comment-reply-form textarea::placeholder {
+        color: #8a94a8 !important;
+        font-family: inherit !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+        opacity: 1 !important;
+      }
+      .feed-comment-form button,
+      .feed-comment-reply-form button,
+      .item-product-comment-preview button,
+      .item-product-comment-reply-form button,
+      .clip-viewer-comment-form button,
+      .clip-viewer-comment-reply-form button {
+        font-family: inherit !important;
+        font-weight: 600 !important;
+        letter-spacing: 0 !important;
+      }

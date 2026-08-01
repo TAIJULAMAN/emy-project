@@ -1,0 +1,226 @@
+@media (max-width: 819px) {
+        html,
+        body {
+          max-width: 100% !important;
+          overflow-x: hidden !important;
+        }
+        .phone,
+        .app-content,
+        .annexed-feed-middle,
+        [data-annexed-feed-list],
+        .annexed-feed-middle .feed-list,
+        .feed-list {
+          max-width: 100% !important;
+          min-width: 0 !important;
+          overflow-x: clip !important;
+        }
+        .annexed-feed-middle .feed-list:not(.is-product-grid):not(.is-clip-grid),
+        [data-annexed-feed-list]:not(.is-product-grid):not(.is-clip-grid) {
+          width: 100% !important;
+          grid-template-columns: minmax(0, 1fr) !important;
+          justify-content: stretch !important;
+          justify-items: stretch !important;
+        }
+        .annexed-feed-middle .feed-list > .feed-card,
+        .annexed-feed-middle .feed-list > .social-feed-card,
+        .annexed-feed-middle .feed-list > .post-card,
+        .annexed-feed-middle .feed-list > .home-created-card,
+        .annexed-feed-middle .feed-list > [data-feed-id],
+        [data-annexed-feed-list] > .feed-card,
+        [data-annexed-feed-list] > .social-feed-card,
+        [data-annexed-feed-list] > .post-card,
+        [data-annexed-feed-list] > .home-created-card,
+        [data-annexed-feed-list] > [data-feed-id] {
+          width: 100% !important;
+          max-width: 100% !important;
+          min-width: 0 !important;
+          justify-self: stretch !important;
+        }
+        .annexed-feed-middle .feed-media,
+        .annexed-feed-middle .social-feed-media,
+        .annexed-feed-middle .home-created-media,
+        .feed-media-carousel,
+        .feed-media-carousel-slide,
+        .feed-media-carousel-slide img,
+        .feed-media-carousel-slide video,
+        .feed-media-carousel-slide .emy-video-player {
+          max-width: 100% !important;
+          min-width: 0 !important;
+        }
+        .feed-media-carousel {
+          width: 100% !important;
+          overflow: hidden !important;
+        }
+      }
+      @supports not (overflow: clip) {
+        @media (max-width: 819px) {
+          .phone,
+          .app-content,
+          .annexed-feed-middle,
+          [data-annexed-feed-list],
+          .annexed-feed-middle .feed-list,
+          .feed-list {
+            overflow-x: hidden !important;
+          }
+        }
+      }
+      .annexed-feed-middle .feed-list.is-clip-grid,
+      .feed-list.is-clip-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: min(100%, 344px) !important;
+        justify-content: center !important;
+        align-items: start !important;
+        gap: 18px !important;
+      }
+      .annexed-feed-middle .feed-list .feed-clip-card,
+      .annexed-feed-middle .feed-list .feed-product-clip-card,
+      .feed-list.is-clip-grid > .feed-clip-card,
+      .feed-list.is-clip-grid > .feed-product-clip-card {
+        width: min(322px, 100%) !important;
+        min-height: clamp(472px, 146vw, 572px) !important;
+        justify-self: center !important;
+      }
+      .annexed-feed-middle .feed-list .social-feed-card.is-clip,
+      .feed-list.is-clip-grid > .social-feed-card.is-clip {
+        width: min(322px, 100%) !important;
+        min-width: 0 !important;
+        justify-self: center !important;
+      }
+      .annexed-feed-middle .feed-list .social-feed-card.is-clip .social-feed-media,
+      .feed-list.is-clip-grid > .social-feed-card.is-clip .social-feed-media {
+        min-height: clamp(472px, 146vw, 572px) !important;
+        aspect-ratio: 9 / 16 !important;
+      }
+      .annexed-feed-middle .social-feed-card.is-repost .social-feed-repost-note,
+      .feed-list .social-feed-card.is-repost .social-feed-repost-note,
+      [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-repost-note,
+      .business-posted-list .social-feed-card.is-repost .social-feed-repost-note,
+      .customer-public-activity-track .social-feed-card.is-repost .social-feed-repost-note {
+        margin: 8px 12px 2px !important;
+        box-sizing: border-box !important;
+      }
+      .annexed-feed-middle .social-feed-card.is-repost .social-feed-caption,
+      .feed-list .social-feed-card.is-repost .social-feed-caption,
+      [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-caption,
+      .business-posted-list .social-feed-card.is-repost .social-feed-caption,
+      .customer-public-activity-track .social-feed-card.is-repost .social-feed-caption {
+        margin: 8px 12px 3px !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow-wrap: anywhere !important;
+      }
+      .annexed-feed-middle .social-feed-card.is-repost .social-feed-quote,
+      .annexed-feed-middle .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+      .feed-list .social-feed-card.is-repost .social-feed-quote,
+      .feed-list .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+      [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-quote,
+      [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+      .business-posted-list .social-feed-card.is-repost .social-feed-quote,
+      .business-posted-list .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+      .customer-public-activity-track .social-feed-card.is-repost .social-feed-quote,
+      .customer-public-activity-track .social-feed-card.is-repost .social-feed-quote.feed-profile-link {
+        width: auto !important;
+        max-width: calc(100% - 24px) !important;
+        margin: 8px 12px 10px !important;
+        padding: 12px !important;
+        box-sizing: border-box !important;
+      }
+      .annexed-feed-middle .social-feed-card.is-repost .social-feed-quote-title,
+      .annexed-feed-middle .social-feed-card.is-repost .social-feed-quote-text,
+      .feed-list .social-feed-card.is-repost .social-feed-quote-title,
+      .feed-list .social-feed-card.is-repost .social-feed-quote-text,
+      [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-quote-title,
+      [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-quote-text,
+      .business-posted-list .social-feed-card.is-repost .social-feed-quote-title,
+      .business-posted-list .social-feed-card.is-repost .social-feed-quote-text,
+      .customer-public-activity-track .social-feed-card.is-repost .social-feed-quote-title,
+      .customer-public-activity-track .social-feed-card.is-repost .social-feed-quote-text {
+        overflow-wrap: anywhere !important;
+      }
+      .annexed-feed-middle .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+      .feed-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+      [data-unified-feed-cards="true"] .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+      .business-posted-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+      .customer-public-activity-track .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media) {
+        width: auto !important;
+        max-width: calc(100% - 24px) !important;
+        margin-left: 12px !important;
+        margin-right: 12px !important;
+        margin-bottom: 6px !important;
+        border-radius: 10px !important;
+        box-sizing: border-box !important;
+      }
+      .annexed-feed-middle .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+      .feed-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+      [data-unified-feed-cards="true"] .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+      .business-posted-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+      .customer-public-activity-track .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments {
+        margin: 10px 12px 12px !important;
+        border: 1px solid rgba(0,27,71,.07) !important;
+        border-radius: 10px !important;
+        box-sizing: border-box !important;
+      }
+      @media (max-width: 420px) {
+        .annexed-feed-middle .social-feed-card.is-repost .social-feed-repost-note,
+        .feed-list .social-feed-card.is-repost .social-feed-repost-note,
+        [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-repost-note,
+        .business-posted-list .social-feed-card.is-repost .social-feed-repost-note,
+        .customer-public-activity-track .social-feed-card.is-repost .social-feed-repost-note {
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+        }
+        .annexed-feed-middle .social-feed-card.is-repost .social-feed-caption,
+        .feed-list .social-feed-card.is-repost .social-feed-caption,
+        [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-caption,
+        .business-posted-list .social-feed-card.is-repost .social-feed-caption,
+        .customer-public-activity-track .social-feed-card.is-repost .social-feed-caption {
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+        }
+        .annexed-feed-middle .social-feed-card.is-repost .social-feed-quote,
+        .annexed-feed-middle .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+        .feed-list .social-feed-card.is-repost .social-feed-quote,
+        .feed-list .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+        [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-quote,
+        [data-unified-feed-cards="true"] .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+        .business-posted-list .social-feed-card.is-repost .social-feed-quote,
+        .business-posted-list .social-feed-card.is-repost .social-feed-quote.feed-profile-link,
+        .customer-public-activity-track .social-feed-card.is-repost .social-feed-quote,
+        .customer-public-activity-track .social-feed-card.is-repost .social-feed-quote.feed-profile-link {
+          max-width: calc(100% - 20px) !important;
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+          padding: 11px !important;
+        }
+        .annexed-feed-middle .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+        .feed-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+        [data-unified-feed-cards="true"] .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+        .business-posted-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media),
+        .customer-public-activity-track .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .social-feed-media:not(.social-feed-quote-media) {
+          max-width: calc(100% - 20px) !important;
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+        }
+        .annexed-feed-middle .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+        .feed-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+        [data-unified-feed-cards="true"] .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+        .business-posted-list .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments,
+        .customer-public-activity-track .social-feed-card:not(.is-clip):not(.reel-card):not(.feed-clip-card):not(.feed-product-clip-card) > .feed-comments {
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+        }
+      }
+      @media (max-width: 380px) {
+        .annexed-feed-middle .feed-list.is-clip-grid,
+        .feed-list.is-clip-grid {
+          width: 100% !important;
+        }
+        .annexed-feed-middle .feed-list .feed-clip-card,
+        .annexed-feed-middle .feed-list .feed-product-clip-card,
+        .feed-list.is-clip-grid > .feed-clip-card,
+        .feed-list.is-clip-grid > .feed-product-clip-card,
+        .annexed-feed-middle .feed-list .social-feed-card.is-clip,
+        .feed-list.is-clip-grid > .social-feed-card.is-clip {
+          width: min(322px, 100%) !important;
+        }
+      }

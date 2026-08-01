@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" data-emy-font-inter-async />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-emy-font-inter-async />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" data-emy-font-inter-async />
+    <noscript data-emy-font-inter-async><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+<title>EMY | Terms</title>
+    <script>
+      (function () {
+        try {
+          if (new URLSearchParams(window.location.search || '').has('emyAuth')) {
+            document.documentElement.setAttribute('data-emy-auth-pending', 'true');
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="assets/vendor/tailwindcss.js"></script>
+    <script src="auth-config.js"></script>
+    <script crossorigin src="assets/vendor/react.production.min.js"></script>
+    <script crossorigin src="assets/vendor/react-dom.production.min.js"></script>
+    <script src="assets/vendor/babel.min.js"></script>
+    <script src="assets/emy-babel-classic-preset.js"></script>
+    <style>
+      :root { --emy-page-scale: 0.85; --emy-page-shift: clamp(-220px, -10vw, -88px); }
+      html { scroll-behavior: smooth; background: #fbfaf8; }
+      body { margin: 0; min-height: 100vh; overflow-x: hidden; background: #fbfaf8; }
+      #root { min-height: 100vh; width: 100%; }
+      html[data-emy-auth-pending="true"],
+      html[data-emy-auth-pending="true"] body { background: #fff8ef; }
+      html[data-emy-auth-pending="true"] #root { visibility: hidden; }
+      #root .font-black,
+      #root .font-extrabold { font-weight: 700 !important; }
+      #root .font-bold { font-weight: 600 !important; }
+      #root .font-semibold { font-weight: 500 !important; }
+      #root [class~="text-7xl"] { font-size: 4rem !important; line-height: 1.04 !important; }
+      #root [class~="text-6xl"] { font-size: 3.4rem !important; line-height: 1.05 !important; }
+      #root [class~="text-5xl"] { font-size: 2.8rem !important; line-height: 1.08 !important; }
+      #root [class~="text-4xl"] { font-size: 2.15rem !important; line-height: 1.14 !important; }
+      #root [class~="rounded-3xl"],
+      #root [class*="rounded-[2"],
+      #root [class*="rounded-[3"],
+      #root [class*="rounded-[4"] { border-radius: 1.25rem !important; }
+      #root [class~="rounded-2xl"],
+      #root [class*="rounded-[1.5"] { border-radius: 0.9rem !important; }
+      #root [class~="p-10"] { padding: 1.75rem !important; }
+      #root [class~="p-8"] { padding: 1.5rem !important; }
+      #root [class~="p-7"] { padding: 1.35rem !important; }
+      #root [class~="p-6"] { padding: 1.2rem !important; }
+      #root [class~="px-10"] { padding-left: 1.75rem !important; padding-right: 1.75rem !important; }
+      #root [class~="px-8"] { padding-left: 1.45rem !important; padding-right: 1.45rem !important; }
+      #root [class~="px-6"] { padding-left: 1.2rem !important; padding-right: 1.2rem !important; }
+      #root [class~="py-6"] { padding-top: 1.05rem !important; padding-bottom: 1.05rem !important; }
+      #root [class~="py-5"] { padding-top: 0.9rem !important; padding-bottom: 0.9rem !important; }
+      #root [class~="py-4"] { padding-top: 0.78rem !important; padding-bottom: 0.78rem !important; }
+      #root .shadow-2xl { box-shadow: 0 18px 45px rgba(0, 27, 71, 0.10) !important; }
+      #root .shadow-xl { box-shadow: 0 12px 32px rgba(0, 27, 71, 0.08) !important; }
+      #root .shadow-lg { box-shadow: 0 8px 20px rgba(0, 27, 71, 0.07) !important; }
+      .emy-fullscreen-cover {
+        width: 100vw;
+        height: 100dvh;
+      }
+      .emy-visual-center {
+        position: relative;
+      }
+      @media (min-width: 768px) {
+        #root {
+          width: calc(100% / var(--emy-page-scale));
+          min-height: calc(100vh / var(--emy-page-scale));
+          margin-left: var(--emy-page-shift);
+          zoom: var(--emy-page-scale);
+        }
+        .emy-fullscreen-cover {
+          width: calc(100vw / var(--emy-page-scale));
+          height: calc(100dvh / var(--emy-page-scale));
+        }
+        #root [class~="md:text-7xl"] { font-size: 4.15rem !important; line-height: 1.04 !important; }
+        #root [class~="md:text-6xl"] { font-size: 3.55rem !important; line-height: 1.06 !important; }
+        #root [class~="md:text-5xl"] { font-size: 2.85rem !important; line-height: 1.12 !important; }
+        #root [class~="md:p-12"] { padding: 2.1rem !important; }
+        #root [class~="md:p-10"] { padding: 1.85rem !important; }
+        #root [class~="md:p-9"] { padding: 1.7rem !important; }
+        #root [class~="md:p-8"] { padding: 1.55rem !important; }
+      }
+    </style>
+      <link rel="stylesheet" href="assets/emy-responsive-hover.css" data-emy-responsive-hover-style />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" data-presets="emy-react-classic">
+const { useEffect, useMemo, useRef, useState } = React;
+
+function __targetForEMYLabel(label) {
+  const text = String(label || '').trim().toLowerCase();
+  if (!text) return null;
+  if (text === 'home') return 'index.html';
+  if (text === 'about' || text === 'about us') return 'about.html';
+  if (text === 'business' || text === 'for businesses' || text.includes('businesses: find out more')) return 'business.html';
+  if (text === 'ask emy' || text === 'askemy') return 'ask-emy.html';
+  if (text === 'faqs' || text === 'faq') return 'faqs.html';
+  if (text === 'contact' || text === 'contact support') return 'contact.html';
+  if (text === 'privacy policy' || text === 'privacy') return 'privacy.html';
+  if (text === 'terms of use' || text === 'terms') return 'terms.html';
+  return null;
+}
+
+function __showEMYSignupRoles(mode) {
+  const existing = document.getElementById('emy-signup-role-page');
+  if (existing) existing.remove();
+  const oldComingSoon = document.getElementById('emy-coming-soon-modal');
+  if (oldComingSoon) oldComingSoon.remove();
+  const flow = String(mode || 'signup').trim().toLowerCase();
+  const isSignInFlow = flow === 'signin' || flow === 'sign in' || flow === 'login' || flow === 'log in';
+  const roleTitle = isSignInFlow ? 'Sign in as' : 'Select your role';
+  const roleIntro = isSignInFlow
+    ? 'Choose the EMY account type you want to access.'
+    : 'Choose how you want to join EMY.';
+
+  const userIcon =
+    '<svg width="106" height="106" viewBox="0 0 120 120" fill="none" aria-hidden="true">' +
+      '<circle cx="60" cy="60" r="43" stroke="#001B47" stroke-width="5"/>' +
+      '<circle cx="60" cy="48" r="17" stroke="#001B47" stroke-width="5"/>' +
+      '<path d="M29 92c7.5-19 20-28 31-28s23.5 9 31 28" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+    '</svg>';
+
+  const businessIcon =
+    '<svg width="106" height="106" viewBox="0 0 120 120" fill="none" aria-hidden="true">' +
+      '<rect x="20" y="42" width="80" height="50" rx="6" stroke="#001B47" stroke-width="5"/>' +
+      '<path d="M45 42v-9c0-4 3-7 7-7h16c4 0 7 3 7 7v9" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+      '<path d="M20 58c20 12 60 12 80 0" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+      '<path d="M54 66h12" stroke="#001B47" stroke-width="5" stroke-linecap="round"/>' +
+    '</svg>';
+
+  const roleDescriptions = isSignInFlow
+    ? {
+        Customer: 'Sign in to your customer account.',
+        Business: 'Sign in to your business account.'
+      }
+    : {
+        Customer: 'Find services, shops, offers, and places near you.',
+        Business: 'Offer services and connect with local customers.'
+      };
+  const roleDescription = (role) => roleDescriptions[role] || '';
+
+  const roleCard = (role, icon) =>
+    '<button type="button" title="' + roleDescription(role) + '" aria-label="' + role + ': ' + roleDescription(role) + '" data-emy-role-card="' + role + '" class="emy-role-card group flex cursor-pointer flex-col items-center justify-center bg-white text-center text-[#171435] transition hover:-translate-y-1 hover:border-orange-200 hover:shadow-xl focus-visible:outline focus-visible:outline-3 focus-visible:outline-orange-400" style="border:1px solid rgba(0,27,71,0.10);border-radius:18px;box-shadow:0 12px 24px rgba(0,27,71,0.08);">' +
+      '<span class="emy-role-icon flex items-center justify-center text-[#001B47]">' + icon + '</span>' +
+      '<span class="emy-role-label mt-4 text-xl font-semibold leading-tight">' + role + '</span>' +
+      '<span class="emy-role-desc">' + roleDescription(role) + '</span>' +
+    '</button>';
+
+  const overlay = document.createElement('div');
+  overlay.id = 'emy-signup-role-page';
+  overlay.className = 'fixed inset-0 z-[140] overflow-hidden bg-[#fff8ef] text-[#001B47]';
+  overlay.style.fontFamily = "'Inter', sans-serif";
+  overlay.innerHTML =
+    '<style>' +
+      '#emy-signup-role-page{background:#fff8ef;background-image:radial-gradient(circle at 76% 14%,rgba(255,106,0,.13),transparent 23rem),radial-gradient(circle at 16% 86%,rgba(0,27,71,.07),transparent 19rem),linear-gradient(180deg,#fff8ef 0%,#fffdf8 54%,#fff7ed 100%);}' +
+      '.emy-role-card{position:relative;overflow:hidden;width:min(62vw,calc((100vh - 170px)/2),222px);aspect-ratio:1/1;padding:18px 18px 16px;}' +
+      '.emy-role-card::after{content:"";position:absolute;left:50%;bottom:12px;width:40px;height:3px;border-radius:999px;background:#ff6a00;opacity:.42;transform:translateX(-50%);transition:opacity .22s ease,width .22s ease;}' +
+      '.emy-role-icon svg{width:54px;height:54px;}' +
+      '.emy-role-desc{display:block;max-width:170px;margin-top:7px;font-size:12px;line-height:1.32;font-weight:400;color:rgba(0,27,71,.62);transition:color .22s ease;}' +
+      '.emy-role-card:hover::after,.emy-role-card:focus-visible::after{width:56px;opacity:1;}' +
+      '.emy-role-card:hover .emy-role-desc,.emy-role-card:focus-visible .emy-role-desc{color:rgba(0,27,71,.82);}' +
+      '@media (min-width:768px){.emy-role-card{width:min(calc((100vh - 170px)/2),210px);}.emy-role-icon svg{width:52px;height:52px;}}' +
+      '@media (max-width:480px){.emy-role-card{width:min(64vw,calc((100vh - 160px)/2),214px);padding:16px 16px 15px;}.emy-role-title{font-size:2rem!important;}.emy-role-label{margin-top:12px!important;font-size:1.12rem!important;}.emy-role-desc{max-width:160px;font-size:11.5px;line-height:1.3;}.emy-role-icon svg{width:48px;height:48px;}}' +
+    '</style>' +
+    '<div class="pointer-events-none absolute inset-0 overflow-hidden">' +
+      '<svg class="absolute right-2 top-3 h-36 w-36 text-orange-200/50 md:right-[18%] md:h-48 md:w-48" viewBox="0 0 180 180" fill="none" aria-hidden="true"><path d="M20 10l65 135L160 5" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '<svg class="absolute -bottom-8 -left-10 h-40 w-60 text-orange-200/55 md:h-48 md:w-72" viewBox="0 0 360 240" fill="none" aria-hidden="true"><path d="M0 210L70 55l66 155 45-88 60 88 42-58 56 58" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+    '</div>' +
+    '<button type="button" data-emy-close-signup-role class="absolute right-5 top-5 z-10 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white text-xl font-semibold text-[#001B47] shadow-lg shadow-[#001B47]/10 hover:bg-orange-50" aria-label="Close role selection">×</button>' +
+    '<main class="relative mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center px-5 pb-7 pt-7 md:pt-8">' +
+      '<h1 class="emy-role-title text-center text-3xl font-semibold leading-tight text-[#171435] md:text-4xl">' + roleTitle + '</h1>' +
+      '<p class="mt-3 max-w-sm text-center text-sm font-medium leading-6 text-[#001B47]/60">' + roleIntro + '</p>' +
+      '<div class="mt-6 flex w-full flex-col items-center gap-5 md:mt-7 md:gap-5">' +
+        roleCard('Customer', userIcon) +
+        roleCard('Business', businessIcon) +
+      '</div>' +
+    '</main>';
+
+  overlay.querySelector('[data-emy-close-signup-role]').addEventListener('click', () => overlay.remove());
+  overlay.querySelectorAll('[data-emy-role-card]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const role = button.dataset.emyRoleCard || 'Account';
+      if (isSignInFlow) {
+        window.location.href = 'emy-signin.html?role=' + encodeURIComponent(role.toLowerCase());
+        return;
+      }
+      window.location.href = 'emy-signup.html?role=' + encodeURIComponent(role.toLowerCase());
+    });
+  });
+  document.body.appendChild(overlay);
+  document.documentElement.removeAttribute('data-emy-auth-pending');
+}
+
+function __showEMYComingSoon(action) {
+  const existing = document.getElementById('emy-coming-soon-modal');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'emy-coming-soon-modal';
+  overlay.className = 'fixed inset-0 z-[120] flex items-center justify-center bg-[#001B47]/75 px-4 backdrop-blur-md';
+  overlay.innerHTML =
+    '<div class="relative w-full max-w-lg overflow-hidden rounded-[2.5rem] border border-white/60 bg-white/95 p-7 text-center text-[#001B47] shadow-2xl backdrop-blur-2xl md:p-9">' +
+      '<div class="pointer-events-none absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_18%_12%,rgba(249,115,22,0.20),transparent_34%),radial-gradient(circle_at_90%_90%,rgba(0,27,71,0.12),transparent_36%)]"></div>' +
+      '<div class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-orange-200/50 blur-2xl"></div>' +
+      '<div class="pointer-events-none absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-[#001B47]/10 blur-2xl"></div>' +
+      '<button type="button" data-emy-close-coming-soon class="absolute right-5 top-5 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-2xl bg-white text-[#001B47] shadow-lg shadow-[#001B47]/10 ring-1 ring-orange-100 transition hover:bg-orange-100" aria-label="Close coming soon modal">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+      '</button>' +
+      '<div class="relative z-10 flex justify-center"><div class="flex items-center gap-3"><img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="EMY" class="h-12 w-auto object-contain" /><span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-orange-600">Beta</span></div></div>' +
+      '<h3 class="relative z-10 mt-5 text-3xl font-black leading-tight text-[#001B47]">' + action + ' is coming soon</h3>' +
+      '<p class="relative z-10 mx-auto mt-4 max-w-sm text-base font-semibold leading-7 text-[#001B47]/65">We are still polishing this experience so it feels smooth, secure, and ready for everyone. Thank you for trying EMY while we build the next version.</p>' +
+      '<div class="relative z-10 mt-8 rounded-3xl border border-orange-100 bg-[#fff8ef] p-4 text-left">' +
+        '<p class="text-sm font-black text-[#001B47]">What is next?</p>' +
+        '<p class="mt-1 text-sm leading-6 text-[#001B47]/60">Account access, business onboarding, and profile tools will be available soon.</p>' +
+      '</div>' +
+    '</div>';
+
+  const close = () => overlay.remove();
+  overlay.addEventListener('click', close);
+  overlay.querySelector('div').addEventListener('click', (event) => event.stopPropagation());
+  overlay.querySelector('[data-emy-close-coming-soon]').addEventListener('click', close);
+  document.body.appendChild(overlay);
+}
+
+function __linkEMYPages() {
+  const pathLinks = {
+    '/': 'index.html',
+    '/about': 'about.html',
+    '/business': 'business.html',
+    '/ask-emy': 'ask-emy.html',
+    '/contact': 'contact.html',
+    '/faqs': 'faqs.html',
+    '/privacy': 'privacy.html',
+    '/terms': 'terms.html',
+    '/sign-in': '#login',
+    '/sign-up': '#signup'
+  };
+
+  document.querySelectorAll('header').forEach((header) => {
+    if (header.dataset.emyStandardized === 'true') return;
+    header.dataset.emyStandardized = 'true';
+
+    const navItems = [
+      ['Home', 'index.html'],
+      ['About', 'about.html'],
+      ['Business', 'business.html'],
+      ['Ask EMY', 'ask-emy.html'],
+      ['Contact', 'contact.html'],
+      ['FAQs', 'faqs.html'],
+      ['Sign In', '#login'],
+      ['Sign up', '#signup']
+    ];
+
+    const linkClass = 'rounded-full px-5 py-2 text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600';
+    const askClass = 'rounded-full border border-orange-200 bg-orange-50 px-5 py-2 text-sm font-black text-orange-600 shadow-sm transition hover:-translate-y-0.5 hover:bg-orange-500 hover:text-white hover:shadow-lg hover:shadow-orange-500/20';
+    const loginClass = 'rounded-full border border-[#001B47]/10 bg-white/80 px-6 py-2 text-sm font-bold text-[#001B47] shadow-sm backdrop-blur transition hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600';
+    const signupClass = 'rounded-full bg-orange-500 px-6 py-2 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600';
+    const mobileClass = 'block w-full rounded-xl px-4 py-3 text-left text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600';
+    const mobileSignupClass = 'block w-full rounded-xl bg-orange-500 px-4 py-3 text-left text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:bg-orange-600';
+
+    header.className = 'fixed left-0 right-0 top-0 z-50 border-b border-white/50 bg-white/90 backdrop-blur';
+    const navHtml = navItems.map(([label, href]) => {
+      const base = label === 'Ask EMY' ? askClass : label === 'Sign In' ? loginClass : label === 'Sign up' ? signupClass : linkClass;
+      if (label === 'Sign In' || label === 'Sign up') {
+        return '<button type="button" data-emy-coming-soon="' + label + '" class="' + base + '">' + label + '</button>';
+      }
+      return '<a href="' + href + '" class="' + base + '">' + label + '</a>';
+    }).join('');
+    const mobileNavHtml = navItems.map(([label, href]) => {
+      const base = label === 'Sign up' ? mobileSignupClass : label === 'Ask EMY' ? mobileSignupClass : mobileClass;
+      if (label === 'Sign In' || label === 'Sign up') {
+        return '<button type="button" data-emy-coming-soon="' + label + '" class="' + base + '">' + label + '</button>';
+      }
+      return '<a href="' + href + '" class="' + base + '">' + label + '</a>';
+    }).join('');
+    header.innerHTML =
+      '<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">' +
+        '<a href="index.html" aria-label="Go to homepage" class="flex items-center gap-3">' +
+          '<img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="EMY" class="h-12 w-auto object-contain" />' +
+          '<span class="rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-orange-600">Beta</span>' +
+        '</a>' +
+        '<nav class="hidden items-center gap-3 sm:flex" aria-label="Main navigation" data-emy-standard-nav="true">' +
+          navHtml +
+        '</nav>' +
+        '<button type="button" data-emy-menu-toggle class="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#001B47]/10 bg-white text-[#001B47] shadow-sm sm:hidden" aria-expanded="false" aria-label="Open menu">' +
+          '<span class="grid gap-1.5"><span class="block h-0.5 w-5 rounded-full bg-current"></span><span class="block h-0.5 w-5 rounded-full bg-current"></span><span class="block h-0.5 w-5 rounded-full bg-current"></span></span>' +
+        '</button>' +
+      '</div>' +
+      '<div data-emy-mobile-menu class="hidden border-t border-orange-100 bg-white/95 px-4 pb-4 shadow-xl sm:hidden">' +
+        '<div class="mx-auto grid max-w-7xl gap-2 pt-3">' +
+          mobileNavHtml +
+        '</div>' +
+      '</div>';
+  });
+
+  document.querySelectorAll('a').forEach((anchor) => {
+    const href = anchor.getAttribute('href') || '';
+    if (pathLinks[href]) {
+      anchor.setAttribute('href', pathLinks[href]);
+      return;
+    }
+    if (href === '#' || href === '') {
+      const target = __targetForEMYLabel(anchor.textContent);
+      if (target) anchor.setAttribute('href', target);
+    }
+  });
+
+  document.querySelectorAll('[data-emy-coming-soon]').forEach((button) => {
+    if (button.dataset.emyComingSoonBound === 'true') return;
+    button.dataset.emyComingSoonBound = 'true';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      const menu = document.querySelector('[data-emy-mobile-menu]');
+      const menuButton = document.querySelector('[data-emy-menu-toggle]');
+      if (menu) menu.classList.add('hidden');
+      if (menuButton) menuButton.setAttribute('aria-expanded', 'false');
+      const action = button.dataset.emyComingSoon || 'This feature';
+      if (String(action).trim().toLowerCase() === 'sign up') {
+        __showEMYSignupRoles('signup');
+        return;
+      }
+      if (String(action).trim().toLowerCase() === 'sign in' || String(action).trim().toLowerCase() === 'log in') {
+        __showEMYSignupRoles('signin');
+        return;
+      }
+      __showEMYComingSoon(action);
+    }, true);
+  });
+
+  document.querySelectorAll('[data-emy-menu-toggle]').forEach((button) => {
+    if (button.dataset.emyMenuBound === 'true') return;
+    button.dataset.emyMenuBound = 'true';
+    button.addEventListener('click', () => {
+      const menu = document.querySelector('[data-emy-mobile-menu]');
+      if (!menu) return;
+      const isOpen = menu.classList.toggle('hidden') === false;
+      button.setAttribute('aria-expanded', String(isOpen));
+    });
+  });
+
+  document.querySelectorAll('[data-emy-mobile-menu] a, [data-emy-mobile-menu] button').forEach((item) => {
+    if (item.dataset.emyMenuCloseBound === 'true') return;
+    item.dataset.emyMenuCloseBound = 'true';
+    item.addEventListener('click', () => {
+      const menu = document.querySelector('[data-emy-mobile-menu]');
+      const button = document.querySelector('[data-emy-menu-toggle]');
+      if (menu) menu.classList.add('hidden');
+      if (button) button.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.querySelectorAll('header nav').forEach((nav) => {
+    const desired = [
+      ['Home', 'index.html'],
+      ['About', 'about.html'],
+      ['Business', 'business.html'],
+      ['Ask EMY', 'ask-emy.html'],
+      ['Contact', 'contact.html'],
+      ['FAQs', 'faqs.html']
+    ];
+    const existing = Array.from(nav.querySelectorAll('a,button')).map((item) => item.textContent.trim().toLowerCase());
+    const loginItem = Array.from(nav.children).find((item) => item.textContent.trim().toLowerCase() === 'sign in' || item.textContent.trim().toLowerCase() === 'log in');
+    desired.forEach(([label, href]) => {
+      if (existing.includes(label.toLowerCase())) return;
+      const link = document.createElement('a');
+      link.href = href;
+      link.textContent = label;
+      link.className = 'cursor-pointer rounded-full px-5 py-2 text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600';
+      nav.insertBefore(link, loginItem || null);
+      existing.push(label.toLowerCase());
+    });
+  });
+
+  document.querySelectorAll('button').forEach((button) => {
+    if (button.dataset.emyLinked === 'true') return;
+    if (button.dataset.emyComingSoon) return;
+    const text = String(button.textContent || '').trim().toLowerCase();
+    if (text === 'sign up') {
+      button.dataset.emyLinked = 'true';
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+        __showEMYSignupRoles('signup');
+      }, true);
+      return;
+    }
+    if (text === 'sign in' || text === 'log in') {
+      button.dataset.emyLinked = 'true';
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+        __showEMYSignupRoles('signin');
+      }, true);
+      return;
+    }
+    let target = text.includes('businesses: find out more') ? 'business.html' : null;
+    if (!target) return;
+    button.dataset.emyLinked = 'true';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+      window.location.href = target;
+    }, true);
+  });
+
+  if (!window.__emyAuthDeepLinkHandled) {
+    const params = new URLSearchParams(window.location.search || '');
+    const authMode = String(params.get('emyAuth') || '').trim().toLowerCase();
+    if (authMode === 'signup' || authMode === 'sign-up') {
+      window.__emyAuthDeepLinkHandled = true;
+      __showEMYSignupRoles('signup');
+    } else if (authMode === 'signin' || authMode === 'sign-in' || authMode === 'login') {
+      window.__emyAuthDeepLinkHandled = true;
+      __showEMYSignupRoles('signin');
+    } else if (params.has('emyAuth')) {
+      document.documentElement.removeAttribute('data-emy-auth-pending');
+    }
+  }
+}
+
+const emyLogo = "https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png";
+const gatewayImage = "https://iqlance-demo.com/design/EMY-Web/img/aboutus/our-workplace.jpg";
+
+const gatewayBackgroundStyle = {
+  backgroundImage: "url(https://iqlance-demo.com/design/EMY-Web/img/aboutus/our-workplace.jpg)",
+};
+
+function Logo() {
+  return <img src={emyLogo} alt="EMY" className="h-12 w-auto object-contain" />;
+}
+
+function Header() {
+  return (
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/50 bg-white/90 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        <a href="index.html" aria-label="Go to homepage">
+          <Logo />
+        </a>
+
+        <nav className="hidden items-center gap-3 sm:flex" aria-label="Main navigation">
+          <a href="index.html" className="rounded-full px-5 py-2 text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600">
+            Home
+          </a>
+          <a href="about.html" className="rounded-full px-5 py-2 text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600">
+            About
+          </a>
+          <a href="contact.html" className="rounded-full px-5 py-2 text-sm font-bold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600">
+            Contact
+          </a>
+          <a href="#login" className="rounded-full border border-[#001B47]/10 bg-white/80 px-6 py-2 text-sm font-bold text-[#001B47] shadow-sm backdrop-blur transition hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600">
+            Sign In
+          </a>
+          <a href="#signup" className="rounded-full bg-orange-500 px-6 py-2 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600">
+            Sign up
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function smoothScroll(target) {
+  const element = document.querySelector(target);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function FloatingMenu() {
+  const items = [
+    { href: "#terms-overview", label: "Overview" },
+    { href: "#terms-rules", label: "Terms" },
+    { href: "#terms-support", label: "Support" },
+  ];
+
+  return (
+    <aside className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 opacity-25 transition-all duration-300 hover:opacity-100 lg:flex">
+      <div className="flex min-w-[170px] flex-col gap-2 rounded-2xl border border-white/50 bg-white/80 p-3 shadow-2xl shadow-[#001B47]/10 backdrop-blur-xl">
+        {items.map((item) => (
+          <button
+            key={item.href}
+            type="button"
+            onClick={() => smoothScroll(item.href)}
+            className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-[#001B47] transition hover:bg-orange-50 hover:text-orange-600"
+          >
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-orange-300" />
+            <span className="whitespace-nowrap leading-none">{item.label}</span>
+          </button>
+        ))}
+      </div>
+    </aside>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="relative overflow-hidden bg-[#fff7ef] px-6 py-16">
+      <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-orange-300/30 blur-3xl" />
+      <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl rounded-[2rem] border border-white/60 bg-white/80 p-8 shadow-2xl shadow-[#001B47]/5 backdrop-blur-xl md:p-10">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+          <div>
+            <Logo />
+            <p className="mt-6 max-w-md text-sm leading-7 text-[#001B47]/70">
+              EMY helps people discover nearby businesses, interact directly, and explore services in their local area.
+              <br />
+              <span className="font-semibold text-orange-500">We did it for you.</span>
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <span className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold text-orange-500">Local discovery</span>
+              <span className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold text-orange-500">Ask EMY</span>
+              <span className="rounded-full bg-orange-100 px-4 py-2 text-xs font-bold text-orange-500">Business support</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-black uppercase tracking-wide text-[#001B47]">Support</h3>
+            <ul className="mt-5 space-y-3 text-sm text-[#001B47]/70">
+              <li><a href="terms.html" className="font-bold text-orange-500">Terms of Use</a></li>
+              <li><a href="privacy.html" className="hover:text-orange-500">Privacy Policy</a></li>
+              <li><a href="about.html" className="hover:text-orange-500">About Us</a></li>
+              <li><a href="contact.html" className="hover:text-orange-500">Contact Support</a></li>
+              <li><a href="faqs.html" className="hover:text-orange-500">FAQs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-orange-100 pt-6 text-center text-sm text-[#001B47]/55">
+          © MY-EMY.COM Ltd. All Rights reserved.
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+const termsSections = [
+  {
+    title: "1. Acceptance of these Terms",
+    text: "By accessing, browsing, creating an account, or using EMY in any way, you confirm that you have read, understood, and agreed to these Terms of Use. If you do not agree with these terms, you must stop using the platform immediately. These terms apply to all visitors, users, businesses, service providers, advertisers, and third parties using EMY services.",
+  },
+  {
+    title: "2. About EMY",
+    text: "EMY is a digital platform that helps users discover local businesses, services, suppliers, and nearby opportunities. EMY may provide search, communication, recommendation, business visibility, review, promotional, advertising, AI-powered assistance, and location-based features. EMY reserves the right to modify, suspend, restrict, or discontinue any part of the platform at any time without prior notice.",
+  },
+  {
+    title: "3. Eligibility and Account Registration",
+    text: "You must be at least 18 years old or meet the legal minimum age required in your country to use EMY. You agree to provide accurate, complete, and current information when creating an account. You are fully responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account.",
+  },
+  {
+    title: "4. User Responsibilities",
+    text: "Users agree to use EMY responsibly and lawfully. You may not impersonate another person or business, create fake accounts, provide misleading information, engage in fraudulent behaviour, upload harmful software, interfere with the platform, scrape data, attempt unauthorized access, or misuse EMY services in any way that could damage users, businesses, or the platform.",
+  },
+  {
+    title: "5. Business Listings and Service Providers",
+    text: "Businesses and service providers are solely responsible for the accuracy, legality, quality, safety, availability, pricing, licensing, certifications, and delivery of their products or services. EMY does not guarantee, endorse, inspect, supervise, or verify every business listed on the platform. Users engage with businesses and providers at their own discretion and risk.",
+  },
+  {
+    title: "6. Reviews, Ratings, and User Content",
+    text: "Users may post reviews, comments, ratings, images, or other content where available. By submitting content to EMY, you grant EMY a worldwide, non-exclusive, royalty-free license to use, display, reproduce, modify, distribute, and promote that content in connection with the platform and marketing activities. EMY reserves the right to remove content that is abusive, defamatory, misleading, illegal, offensive, spam-related, or harmful to the platform or other users.",
+  },
+  {
+    title: "7. AI Features and Recommendations",
+    text: "EMY may use automated systems, algorithms, AI tools, or recommendation technologies to provide suggestions, search results, business visibility, support responses, or local recommendations. EMY does not guarantee the accuracy, completeness, reliability, or suitability of automated recommendations and users should independently verify important information before relying on it.",
+  },
+  {
+    title: "8. Payments and Transactions",
+    text: "If payments, subscriptions, promotions, bookings, or transactions are offered through EMY, users and businesses are responsible for complying with all applicable payment terms, taxes, laws, and obligations. EMY may use third-party payment providers and is not responsible for payment processing failures, banking issues, disputes between users and businesses, chargebacks, delays, or third-party payment service interruptions.",
+  },
+  {
+    title: "9. Intellectual Property Rights",
+    text: "EMY, including its branding, design, software, content, features, graphics, trademarks, logos, and technology, is protected by intellectual property laws and remains the property of MY-EMY.COM Ltd or its licensors. You may not copy, reproduce, distribute, modify, reverse engineer, sell, or exploit any part of the platform without prior written permission.",
+  },
+  {
+    title: "10. Privacy and Data Usage",
+    text: "EMY may collect, process, and store personal information in accordance with its Privacy Policy. By using EMY, you consent to the collection and processing of information required to operate, improve, secure, and personalize the platform. Users are responsible for ensuring that any information they upload or share complies with applicable privacy and data protection laws.",
+  },
+  {
+    title: "11. Third-Party Services and External Links",
+    text: "The platform may include links, integrations, advertisements, APIs, maps, external websites, or third-party tools. EMY does not control or guarantee third-party services and is not responsible for their availability, content, practices, products, services, or policies. Accessing third-party services is done entirely at your own risk.",
+  },
+  {
+    title: "12. Platform Availability and Technical Issues",
+    text: "EMY is provided on an as available and as is basis. We do not guarantee uninterrupted access, error-free performance, or permanent availability. The platform may experience downtime, maintenance, security incidents, technical failures, delays, or interruptions beyond our control.",
+  },
+  {
+    title: "13. Limitation of Liability",
+    text: "To the fullest extent permitted by law, MY-EMY.COM Ltd, its directors, employees, affiliates, partners, and service providers shall not be liable for any indirect, incidental, consequential, special, punitive, or financial losses arising from the use of EMY. This includes loss of profits, revenue, business opportunities, reputation, customers, data, or service interruptions. Users accept full responsibility for decisions, interactions, purchases, bookings, or agreements made through the platform.",
+  },
+  {
+    title: "14. Indemnification",
+    text: "You agree to defend, indemnify, and hold harmless MY-EMY.COM Ltd and its affiliates from any claims, liabilities, damages, losses, costs, legal fees, or disputes arising from your use of EMY, your violation of these Terms, your uploaded content, your business activities, or your interactions with other users or businesses.",
+  },
+  {
+    title: "15. Account Suspension and Termination",
+    text: "EMY reserves the right to suspend, restrict, investigate, remove content, or permanently terminate accounts at its sole discretion if users violate these Terms, engage in harmful behaviour, misuse the platform, create legal risk, or negatively impact the safety, reputation, or operation of EMY.",
+  },
+  {
+    title: "16. Changes to the Platform and Terms",
+    text: "We may modify, update, replace, or discontinue any feature, policy, functionality, or part of the platform at any time. EMY also reserves the right to update these Terms of Use periodically. Continued use of the platform after changes become effective constitutes acceptance of the revised terms.",
+  },
+  {
+    title: "17. Governing Law",
+    text: "These Terms shall be governed by and interpreted in accordance with the laws applicable to MY-EMY.COM Ltd, without regard to conflict of law principles. Any disputes relating to the platform or these Terms shall be subject to the jurisdiction of the appropriate courts where the company is established.",
+  },
+  {
+    title: "18. Contact Information",
+    text: "If you have questions, concerns, legal requests, or support enquiries regarding these Terms of Use or the EMY platform, please contact MY-EMY.COM Ltd through the official EMY contact page or support channels available on the platform.",
+  },
+];
+
+function TermsCard({ title, text }) {
+  return (
+    <article className="rounded-[1.75rem] border border-orange-100 bg-white/85 p-6 shadow-xl shadow-[#001B47]/5 backdrop-blur transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#001B47]/10 md:p-7">
+      <h2 className="text-xl font-black leading-tight text-[#001B47]">{title}</h2>
+      <p className="mt-4 text-sm leading-7 text-[#001B47]/70 md:text-base">{text}</p>
+    </article>
+  );
+}
+
+function TermsTestPanel() {
+  const tests = [
+    {
+      name: "Terms section count",
+      passed: termsSections.length === 18,
+    },
+    {
+      name: "Every section has a title",
+      passed: termsSections.every((section) => section.title.length > 0),
+    },
+    {
+      name: "Every section has content",
+      passed: termsSections.every((section) => section.text.length > 40),
+    },
+  ];
+
+  return (
+    <div className="mt-8 hidden rounded-[1.5rem] border border-orange-100 bg-white p-5 text-sm shadow-lg">
+      <h3 className="font-black text-[#001B47]">Component checks</h3>
+      <ul className="mt-3 space-y-2">
+        {tests.map((test) => (
+          <li key={test.name} className="text-[#001B47]/70">
+            {test.passed ? "Pass" : "Fail"}: {test.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function EMYTermsPage() {
+  return (
+    <div className="min-h-screen bg-[#fff8ef] text-[#001B47] antialiased" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <style>{""}</style>
+      <Header />
+      <FloatingMenu />
+
+      <main>
+        <section id="terms-overview" className="relative isolate overflow-hidden px-6 pb-20 pt-36 md:pb-28 md:pt-44">
+          <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_78%_18%,rgba(249,115,22,0.28),transparent_28%),radial-gradient(circle_at_12%_18%,rgba(0,27,71,0.10),transparent_28%),linear-gradient(115deg,#fffaf4_0%,#fff4e8_48%,#ffe4c6_100%)]" />
+          <div className="absolute right-0 top-20 -z-10 h-[680px] w-[52%] rounded-l-[7rem] bg-gradient-to-br from-white/35 via-orange-200/35 to-orange-500/20 backdrop-blur" />
+
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="inline-flex rounded-full border border-white/60 bg-white/75 px-5 py-2 text-xs font-black uppercase tracking-[0.22em] text-orange-500 shadow-lg shadow-[#001B47]/5 backdrop-blur">
+                Legal Information
+              </p>
+              <h1 className="mt-7 max-w-2xl text-5xl font-black leading-[1.03] tracking-tight text-[#001B47] md:text-7xl">
+                Terms of Use
+              </h1>
+              <p className="mt-8 max-w-xl text-lg leading-8 text-[#001B47]/65">
+                These terms explain how users, businesses, and service providers should use EMY responsibly and safely.
+              </p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-white/60 p-4 shadow-2xl shadow-[#001B47]/10 backdrop-blur-xl">
+              <img src={gatewayImage} alt="EMY local connection" className="h-[420px] w-full rounded-[2rem] object-cover" />
+              <div className="absolute inset-4 rounded-[2rem] bg-gradient-to-t from-[#001B47]/75 via-[#001B47]/20 to-transparent" />
+              <div className="absolute bottom-10 left-10 right-10">
+                <p className="text-sm font-black uppercase tracking-[0.22em] text-orange-100">EMY Platform</p>
+                <h2 className="mt-3 text-3xl font-black leading-tight text-white md:text-4xl">Clear rules for a better local ecosystem.</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="terms-rules" className="relative overflow-hidden bg-white px-6 py-20">
+          <div className="absolute inset-0 opacity-10 bg-[linear-gradient(90deg,rgba(249,115,22,0.1)_1px,transparent_1px),linear-gradient(0deg,rgba(249,115,22,0.08)_1px,transparent_1px)] bg-[size:56px_56px]" />
+          <div className="relative mx-auto max-w-5xl">
+            <div className="rounded-[2rem] border border-orange-100 bg-[#fff8ef] p-6 shadow-xl shadow-[#001B47]/5 md:p-8">
+              <h2 className="text-2xl font-black text-[#001B47]">Please read this carefully</h2>
+              <p className="mt-4 text-base leading-8 text-[#001B47]/70">
+                This page is a starting version of EMY&apos;s Terms of Use. It should be reviewed by a qualified legal professional before publishing, especially if EMY will process customer data, payments, business profiles, reviews, or location-based services.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-5">
+              {termsSections.map((section) => (
+                <TermsCard key={section.title} title={section.title} text={section.text} />
+              ))}
+            </div>
+
+            <TermsTestPanel />
+          </div>
+        </section>
+
+        <section id="terms-support" className="relative overflow-hidden px-6 py-24 text-white">
+          <div className="absolute inset-0 bg-cover bg-center" style={gatewayBackgroundStyle} />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#001B47]/90 via-[#08285f]/85 to-orange-600/80" />
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_30%,white,transparent_40%)]" />
+          <div className="relative mx-auto max-w-4xl text-center">
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-orange-100">Need support?</p>
+            <h2 className="mt-3 text-4xl font-black leading-tight md:text-5xl">Questions about using EMY?</h2>
+            <p className="mt-5 text-lg text-white/75">Contact us and we will help point you in the right direction.</p>
+            <a href="contact.html" className="mt-8 inline-flex rounded-2xl bg-orange-500 px-8 py-4 text-sm font-black text-white shadow-xl shadow-orange-500/25 transition hover:-translate-y-1 hover:bg-orange-600">
+              Contact support 
+            </a>
+          </div>
+        </section>
+
+        <Footer />
+      </main>
+    </div>
+  );
+}
+
+function __LinkedEMYPage() {
+  React.useEffect(() => {
+    __linkEMYPages();
+  }, []);
+  return <EMYTermsPage />;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<__LinkedEMYPage />);
+    </script>
+      <script defer src="assets/emy-account-session-nav.js" data-emy-account-session-nav></script>
+  </body>
+</html>

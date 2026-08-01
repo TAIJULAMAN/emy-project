@@ -1,0 +1,149 @@
+:where(
+        .social-feed-avatar,
+        .feed-avatar,
+        .post-avatar,
+        .feed-create-brand-mark,
+        [data-feed-actor-avatar],
+        .reel-avatar,
+        .search-reel-avatar,
+        .business-preview-post-avatar,
+        .home-created-avatar,
+        .home-owned-avatar,
+        .business-owned-avatar,
+        .my-business-update-avatar,
+        .rail-pulse-media,
+        .feed-job-business > i,
+        .feed-comment-avatar,
+        .item-product-comment-avatar,
+        .clip-viewer-comment-avatar
+      ).emy-avatar-shape-applied {
+        display: inline-grid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        place-items: center !important;
+        flex: 0 0 auto !important;
+        width: var(--emy-post-avatar-size, 42px) !important;
+        min-width: var(--emy-post-avatar-size, 42px) !important;
+        height: var(--emy-post-avatar-size, 42px) !important;
+        overflow: hidden !important;
+        background: #fff !important;
+        color: var(--navy, #001b47) !important;
+        box-shadow: inset 0 0 0 1px rgba(0, 27, 71, .08) !important;
+      }
+      .social-feed-head > :where(.social-feed-avatar, .feed-avatar),
+      .social-feed-head :where(.social-feed-avatar, .feed-avatar),
+      .post-head > .post-avatar,
+      .post-head .post-avatar,
+      .reel-top > .reel-avatar,
+      .search-reel-top > .search-reel-avatar,
+      .home-created-top > .home-created-avatar,
+      .feed-job-business > i {
+        display: inline-grid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex: 0 0 auto !important;
+      }
+      :where(
+        .social-feed-avatar,
+        .feed-avatar,
+        .post-avatar,
+        .feed-create-brand-mark,
+        [data-feed-actor-avatar],
+        .reel-avatar,
+        .search-reel-avatar,
+        .business-preview-post-avatar,
+        .home-created-avatar
+      ).emy-avatar-shape-applied {
+        --emy-post-avatar-size: 44px;
+      }
+      :where(
+        .home-owned-avatar,
+        .business-owned-avatar,
+        .my-business-update-avatar,
+        .rail-pulse-media,
+        .feed-job-business > i
+      ).emy-avatar-shape-applied {
+        --emy-post-avatar-size: 38px;
+      }
+      :where(
+        .feed-comment-avatar,
+        .item-product-comment-avatar,
+        .clip-viewer-comment-avatar
+      ).emy-avatar-shape-applied {
+        --emy-post-avatar-size: 32px;
+      }
+      .emy-avatar-shape-customer {
+        border-radius: 999px !important;
+      }
+      .emy-avatar-shape-business {
+        border-radius: 10px !important;
+      }
+      .emy-avatar-shape-applied:not(.has-image) {
+        color: #08224d !important;
+        font-weight: 850 !important;
+        text-shadow: none !important;
+      }
+      .emy-avatar-shape-applied > img,
+      .emy-avatar-shape-applied picture,
+      .emy-avatar-shape-applied picture > img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: inherit !important;
+        object-fit: cover !important;
+      }
+      .emy-avatar-shape-applied svg,
+      .emy-avatar-shape-applied .avatar-img,
+      .emy-avatar-shape-applied .avatar-image {
+        border-radius: inherit !important;
+      }
+      .social-feed-head,
+      .post-head,
+      .business-preview-post-head,
+      .business-preview-post-owner,
+      .home-created-top {
+        grid-template-columns: auto minmax(0, 1fr) auto !important;
+        column-gap: 12px !important;
+        align-items: center !important;
+      }
+      .feed-post-head {
+        grid-template-columns: auto minmax(0, 1fr) 38px !important;
+        column-gap: 12px !important;
+        align-items: center !important;
+      }
+      .feed-card-head .feed-profile-link,
+      .reel-top,
+      .search-reel-top,
+      .home-owned-divider-inner,
+      .business-owned-divider-inner,
+      .my-business-update,
+      .rail-pulse-item {
+        grid-template-columns: auto minmax(0, 1fr) !important;
+        column-gap: 10px !important;
+        align-items: center !important;
+      }
+      .feed-comment,
+      .feed-comment-reply,
+      .item-product-comment-preview,
+      .item-product-comment-row,
+      .item-product-comment-reply-row,
+      .clip-viewer-comment,
+      .clip-viewer-comment-reply {
+        grid-template-columns: auto minmax(0, 1fr) !important;
+        column-gap: 10px !important;
+      }
+      .feed-job-business {
+        gap: 10px !important;
+      }
+      .social-feed-head .social-feed-name,
+      .feed-card-head .feed-profile-link,
+      .post-head,
+      .business-preview-post-head,
+      .business-preview-post-owner,
+      .home-created-top,
+      .reel-top,
+      .search-reel-top {
+        min-width: 0 !important;
+      }

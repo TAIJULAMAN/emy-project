@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EMY Testing Lane</title>
+    <script>
+      (() => {
+        try {
+          localStorage.setItem("emyLocalDevAccess", "1");
+          localStorage.setItem("emyTestModeEnabled", "true");
+          localStorage.setItem("emyMainSignedInRole", "customer");
+          localStorage.setItem("emyMainPendingSignupRole", "customer");
+          localStorage.setItem("emyMainSignedInEmail", "test.customer@emy.local");
+          localStorage.setItem("emyMainPendingSignupEmail", "test.customer@emy.local");
+          localStorage.setItem("emyCustomerEmail", "test.customer@emy.local");
+          localStorage.setItem("emyCustomerDisplayName", "EMY Test Customer");
+          localStorage.setItem("emyCustomerFirstName", "EMY");
+          localStorage.setItem("emyCustomerLastName", "Tester");
+          localStorage.removeItem("emyMainSignedOut");
+        } catch (error) {}
+      })();
+    </script>
+    <style>
+      :root { color-scheme: light; --navy:#001b47; --orange:#ff6200; --line:#e4e8f0; --muted:#66728a; }
+      * { box-sizing: border-box; }
+      body { margin:0; min-height:100vh; font-family: Inter, Arial, sans-serif; color:var(--navy); background:#fffaf4; }
+      main { width:min(920px, calc(100% - 32px)); margin:0 auto; padding:56px 0; }
+      .shell { background:#fff; border:1px solid var(--line); border-radius:24px; box-shadow:0 24px 80px rgba(0,27,71,.10); overflow:hidden; }
+      .head { padding:32px; border-top:5px solid var(--orange); border-bottom:1px solid var(--line); }
+      h1 { margin:0 0 10px; font-size:clamp(30px, 5vw, 54px); line-height:1; letter-spacing:0; }
+      p { margin:0; color:var(--muted); font-weight:700; line-height:1.45; }
+      .grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:14px; padding:24px; }
+      a { min-height:94px; display:flex; flex-direction:column; justify-content:center; gap:8px; padding:20px; border:1px solid var(--line); border-radius:18px; text-decoration:none; color:var(--navy); background:#fff; }
+      a:hover { border-color:rgba(255,98,0,.55); box-shadow:0 18px 34px rgba(255,98,0,.12); }
+      strong { font-size:18px; }
+      small { color:var(--muted); font-weight:800; line-height:1.35; }
+      .note { padding:0 24px 24px; }
+      code { padding:2px 6px; border-radius:8px; background:#f5f7fb; color:#102b5c; }
+      @media (max-width:720px) { main { padding:24px 0; } .head { padding:24px; } .grid { grid-template-columns:1fr; padding:18px; } .note { padding:0 18px 18px; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="shell">
+        <div class="head">
+          <h1>EMY Testing Lane</h1>
+          <p>Open this page from your local EMY server (for example <code id="emy-test-lane-url">127.0.0.1</code>). Links stay on the same port so you always test the build you just generated.</p>
+        </div>
+        <div class="grid">
+          <a href="emy-customer-home.html#feeds"><strong>Customer Feeds</strong><small>Open the customer feed with test storage and no sign-in.</small></a>
+          <a href="emy-customer-home.html"><strong>Customer Home</strong><small>Test Nearby, Feeds, Clips, and the rest of customer home.</small></a>
+          <a href="emy-customer-search.html"><strong>Customer Search</strong><small>Check products, clips, posts, and business search results.</small></a>
+          <a href="emy-business-profile.html"><strong>Business Profile</strong><small>Use this for business-side testing in the same lane.</small></a>
+        </div>
+        <p class="note">Customer pages show a small <strong>Test mode</strong> bar with <strong>Clean media</strong> and <strong>Reset</strong>. Use port <code>8001</code> (<code>npm run serve:test</code>) when you want storage isolated from port <code>8767</code>.</p>
+        <script>
+          (() => {
+            const label = document.getElementById("emy-test-lane-url");
+            if (!label) return;
+            label.textContent = location.host || "127.0.0.1";
+          })();
+        </script>
+      </section>
+    </main>
+  </body>
+</html>

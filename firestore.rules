@@ -1,0 +1,112 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.email == "i.stephane@my-emy.com";
+    }
+
+    function isLiveBusiness() {
+      return resource.data.reviewStatus in ["approved", "active", "live", "public"] ||
+        resource.data.status in ["approved", "active", "live", "public"];
+    }
+
+    function isBusinessAnalyticsOwner(businessKey) {
+      return signedIn() &&
+        get(/databases/$(database)/documents/businessAnalytics/$(businessKey)).data.ownerUserId == request.auth.uid;
+    }
+
+    match /users/{uid} {
+      allow create: if isOwner(uid) || isAdmin();
+      allow read, update, delete: if isOwner(uid) || isAdmin();
+    }
+
+    match /users/{uid}/appStorage/{key} {
+      allow create, read, update, delete: if isOwner(uid) || isAdmin();
+    }
+
+    match /customerProfiles/{uid} {
+      allow create: if isOwner(uid) || isAdmin();
+      allow read: if isOwner(uid) || isAdmin() ||
+        resource.data.visibility == "public" ||
+        resource.data.privacy == "public";
+      allow update, delete: if isOwner(uid) || isAdmin();
+    }
+
+    match /businessAccounts/{uid} {
+      allow create, read, update, delete: if isOwner(uid) || isAdmin();
+    }
+
+    match /businessProfiles/{uid} {
+      allow create: if isOwner(uid) || isAdmin();
+      allow read: if isOwner(uid) || isAdmin() || isLiveBusiness();
+      allow update, delete: if isOwner(uid) || isAdmin();
+    }
+
+    match /businessApprovals/{uid} {
+      allow create, read, update: if isOwner(uid) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /analyticsEvents/{eventId} {
+      allow create: if signedIn();
+      allow read: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /adminAuditLogs/{logId} {
+      allow create, read: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /businessContent/{businessKey}/items/{itemId} {
+      allow read: if isAdmin() || resource.data.deleted != true;
+      allow create: if signedIn() &&
+        request.resource.data.ownerUserId == request.auth.uid;
+      allow update, delete: if isAdmin() || (
+        signedIn() &&
+        resource.data.ownerUserId == request.auth.uid &&
+        request.resource.data.ownerUserId == resource.data.ownerUserId
+      );
+    }
+
+    match /publicBusinessContent/{itemId} {
+      allow read: if isAdmin() || resource.data.deleted != true;
+      allow create: if signedIn() &&
+        request.resource.data.ownerUserId == request.auth.uid;
+      allow update, delete: if isAdmin() || (
+        signedIn() &&
+        resource.data.ownerUserId == request.auth.uid &&
+        request.resource.data.ownerUserId == resource.data.ownerUserId
+      );
+    }
+
+    match /businessAnalytics/{businessKey} {
+      allow create: if signedIn() &&
+        request.resource.data.ownerUserId == request.auth.uid;
+      allow read: if isBusinessAnalyticsOwner(businessKey) || isAdmin();
+      allow update: if signedIn() &&
+        resource.data.ownerUserId == request.auth.uid &&
+        request.resource.data.ownerUserId == resource.data.ownerUserId;
+      allow delete: if isAdmin();
+    }
+
+    match /businessAnalytics/{businessKey}/events/{eventId} {
+      allow create: if signedIn();
+      allow read: if isBusinessAnalyticsOwner(businessKey) || isAdmin();
+      allow update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
