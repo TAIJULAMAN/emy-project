@@ -1,0 +1,376 @@
+.clip-viewer-caption,
+      .clip-viewer-media .emy-media-overlay-text,
+      .clip-viewer-slide .emy-media-overlay-text,
+      .reel-card .emy-media-overlay-text,
+      .feed-clip-card .emy-media-overlay-text,
+      .feed-product-clip-card .emy-media-overlay-text,
+      .business-posted-clip-card .emy-media-overlay-text,
+      .search-reel-card .emy-media-overlay-text,
+      .product-clip-panel,
+      .feed-list .product-clip-panel,
+      .results .product-clip-panel,
+      .annexed-feed-middle .product-clip-panel,
+      .annexed-feed-middle .feed-list .product-clip-panel,
+      .annexed-feed-middle .social-feed-card.is-clip .product-clip-panel,
+      .business-posted-list .business-posted-clip-card.reel-card .product-clip-panel,
+      .business-posted-list .business-posted-clip-card.feed-product-clip-card .product-clip-panel,
+      [data-unified-feed-cards="true"] .product-clip-panel,
+      .product-clip-copy,
+      .reel-product-strip,
+      .search-reel-product,
+      .feed-product-clip-card .social-feed-product-price {
+        display: none !important;
+      }
+      .feed-clip-card,
+      .feed-product-clip-card,
+      .reel-card.feed-clip-card,
+      .reel-card.feed-product-clip-card,
+      .feed-list .feed-clip-card,
+      .feed-list .feed-product-clip-card,
+      .results .feed-clip-card,
+      .results .feed-product-clip-card,
+      .annexed-feed-middle .feed-clip-card,
+      .annexed-feed-middle .feed-product-clip-card,
+      .annexed-feed-middle .feed-list .feed-clip-card,
+      .annexed-feed-middle .feed-list .feed-product-clip-card,
+      .business-posted-list .business-posted-clip-card.feed-clip-card,
+      .business-posted-list .business-posted-clip-card.feed-product-clip-card,
+      [data-unified-feed-cards="true"] .feed-clip-card,
+      [data-unified-feed-cards="true"] .feed-product-clip-card {
+        background: #05070b !important;
+        background-image: none !important;
+        color: #fff !important;
+      }
+      .feed-clip-card,
+      .feed-product-clip-card,
+      .reel-card.feed-clip-card,
+      .reel-card.feed-product-clip-card,
+      .feed-list .feed-clip-card,
+      .feed-list .feed-product-clip-card,
+      .results .feed-clip-card,
+      .results .feed-product-clip-card,
+      .business-preview-card.feed-clip-card,
+      .business-preview-card.feed-product-clip-card,
+      .business-preview-card-reel,
+      .annexed-feed-middle .feed-clip-card,
+      .annexed-feed-middle .feed-product-clip-card,
+      .annexed-feed-middle .feed-list .feed-clip-card,
+      .annexed-feed-middle .feed-list .feed-product-clip-card,
+      .business-posted-list .business-posted-clip-card.feed-clip-card,
+      .business-posted-list .business-posted-clip-card.feed-product-clip-card,
+      [data-unified-feed-cards="true"] .feed-clip-card,
+      [data-unified-feed-cards="true"] .feed-product-clip-card {
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 8px 22px rgba(0,27,71,.075) !important;
+        background-clip: padding-box !important;
+      }
+      .feed-product-clip-card,
+      .reel-card.feed-product-clip-card,
+      .feed-list .feed-product-clip-card,
+      .results .feed-product-clip-card,
+      .annexed-feed-middle .feed-product-clip-card,
+      .annexed-feed-middle .feed-list .feed-product-clip-card,
+      .business-posted-list .business-posted-clip-card.feed-product-clip-card,
+      [data-unified-feed-cards="true"] .feed-product-clip-card {
+        background: #05070b !important;
+        background-image: none !important;
+      }
+      .feed-clip-card .photo,
+      .feed-clip-card .photo.pizza,
+      .feed-clip-card .photo.reel,
+      .feed-clip-card .photo.reel-a,
+      .feed-clip-card .photo.reel-b,
+      .feed-product-clip-card .photo,
+      .feed-product-clip-card .photo.pizza,
+      .feed-product-clip-card .photo.reel,
+      .feed-product-clip-card .photo.reel-a,
+      .feed-product-clip-card .photo.reel-b,
+      .reel-card.feed-clip-card .photo,
+      .reel-card.feed-product-clip-card .photo,
+      .feed-list .feed-clip-card .photo,
+      .feed-list .feed-clip-card .photo.pizza,
+      .feed-list .feed-clip-card .photo.reel,
+      .feed-list .feed-product-clip-card .photo,
+      .feed-list .feed-product-clip-card .photo.pizza,
+      .feed-list .feed-product-clip-card .photo.reel,
+      .results .feed-clip-card .photo,
+      .results .feed-clip-card .photo.pizza,
+      .results .feed-clip-card .photo.reel,
+      .results .feed-product-clip-card .photo,
+      .results .feed-product-clip-card .photo.pizza,
+      .results .feed-product-clip-card .photo.reel,
+      .annexed-feed-middle .feed-clip-card .photo,
+      .annexed-feed-middle .feed-clip-card .photo.pizza,
+      .annexed-feed-middle .feed-clip-card .photo.reel,
+      .annexed-feed-middle .feed-product-clip-card .photo,
+      .annexed-feed-middle .feed-product-clip-card .photo.pizza,
+      .annexed-feed-middle .feed-product-clip-card .photo.reel,
+      .annexed-feed-middle .feed-list .feed-clip-card .photo,
+      .annexed-feed-middle .feed-list .feed-product-clip-card .photo,
+      .business-posted-list .business-posted-clip-card.feed-clip-card .photo,
+      .business-posted-list .business-posted-clip-card.feed-product-clip-card .photo,
+      [data-unified-feed-cards="true"] .feed-clip-card .photo,
+      [data-unified-feed-cards="true"] .feed-product-clip-card .photo,
+      .clip-viewer-media,
+      .clip-viewer-media.pizza,
+      .clip-viewer-media.shop,
+      .clip-viewer-media.bottle,
+      .clip-viewer-media.clear-bottle,
+      .clip-viewer-media.feed,
+      .clip-viewer-media.reel,
+      .clip-viewer-media.reel-a,
+      .clip-viewer-media.reel-b {
+        background: #05070b !important;
+        background-image: none !important;
+        opacity: 1 !important;
+      }
+      .feed-clip-card .photo img,
+      .feed-clip-card .photo video,
+      .feed-product-clip-card .photo img,
+      .feed-product-clip-card .photo video,
+      .reel-card.feed-clip-card .photo img,
+      .reel-card.feed-clip-card .photo video,
+      .reel-card.feed-product-clip-card .photo img,
+      .reel-card.feed-product-clip-card .photo video,
+      .business-preview-card-reel .photo img,
+      .business-preview-card-reel .photo video,
+      .business-preview-card-reel .business-preview-media img,
+      .business-preview-card-reel .business-preview-media video,
+      [data-unified-feed-cards="true"] .feed-clip-card .photo img,
+      [data-unified-feed-cards="true"] .feed-clip-card .photo video,
+      [data-unified-feed-cards="true"] .feed-product-clip-card .photo img,
+      [data-unified-feed-cards="true"] .feed-product-clip-card .photo video {
+        position: absolute !important;
+        inset: 0 !important;
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: transparent !important;
+      }
+      .clip-viewer-media,
+      .clip-viewer-media.pizza,
+      .clip-viewer-media.shop,
+      .clip-viewer-media.bottle,
+      .clip-viewer-media.clear-bottle,
+      .clip-viewer-media.feed,
+      .clip-viewer-media.reel,
+      .clip-viewer-media.reel-a,
+      .clip-viewer-media.reel-b {
+        background: #05070b !important;
+      }
+      .feed-clip-card .photo::before,
+      .feed-clip-card .photo::after,
+      .feed-product-clip-card .photo::before,
+      .feed-product-clip-card .photo::after,
+      .reel-card.feed-clip-card .photo::before,
+      .reel-card.feed-clip-card .photo::after,
+      .reel-card.feed-product-clip-card .photo::before,
+      .reel-card.feed-product-clip-card .photo::after,
+      .feed-list .feed-clip-card .photo::before,
+      .feed-list .feed-clip-card .photo::after,
+      .feed-list .feed-product-clip-card .photo::before,
+      .feed-list .feed-product-clip-card .photo::after,
+      .results .feed-clip-card .photo::before,
+      .results .feed-clip-card .photo::after,
+      .results .feed-product-clip-card .photo::before,
+      .results .feed-product-clip-card .photo::after,
+      .annexed-feed-middle .feed-clip-card .photo::before,
+      .annexed-feed-middle .feed-clip-card .photo::after,
+      .annexed-feed-middle .feed-product-clip-card .photo::before,
+      .annexed-feed-middle .feed-product-clip-card .photo::after,
+      .business-posted-list .business-posted-clip-card.feed-clip-card .photo::before,
+      .business-posted-list .business-posted-clip-card.feed-clip-card .photo::after,
+      .business-posted-list .business-posted-clip-card.feed-product-clip-card .photo::before,
+      .business-posted-list .business-posted-clip-card.feed-product-clip-card .photo::after,
+      .results .reel-card .media::before,
+      .results .reel-card .media::after,
+      .clip-viewer-media::before,
+      .clip-viewer-media::after {
+        background: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+      }
+      .feed-clip-card .social-feed-actions-counted,
+      .feed-product-clip-card .social-feed-actions-counted,
+      .feed-clip-card .social-feed-body-counted,
+      .feed-product-clip-card .social-feed-body-counted,
+      .reel-card .social-feed-actions-counted,
+      .reel-card .social-feed-body-counted,
+      .feed-clip-card .reel-actions,
+      .feed-product-clip-card .reel-actions,
+      .reel-card .reel-actions,
+      .business-preview-card-reel .reel-actions,
+      .business-posted-clip-card .reel-actions,
+      .annexed-feed-middle .feed-clip-card .social-feed-actions-counted,
+      .annexed-feed-middle .feed-product-clip-card .social-feed-actions-counted,
+      .annexed-feed-middle .feed-clip-card .social-feed-body-counted,
+      .annexed-feed-middle .feed-product-clip-card .social-feed-body-counted,
+      .results .feed-clip-card .social-feed-actions-counted,
+      .results .feed-product-clip-card .social-feed-actions-counted,
+      .results .feed-clip-card .social-feed-body-counted,
+      .results .feed-product-clip-card .social-feed-body-counted {
+        background: transparent !important;
+        background-image: none !important;
+        border-color: rgba(255,255,255,.20) !important;
+        box-shadow: none !important;
+        color: rgba(255,255,255,.92) !important;
+        text-shadow: 0 1px 8px rgba(0,27,71,.38) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .feed-clip-card .social-feed-actions-counted::before,
+      .feed-clip-card .social-feed-actions-counted::after,
+      .feed-product-clip-card .social-feed-actions-counted::before,
+      .feed-product-clip-card .social-feed-actions-counted::after,
+      .feed-clip-card .social-feed-body-counted::before,
+      .feed-clip-card .social-feed-body-counted::after,
+      .feed-product-clip-card .social-feed-body-counted::before,
+      .feed-product-clip-card .social-feed-body-counted::after,
+      .feed-clip-card .reel-actions::before,
+      .feed-clip-card .reel-actions::after,
+      .feed-product-clip-card .reel-actions::before,
+      .feed-product-clip-card .reel-actions::after,
+      .reel-card .social-feed-actions-counted::before,
+      .reel-card .social-feed-actions-counted::after,
+      .reel-card .social-feed-body-counted::before,
+      .reel-card .social-feed-body-counted::after,
+      .reel-card .reel-actions::before,
+      .reel-card .reel-actions::after,
+      .business-preview-card-reel .reel-actions::before,
+      .business-preview-card-reel .reel-actions::after,
+      .business-posted-clip-card .reel-actions::before,
+      .business-posted-clip-card .reel-actions::after {
+        display: none !important;
+        content: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      .feed-clip-card .social-feed-action-set,
+      .feed-product-clip-card .social-feed-action-set,
+      .feed-clip-card .social-feed-action-pair,
+      .feed-product-clip-card .social-feed-action-pair {
+        background: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+      }
+      .feed-clip-card .social-feed-icon,
+      .feed-product-clip-card .social-feed-icon,
+      .feed-clip-card .feed-action.social-feed-icon,
+      .feed-product-clip-card .feed-action.social-feed-icon {
+        border-color: rgba(255,255,255,.26) !important;
+        background: rgba(0,27,71,.24) !important;
+        color: #fff !important;
+        box-shadow: none !important;
+        backdrop-filter: blur(10px) saturate(1.08) !important;
+        -webkit-backdrop-filter: blur(10px) saturate(1.08) !important;
+      }
+      .feed-clip-card .social-feed-action-pair strong,
+      .feed-product-clip-card .social-feed-action-pair strong,
+      .feed-clip-card .reel-actions span,
+      .feed-product-clip-card .reel-actions span,
+      .reel-card .reel-actions span,
+      .business-preview-card-reel .reel-actions span,
+      .business-posted-clip-card .reel-actions span,
+      .feed-clip-card .social-feed-time,
+      .feed-product-clip-card .social-feed-time,
+      .feed-clip-card .social-feed-comments-link,
+      .feed-product-clip-card .social-feed-comments-link {
+        background: transparent !important;
+        color: rgba(255,255,255,.92) !important;
+        text-shadow: 0 1px 8px rgba(0,27,71,.40) !important;
+        box-shadow: none !important;
+      }
+      .feed-clip-card .reel-owner-link strong,
+      .feed-product-clip-card .reel-owner-link strong,
+      .business-posted-clip-card .reel-owner-link strong,
+      .reel-card .reel-owner-link strong,
+      .annexed-feed-middle .feed-clip-card .reel-owner-link strong,
+      .annexed-feed-middle .feed-product-clip-card .reel-owner-link strong,
+      .annexed-feed-middle .feed-list .feed-clip-card .reel-owner-link strong,
+      .annexed-feed-middle .feed-list .feed-product-clip-card .reel-owner-link strong,
+      .results .feed-clip-card .reel-owner-link strong,
+      .results .feed-product-clip-card .reel-owner-link strong,
+      .results .reel-card .reel-owner-link strong,
+      [data-unified-feed-cards="true"] .feed-clip-card .reel-owner-link strong,
+      [data-unified-feed-cards="true"] .feed-product-clip-card .reel-owner-link strong,
+      [data-unified-feed-cards="true"] .reel-card .reel-owner-link strong,
+      .customer-public-activity-track .feed-clip-card .reel-owner-link strong,
+      .customer-public-activity-track .feed-product-clip-card .reel-owner-link strong,
+      .customer-public-activity-track .reel-card .reel-owner-link strong {
+        font-size: 10px !important;
+        line-height: 1.05 !important;
+        font-weight: 760 !important;
+        letter-spacing: 0 !important;
+      }
+      .feed-clip-card .reel-owner-link small,
+      .feed-product-clip-card .reel-owner-link small,
+      .business-posted-clip-card .reel-owner-link small,
+      .annexed-feed-middle .feed-clip-card .reel-owner-link small,
+      .annexed-feed-middle .feed-product-clip-card .reel-owner-link small,
+      .results .feed-clip-card .reel-owner-link small,
+      .results .feed-product-clip-card .reel-owner-link small,
+      [data-unified-feed-cards="true"] .reel-card .reel-owner-link small,
+      .reel-card .reel-type-badge,
+      .feed-clip-card .reel-type-badge,
+      .feed-product-clip-card .reel-type-badge {
+        display: none !important;
+      }
+      .reel-card .caption > strong,
+      .reel-card .caption > em,
+      .feed-clip-card .caption > strong,
+      .feed-clip-card .caption > em,
+      .feed-product-clip-card .caption > strong,
+      .feed-product-clip-card .caption > em,
+      .annexed-feed-middle .feed-clip-card .caption > strong,
+      .annexed-feed-middle .feed-clip-card .caption > em,
+      .annexed-feed-middle .feed-product-clip-card .caption > strong,
+      .annexed-feed-middle .feed-product-clip-card .caption > em,
+      .business-posted-list .business-posted-clip-card .caption > strong,
+      .business-posted-list .business-posted-clip-card .caption > em,
+      .reel-card .caption > span:not(.reel-actions):not(.clip-progress):not(.clip-progress-fill):not(.video-duration-badge),
+      .feed-clip-card .caption > span:not(.reel-actions):not(.clip-progress):not(.clip-progress-fill):not(.video-duration-badge),
+      .feed-product-clip-card .caption > span:not(.reel-actions):not(.clip-progress):not(.clip-progress-fill):not(.video-duration-badge),
+      .annexed-feed-middle .feed-clip-card .caption > span:not(.reel-actions):not(.clip-progress):not(.clip-progress-fill):not(.video-duration-badge),
+      .annexed-feed-middle .feed-product-clip-card .caption > span:not(.reel-actions):not(.clip-progress):not(.clip-progress-fill):not(.video-duration-badge),
+      .business-posted-list .business-posted-clip-card .caption > span:not(.reel-actions):not(.clip-progress):not(.clip-progress-fill):not(.video-duration-badge) {
+        display: none !important;
+      }
+      .reel-card .caption,
+      .feed-clip-card .caption,
+      .feed-product-clip-card .caption,
+      .business-preview-card-reel .caption,
+      .business-posted-clip-card .caption,
+      .annexed-feed-middle .feed-clip-card .caption,
+      .annexed-feed-middle .feed-product-clip-card .caption,
+      .annexed-feed-middle .feed-list .feed-clip-card .caption,
+      .annexed-feed-middle .feed-list .feed-product-clip-card .caption,
+      .business-posted-list .business-posted-clip-card .caption,
+      [data-unified-feed-cards="true"] .feed-clip-card .caption,
+      [data-unified-feed-cards="true"] .feed-product-clip-card .caption {
+        min-height: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+      .reel-card .caption::before,
+      .reel-card .caption::after,
+      .feed-clip-card .caption::before,
+      .feed-clip-card .caption::after,
+      .feed-product-clip-card .caption::before,
+      .feed-product-clip-card .caption::after,
+      .business-preview-card-reel .caption::before,
+      .business-preview-card-reel .caption::after,
+      .business-posted-clip-card .caption::before,
+      .business-posted-clip-card .caption::after,
+      .annexed-feed-middle .feed-clip-card .caption::before,
+      .annexed-feed-middle .feed-clip-card .caption::after,
+      .annexed-feed-middle .feed-product-clip-card .caption::before,
+      .annexed-feed-middle .feed-product-clip-card .caption::after,
+      .business-posted-list .business-posted-clip-card .caption::before,
+      .business-posted-list .business-posted-clip-card .caption::after {
+        display: none !important;
+      }

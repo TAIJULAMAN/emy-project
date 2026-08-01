@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" data-emy-font-inter-async />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-emy-font-inter-async />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" data-emy-font-inter-async />
+    <noscript data-emy-font-inter-async><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+<title>EMY | Notification Settings</title>
+    <style>
+      :root {
+        --emy-navy: #001b47;
+        --emy-orange: #ff6a00;
+        --emy-cream: #fff8ef;
+        --emy-muted: #64748b;
+        --emy-line: rgba(0,27,71,.10);
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; background: var(--emy-cream); color: var(--emy-navy); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      body { min-height: 100vh; overflow-x: hidden; }
+      button { font: inherit; -webkit-tap-highlight-color: transparent; }
+      .page {
+        min-height: 100dvh;
+        background:
+          radial-gradient(circle at 88% 5%, rgba(255,106,0,.10), transparent 190px),
+          linear-gradient(180deg, #fff8ef 0%, #fffdf8 52%, #fff8ef 100%);
+      }
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: grid;
+        grid-template-columns: 42px 1fr 42px;
+        align-items: center;
+        min-height: 58px;
+        padding: 8px 16px;
+        background: rgba(255,248,239,.78);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(0,27,71,.06);
+      }
+      .icon {
+        width: 38px;
+        height: 38px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255,255,255,.62);
+        color: var(--emy-navy);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+      }
+      .icon:hover { background: white; color: var(--emy-orange); box-shadow: 0 8px 18px rgba(0,27,71,.08); }
+      .icon svg { width: 21px; height: 21px; stroke-width: 2.2; }
+      .topbar h1 { margin: 0; text-align: center; color: #171435; font-size: 18px; line-height: 1.2; font-weight: 650; }
+      .wrap { width: min(100%, 900px); margin: 0 auto; padding: 24px 18px 46px; }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 160px;
+        gap: 22px;
+        align-items: center;
+        padding: 22px 0 26px;
+        border-bottom: 1px solid var(--emy-line);
+      }
+      .hero h2 { margin: 0; color: #111827; font-size: clamp(24px, 4vw, 34px); line-height: 1.08; font-weight: 720; letter-spacing: 0; }
+      .hero p { margin: 10px 0 0; max-width: 560px; color: var(--emy-muted); font-size: 14px; line-height: 1.5; font-weight: 430; }
+      .hero-art { width: 150px; height: 116px; justify-self: end; }
+      .section {
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 22px;
+        padding: 22px 0 4px;
+        border-bottom: 1px solid rgba(0,27,71,.08);
+      }
+      .section-head h3 { margin: 0; color: #111827; font-size: 16px; line-height: 1.25; font-weight: 660; }
+      .section-head p { margin: 6px 0 0; color: var(--emy-muted); font-size: 12.5px; line-height: 1.45; font-weight: 430; }
+      .rows { display: grid; gap: 2px; }
+      .row {
+        display: grid;
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: 13px;
+        align-items: start;
+        padding: 2px 0 18px;
+      }
+      .row strong { display: block; color: #111827; font-size: 14px; line-height: 1.28; font-weight: 600; }
+      .row span { display: block; margin-top: 4px; color: var(--emy-muted); font-size: 12.5px; line-height: 1.42; font-weight: 420; }
+      .browser-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        margin: 8px 0 4px;
+        color: #111827;
+        font-size: 12.5px;
+        font-weight: 560;
+      }
+      .browser-note svg { width: 17px; height: 17px; }
+      .toggle {
+        position: relative;
+        width: 42px;
+        height: 23px;
+        border: 1px solid rgba(0,27,71,.14);
+        border-radius: 999px;
+        background:
+          linear-gradient(145deg, rgba(255,255,255,.88), rgba(255,255,255,.42)),
+          rgba(255,255,255,.36);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.88), inset 0 -6px 12px rgba(0,27,71,.07), 0 5px 12px rgba(0,27,71,.10);
+        cursor: pointer;
+      }
+      .toggle::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 15px;
+        height: 15px;
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 3px 8px rgba(0,27,71,.18);
+        transition: transform .16s ease, background .16s ease;
+      }
+      .toggle.is-on {
+        border-color: rgba(255,106,0,.32);
+        background:
+          linear-gradient(145deg, rgba(255,255,255,.94), rgba(255,255,255,.48)),
+          rgba(255,106,0,.18);
+      }
+      .toggle.is-on::after { transform: translateX(19px); background: var(--emy-orange); }
+      .saved { min-height: 18px; margin: 16px 0 0; color: #0f7a45; font-size: 12.5px; font-weight: 560; }
+      @media (max-width: 680px) {
+        .wrap { padding-top: 18px; }
+        .hero { grid-template-columns: 1fr; }
+        .hero-art { justify-self: start; width: 118px; height: 92px; }
+        .section { grid-template-columns: 1fr; gap: 14px; padding-top: 20px; }
+      }
+    </style>
+      <link rel="stylesheet" href="assets/emy-page-boot-gate.css" data-emy-page-boot-gate />
+    <script defer src="assets/emy-page-boot-gate.js" data-emy-page-boot-gate></script>
+      <script defer src="assets/emy-platform-content-sync.js" data-emy-platform-content-sync></script>
+      <link rel="stylesheet" href="assets/emy-responsive-hover.css" data-emy-responsive-hover-style />
+      <!-- emy-real-backend:start -->
+    <script data-emy-real-backend-inline defer src="emy-account-runtime.js"></script>
+    <script data-emy-real-backend-loader defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script data-emy-real-backend-loader defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script data-emy-real-backend-loader defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+    <script data-emy-real-backend-loader defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-functions-compat.js"></script>
+    <!-- emy-real-backend:end -->
+      <script defer src="emy-central-storage.js?v=c7df1e706f8b" data-emy-central-storage></script>
+    <script defer src="emy-shared-port-content.js?v=b9f6fe55853c" data-emy-shared-port-content></script>
+  </head>
+  <body>
+    <!-- emy-page-boot-loader:start -->
+    <div class="emy-page-boot-loader" data-emy-page-boot-loader aria-hidden="true">
+      <div class="emy-page-boot-layout">
+        <aside class="emy-page-boot-column">
+          <div class="emy-page-boot-card">
+            <span class="emy-page-boot-line medium"></span>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line long"></span></div>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line medium"></span></div>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line long"></span></div>
+          </div>
+          <div class="emy-page-boot-card">
+            <span class="emy-page-boot-line short"></span>
+            <span class="emy-page-boot-line long"></span>
+            <span class="emy-page-boot-line medium"></span>
+          </div>
+        </aside>
+        <section class="emy-page-boot-main">
+          <div class="emy-page-boot-nav">
+            <span class="emy-page-boot-avatar"></span>
+            <span class="emy-page-boot-line medium"></span>
+            <div class="emy-page-boot-actions"><span class="emy-page-boot-pill"></span><span class="emy-page-boot-pill"></span><span class="emy-page-boot-pill"></span></div>
+          </div>
+          <div class="emy-page-boot-hero">
+            <span class="emy-page-boot-line short"></span>
+            <span class="emy-page-boot-line long"></span>
+            <span class="emy-page-boot-line medium"></span>
+          </div>
+          <div class="emy-page-boot-list">
+            <span class="emy-page-boot-media"></span>
+            <div class="emy-page-boot-row"><span class="emy-page-boot-avatar"></span><span class="emy-page-boot-line long"></span></div>
+            <span class="emy-page-boot-line medium"></span>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- emy-page-boot-loader:end -->
+    <main class="page">
+      <header class="topbar">
+        <button class="icon" type="button" data-back aria-label="Back to customer home">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 19 8 12l7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1>Notification settings</h1>
+      </header>
+      <section class="wrap">
+        <div class="hero">
+          <span>
+            <h2>Choose the EMY updates you want</h2>
+            <p>Control alerts for local businesses, products, offers, messages, account reviews, and Ask EMY activity. These settings will connect to the backend later.</p>
+          </span>
+          <svg class="hero-art" viewBox="0 0 160 124" fill="none" aria-hidden="true">
+            <rect x="12" y="24" width="136" height="78" rx="20" fill="#eef4fb"/>
+            <rect x="24" y="36" width="48" height="48" rx="13" fill="url(#logoGrad)"/>
+            <path d="M35 66V50h28v16h-8v-8h-5v8h-7v-8h-5v8h-3Z" fill="white"/>
+            <rect x="84" y="39" width="42" height="10" rx="5" fill="#001b47" fill-opacity=".18"/>
+            <rect x="84" y="56" width="54" height="8" rx="4" fill="#001b47" fill-opacity=".12"/>
+            <rect x="84" y="70" width="34" height="8" rx="4" fill="#ff6a00" fill-opacity=".26"/>
+            <path d="M116 30a13 13 0 0 1 13 13v6c0 3.2 1.2 5.6 2.9 7.5h-31.8c1.7-1.9 2.9-4.3 2.9-7.5v-6a13 13 0 0 1 13-13Z" fill="#fff" stroke="#001b47" stroke-width="2"/>
+            <path d="M110.5 60a5.7 5.7 0 0 0 11 0" stroke="#001b47" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="124" cy="31" r="6.5" fill="#ff6a00"/>
+            <defs><linearGradient id="logoGrad" x1="24" y1="36" x2="72" y2="84" gradientUnits="userSpaceOnUse"><stop stop-color="#ff8a2b"/><stop offset="1" stop-color="#ff5b00"/></linearGradient></defs>
+          </svg>
+        </div>
+
+        <section class="section">
+          <div class="section-head"><h3>EMY general</h3><p>Manage how EMY can notify you across web, mobile, and email.</p></div>
+          <div class="rows">
+            <div class="row"><button class="toggle" type="button" data-setting="desktop"></button><span><strong>Browser notifications</strong><span>Show EMY alerts in this browser for important activity, nearby updates, and account changes.</span><span class="browser-note"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3" fill="#eef4fb" stroke="#001b47" stroke-width="1.7"/><path d="M3.8 9.2h16.4" stroke="#001b47" stroke-width="1.5"/><circle cx="7" cy="7.2" r=".8" fill="#ff6a00"/><circle cx="9.7" cy="7.2" r=".8" fill="#94a3b8"/></svg>This browser</span></span></div>
+            <div class="row"><button class="toggle" type="button" data-setting="email"></button><span><strong>Email notifications</strong><span>Send important account, business profile, message, and review updates to my email address.</span></span></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h3>Businesses and discovery</h3><p>Choose what EMY should tell you about nearby businesses and products.</p></div>
+          <div class="rows">
+            <div class="row"><button class="toggle" type="button" data-setting="nearbyBusinesses"></button><span><strong>Nearby business updates</strong><span>Notify me when businesses near my saved locations add services, posts, opening updates, or availability.</span></span></div>
+            <div class="row"><button class="toggle" type="button" data-setting="products"></button><span><strong>Products I might need</strong><span>Notify me when products I saved, liked, or searched for are added, restocked, or updated.</span></span></div>
+            <div class="row"><button class="toggle" type="button" data-setting="offers"></button><span><strong>Local offers and EMY deals</strong><span>Notify me about offers, discounts, member perks, and promotions from EMY or nearby businesses.</span></span></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h3>Account and activity</h3><p>Control alerts related to your customer profile, business profile, and messages.</p></div>
+          <div class="rows">
+            <div class="row"><button class="toggle" type="button" data-setting="businessEnquiries"></button><span><strong>Business enquiries and replies</strong><span>Notify me when a business replies to your enquiry, shares contact details, or updates a conversation you started.</span></span></div>
+            <div class="row"><button class="toggle" type="button" data-setting="messages"></button><span><strong>Messages and chats</strong><span>Notify me when businesses, customers, EMY support, or Ask EMY send me a message.</span></span></div>
+            <div class="row"><button class="toggle" type="button" data-setting="businessReview"></button><span><strong>Business account review</strong><span>Notify me when my business profile is approved, needs changes, or requires verification.</span></span></div>
+            <div class="row"><button class="toggle" type="button" data-setting="profileActivity"></button><span><strong>Profile, posts, and reviews</strong><span>Notify me about likes, comments, reviews, follows, mentions, and activity on my EMY content.</span></span></div>
+            <div class="row"><button class="toggle" type="button" data-setting="askEmy"></button><span><strong>Ask EMY and location alerts</strong><span>Notify me about saved searches, new nearby results, distance-radius alerts, and Ask EMY recommendations.</span></span></div>
+          </div>
+        </section>
+        <p class="saved" data-saved></p>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const defaultSettings = {
+          desktop: false,
+          email: true,
+          nearbyBusinesses: true,
+          products: true,
+          offers: true,
+          businessEnquiries: true,
+          messages: true,
+          businessReview: true,
+          profileActivity: true,
+          askEmy: true
+        };
+        const saved = document.querySelector("[data-saved]");
+        let savedTimer = null;
+        function readSettings() {
+          try {
+            const stored = JSON.parse(localStorage.getItem("emyCustomerNotificationSettings") || "{}");
+            if (Object.prototype.hasOwnProperty.call(stored, "ordersBookings") && !Object.prototype.hasOwnProperty.call(stored, "businessEnquiries")) {
+              stored.businessEnquiries = stored.ordersBookings;
+            }
+            return { ...defaultSettings, ...stored };
+          }
+          catch (error) { return { ...defaultSettings }; }
+        }
+        function saveSettings(settings) {
+          try { localStorage.setItem("emyCustomerNotificationSettings", JSON.stringify(settings)); } catch (error) {}
+          saved.textContent = "Notification preferences saved.";
+          clearTimeout(savedTimer);
+          savedTimer = setTimeout(() => { saved.textContent = ""; }, 2200);
+        }
+        function syncToggles(settings) {
+          document.querySelectorAll("[data-setting]").forEach((button) => {
+            const isOn = !!settings[button.dataset.setting];
+            button.classList.toggle("is-on", isOn);
+            button.setAttribute("aria-pressed", isOn ? "true" : "false");
+          });
+        }
+        function markNotificationsSeen() {
+          try {
+            const parsed = JSON.parse(localStorage.getItem("emyCustomerNotifications") || "[]");
+            if (!Array.isArray(parsed)) return;
+            const next = parsed.map((item) => item && typeof item === "object" ? { ...item, read: true, unread: false } : item);
+            localStorage.setItem("emyCustomerNotifications", JSON.stringify(next));
+          } catch (error) {}
+        }
+        function notificationReturnTarget() {
+          const fallback = "emy-customer-home.html";
+          const allowedPages = new Set(["emy-customer-home.html", "emy-customer-search.html", "emy-customer-profile.html", "emy-customer-chat.html", "emy-business-profile.html"]);
+          const candidates = [localStorage.getItem("emyNotificationReturnPage") || "", document.referrer || ""];
+          for (const candidate of candidates) {
+            try {
+              const url = new URL(candidate, window.location.href);
+              const page = url.pathname.split("/").pop() || fallback;
+              if (url.origin === window.location.origin && allowedPages.has(page)) {
+                return page + url.search + url.hash;
+              }
+            } catch (error) {}
+          }
+          return fallback;
+        }
+        let settings = readSettings();
+        markNotificationsSeen();
+        syncToggles(settings);
+        document.querySelector("[data-back]").addEventListener("click", () => {
+          window.location.href = notificationReturnTarget();
+        });
+        document.querySelectorAll("[data-setting]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const key = button.dataset.setting;
+            settings[key] = !settings[key];
+            syncToggles(settings);
+            saveSettings(settings);
+          });
+        });
+      })();
+    </script>
+      <script defer src="assets/emy-account-session-nav.js" data-emy-account-session-nav></script>
+      <script defer src="assets/emy-real-data-guard.js?v=a95e026f1108" data-emy-real-data-guard></script>
+      <script defer src="assets/emy-notification-router.js" data-emy-notification-router></script>
+  </body>
+</html>

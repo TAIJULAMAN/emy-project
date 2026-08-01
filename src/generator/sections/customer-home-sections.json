@@ -1,0 +1,46 @@
+{
+  "sections": [
+    {
+      "file": "02a-customer-home-baseline.cjs",
+      "start": 2,
+      "end": 31,
+      "lines": 30
+    },
+    {
+      "file": "02b-customer-home-detail-avatar.cjs",
+      "start": 32,
+      "end": 187,
+      "lines": 156
+    },
+    {
+      "file": "02c-customer-home-notifications.cjs",
+      "start": 188,
+      "end": 581,
+      "lines": 394
+    },
+    {
+      "file": "02d-customer-home-avatars.cjs",
+      "start": 582,
+      "end": 1080,
+      "lines": 499
+    },
+    {
+      "file": "02e-customer-home-strip-templates.cjs",
+      "start": 1081,
+      "end": 1290,
+      "lines": 210
+    },
+    {
+      "file": "02f-customer-home-feed-patches.cjs",
+      "start": 1291,
+      "end": 1571,
+      "lines": 281
+    },
+    {
+      "file": "02g-customer-home-finalise.cjs",
+      "start": 1572,
+      "end": 1946,
+      "lines": 375
+    }
+  ]
+}

@@ -1,0 +1,334 @@
+/* EMY generator section: 23-template-signin.cjs (source lines 30724-31030) */
+function emySigninPageTemplate() {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EMY | Sign In</title>
+    <script src="auth-config.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+      :root {
+        --emy-navy: #001b47;
+        --emy-orange: #ff6a00;
+        --emy-cream: #fff8ef;
+        --emy-muted: #6b7590;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; height: 100%; background: white; color: var(--emy-navy); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      body { height: 100dvh; overflow: hidden; }
+      button, input, textarea { font: inherit; }
+      a { color: inherit; }
+      .page { height: 100dvh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(400px, 0.98fr); background: white; overflow: hidden; }
+      .left { position: relative; height: 100dvh; overflow: hidden; padding: 16px clamp(24px, 5vw, 84px) 12px; display: flex; flex-direction: column; }
+      .top-logo { display: none; }
+      .top-logo img { height: 38px; width: auto; display: block; }
+      .account-pill { align-self: center; display: inline-flex; align-items: center; gap: 7px; min-height: 36px; border: 1px solid rgba(0, 27, 71, .10); border-radius: 999px; padding: 7px 16px; background: rgba(255,255,255,.92); box-shadow: 0 7px 18px rgba(0,27,71,.07); font-size: 13px; font-weight: 650; }
+      .account-pill img { height: 18px; width: auto; }
+      .back-link { margin-top: 24px; width: fit-content; border: 0; background: transparent; color: var(--emy-navy); cursor: pointer; font-size: 13px; font-weight: 700; padding: 6px 0; }
+      .form-wrap { width: min(100%, 520px); margin: clamp(12px, 3.8vh, 34px) auto 0; }
+      .brand { display: flex; justify-content: center; }
+      .brand img { height: 46px; width: auto; }
+      h1 { margin: 16px 0 0; text-align: center; font-size: clamp(30px, 3.4vw, 38px); line-height: 1.05; letter-spacing: -0.035em; font-weight: 720; }
+      .role-badge { margin: 11px auto 0; display: flex; width: fit-content; align-items: center; gap: 7px; border: 1px solid rgba(255,106,0,.20); border-radius: 999px; background: #fff4e8; color: #d95600; padding: 6px 12px; font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+      .intro { margin: 9px auto 0; max-width: 400px; text-align: center; color: #7b7488; font-size: 13px; line-height: 1.45; font-weight: 500; }
+      form { margin-top: 18px; }
+      .field { display: block; margin-top: 12px; font-size: 13px; font-weight: 750; color: #201345; }
+      .field span { color: var(--emy-orange); }
+      .input-box { position: relative; margin-top: 7px; }
+      input[type="email"], input[type="password"], input[type="text"] {
+        width: 100%; height: 44px; border-radius: 7px; border: 1px solid #d6d0cc; background: #fff; padding: 0 13px; color: var(--emy-navy); outline: none; font-size: 14px; font-weight: 500;
+      }
+      input::placeholder { color: #969eb1; }
+      input:focus { border-color: var(--emy-orange); box-shadow: 0 0 0 3px rgba(255,106,0,.10); }
+      .password-toggle { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); height: 32px; width: 32px; border: 0; border-radius: 999px; background: transparent; color: var(--emy-orange); cursor: pointer; display: grid; place-items: center; transition: background .18s ease, transform .18s ease; }
+      .password-toggle svg { display: block; height: 20px; width: 20px; }
+      .password-toggle::after { content: ""; position: absolute; width: 20px; height: 2px; border-radius: 999px; background: currentColor; transform: rotate(-42deg) scaleX(0); transition: transform .18s ease; }
+      .password-toggle.is-visible::after { transform: rotate(-42deg) scaleX(1); }
+      .password-toggle:hover { background: #fff0e4; transform: translateY(-50%) scale(1.04); }
+      .row { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--emy-navy); font-size: 14px; font-weight: 500; }
+      .remember { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+      .remember input { height: 16px; width: 16px; accent-color: var(--emy-orange); }
+      .forgot { border: 0; background: transparent; cursor: pointer; color: var(--emy-navy); font-weight: 600; }
+      .forgot:hover { color: var(--emy-orange); }
+      .primary { margin-top: 14px; width: 100%; height: 50px; border: 0; border-radius: 11px; background: var(--emy-orange); color: #fff; cursor: pointer; font-size: 15px; font-weight: 760; box-shadow: 0 12px 22px rgba(255,106,0,.18); }
+      .primary:hover { background: #f05f00; }
+      .social-title { margin: 16px 0 10px; text-align: center; color: var(--emy-navy); font-size: 14px; font-weight: 500; }
+      .social-row { display: flex; justify-content: center; gap: 16px; }
+      .social { height: 46px; width: 46px; border: 0; border-radius: 999px; background: white; cursor: pointer; display: grid; place-items: center; box-shadow: 0 10px 22px rgba(0,27,71,.09); }
+      .social svg { max-width: 28px; max-height: 28px; }
+      .social:hover { transform: translateY(-1px); box-shadow: 0 16px 32px rgba(0,27,71,.13); }
+      .switch { margin-top: 17px; text-align: center; color: #8a8396; font-size: 13px; font-weight: 500; }
+      .switch button { border: 0; background: transparent; color: var(--emy-orange); cursor: pointer; font-weight: 750; }
+      .legal { margin: auto auto 0; padding-top: 10px; max-width: 520px; text-align: center; color: rgba(0,27,71,.45); font-size: 11.5px; line-height: 1.45; font-weight: 500; }
+      .legal a { color: var(--emy-navy); font-weight: 750; text-decoration-color: rgba(255,106,0,.45); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+      .right { position: relative; height: 100dvh; background: linear-gradient(132deg, #fff8ef 0%, #ffd7a8 12%, #ff7617 27%, #32577f 52%, #001b47 100%); overflow: hidden; }
+      .right::before { content: ""; position: absolute; inset: -34%; background: linear-gradient(112deg, transparent 0 12%, rgba(255,255,255,.78) 17%, rgba(255,238,218,.40) 22%, transparent 29% 38%, rgba(255,106,0,.70) 45%, rgba(255,183,99,.38) 51%, transparent 60% 100%); background-size: 150% 150%; mix-blend-mode: screen; animation: emyDrift 6.4s cubic-bezier(.5,0,.25,1) infinite; }
+      .right::after { content: ""; position: absolute; inset: -20%; background: radial-gradient(circle at 18% 22%, rgba(255,248,239,.78), transparent 13rem), radial-gradient(circle at 76% 18%, rgba(255,106,0,.62), transparent 15rem), radial-gradient(circle at 44% 72%, rgba(255,209,161,.42), transparent 18rem), linear-gradient(120deg, rgba(255,248,239,.13), rgba(0,27,71,.28) 48%, rgba(0,27,71,.62)); animation: emyOrbit 7.8s ease-in-out infinite; }
+      .close { position: absolute; right: 22px; top: 18px; z-index: 5; height: 42px; width: 42px; border: 1px solid rgba(255,106,0,.18); border-radius: 999px; background: rgba(255,255,255,.94); color: var(--emy-navy); cursor: pointer; display: grid; place-items: center; box-shadow: 0 10px 24px rgba(0,0,0,.11); transition: transform .18s ease, background .18s ease, color .18s ease; }
+      .close svg { height: 17px; width: 17px; display: block; stroke-width: 2.8; }
+      .close:hover { transform: translateY(-1px); background: #fff3e7; color: var(--emy-orange); }
+      .panel { position: absolute; left: 46px; right: 46px; bottom: 36px; z-index: 3; min-height: 188px; border: 1px solid rgba(255,255,255,.72); border-radius: 20px; background: linear-gradient(135deg, rgba(255,255,255,.26), rgba(255,255,255,.08)); padding: 24px; color: white; backdrop-filter: blur(14px); box-shadow: 0 24px 70px rgba(0,27,71,.22); }
+      .panel-logo { display: inline-flex; align-items: center; background: rgba(255,255,255,.92); border-radius: 10px; padding: 8px 11px; }
+      .panel-logo img { height: 34px; width: auto; display: block; }
+      .panel h2 { margin: 22px 0 0; font-size: 30px; line-height: 1.05; font-weight: 760; letter-spacing: -.03em; }
+      .panel p { margin: 13px 0 0; display: inline-flex; border-radius: 999px; background: rgba(255,106,0,.22); color: #ffe6d1; padding: 10px 17px; font-size: 14px; font-weight: 750; }
+      .status { min-height: 16px; margin-top: 9px; color: #b42318; font-size: 12.5px; font-weight: 650; }
+      @keyframes emyDrift {
+        0% { transform: translate3d(-14%, 8%, 0) rotate(-8deg) scale(1); opacity: .76; background-position: 0% 52%; }
+        22% { transform: translate3d(8%, -10%, 0) rotate(4deg) scale(1.08); opacity: 1; background-position: 48% 18%; }
+        47% { transform: translate3d(15%, 12%, 0) rotate(10deg) scale(1.02); opacity: .88; background-position: 84% 58%; }
+        72% { transform: translate3d(-5%, -14%, 0) rotate(-2deg) scale(1.11); opacity: 1; background-position: 38% 100%; }
+        100% { transform: translate3d(-14%, 8%, 0) rotate(-8deg) scale(1); opacity: .76; background-position: 0% 52%; }
+      }
+      @keyframes emyOrbit {
+        0% { transform: translate3d(0, 0, 0) scale(1); opacity: .76; filter: saturate(1.05) hue-rotate(0deg); }
+        20% { transform: translate3d(5%, 6%, 0) scale(1.05); opacity: .95; filter: saturate(1.24) hue-rotate(-4deg); }
+        45% { transform: translate3d(-6%, 9%, 0) scale(1.1); opacity: 1; filter: saturate(1.42) hue-rotate(5deg); }
+        70% { transform: translate3d(-8%, -6%, 0) scale(1.04); opacity: .9; filter: saturate(1.28) hue-rotate(-2deg); }
+        100% { transform: translate3d(0, 0, 0) scale(1); opacity: .76; filter: saturate(1.05) hue-rotate(0deg); }
+      }
+      @media (max-height: 760px) {
+        .left { padding-top: 12px; padding-bottom: 9px; }
+        .top-logo img { height: 34px; }
+        .account-pill { min-height: 32px; padding: 6px 14px; font-size: 12px; }
+        .back-link { margin-top: 18px; padding: 4px 0; }
+        .form-wrap { margin-top: 8px; }
+        .brand img { height: 40px; }
+        h1 { margin-top: 12px; font-size: 30px; }
+        .role-badge { margin-top: 8px; padding: 5px 10px; font-size: 10px; }
+        .intro { margin-top: 6px; font-size: 12px; line-height: 1.35; }
+        form { margin-top: 12px; }
+        .field { margin-top: 9px; font-size: 12px; }
+        .input-box { margin-top: 5px; }
+        input[type="email"], input[type="password"], input[type="text"] { height: 39px; font-size: 13px; }
+        .row { margin-top: 8px; font-size: 12.5px; }
+        .primary { margin-top: 9px; height: 44px; font-size: 14px; }
+        .social-title { margin: 10px 0 7px; font-size: 12.5px; }
+        .social { height: 40px; width: 40px; }
+        .social svg { max-width: 24px; max-height: 24px; }
+        .switch { margin-top: 10px; font-size: 12px; }
+        .legal { padding-top: 6px; font-size: 10.5px; line-height: 1.3; }
+        .panel { bottom: 28px; min-height: 160px; padding: 20px; }
+        .panel h2 { margin-top: 18px; font-size: 27px; }
+        .panel p { margin-top: 10px; padding: 9px 15px; font-size: 13px; }
+      }
+      @media (max-width: 940px) {
+        .page { grid-template-columns: 1fr; }
+        .right { display: none; }
+        .left { padding: 18px 24px 12px; }
+        .account-pill { margin-top: -38px; align-self: flex-end; }
+        .form-wrap { margin-top: clamp(14px, 4vh, 34px); }
+      }
+      @media (max-width: 560px) {
+        .left { padding: 16px 18px 10px; }
+        .account-pill { display: none; }
+        .form-wrap { margin-top: 24px; }
+        .brand img { height: 42px; }
+        h1 { font-size: 30px; }
+        .row { align-items: flex-start; flex-direction: column; gap: 10px; }
+        .primary { height: 48px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="left" aria-label="EMY sign in form">
+        <a class="top-logo" href="index.html" aria-label="Go to EMY home">
+          <img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="EMY" />
+        </a>
+        <div class="account-pill">
+          <span>You are signing in to</span>
+          <img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="EMY" />
+        </div>
+        <button class="back-link" type="button" data-back>&lt; Back</button>
+        <div class="form-wrap">
+          <div class="brand"><img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="EMY" /></div>
+          <h1>Sign In</h1>
+          <div class="role-badge" data-role-badge>Customer account</div>
+          <p class="intro" data-intro>Welcome back. Please enter your customer account details.</p>
+          <form novalidate data-form>
+            <label class="field">Email<span>*</span>
+              <div class="input-box"><input data-email type="email" placeholder="Email" autocomplete="email" /></div>
+            </label>
+            <label class="field">Password<span>*</span>
+              <div class="input-box">
+                <input data-password type="password" placeholder="Password" autocomplete="current-password" />
+                <button class="password-toggle" type="button" data-toggle-password aria-label="Show password">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+              </div>
+            </label>
+            <div class="row">
+              <label class="remember"><input type="checkbox" checked />Remember me</label>
+              <button class="forgot" type="button" data-forgot>Forgot Password?</button>
+            </div>
+            <p class="status" data-status></p>
+            <button class="primary" type="submit">Sign In</button>
+          </form>
+          <p class="social-title">Or Sign In With</p>
+          <div class="social-row">
+            <button class="social" type="button" data-social="google" aria-label="Sign in with Google">
+              <svg width="29" height="29" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5Z"/><path fill="#FF3D00" d="M6.3 14.7 12.9 19.5C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7Z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.8l-6.5 5C9.5 39.6 16.2 44 24 44Z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5Z"/></svg>
+            </button>
+            <button class="social" type="button" data-social="facebook" aria-label="Sign in with Facebook">
+              <svg width="31" height="31" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#1877F2"/><path fill="#fff" d="M25.6 21.2h-3.7V34h-5.3V21.2h-2.7v-4.5h2.7v-2.9c0-2.1 1-5.5 5.5-5.5l4 .1v4.4h-2.9c-.5 0-1.3.3-1.3 1.4v2.5h4.3l-.6 4.5Z"/></svg>
+            </button>
+          </div>
+          <p class="switch">Don't have an account? <button type="button" data-signup>Sign up</button></p>
+        </div>
+        <p class="legal">By using EMY, you agree to our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+      </section>
+      <section class="right" aria-hidden="true">
+        <button class="close" type="button" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="panel">
+          <div class="panel-logo"><img src="https://iqlance-demo.com/design/EMY-Web/img/logo-landing.png" alt="" /></div>
+          <h2 data-panel-title>EMY Customer</h2>
+          <p data-panel-tag>Welcome back</p>
+        </div>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search || "");
+        const role = String(params.get("role") || "customer").toLowerCase() === "business" ? "business" : "customer";
+        const roleName = role === "business" ? "Business" : "Customer";
+        const roleLabel = roleName + " account";
+        document.title = "EMY | " + roleName + " Sign In";
+        document.querySelector("[data-role-badge]").textContent = roleLabel;
+        document.querySelector("[data-intro]").textContent = role === "business"
+          ? "Welcome back. Please enter your business account details."
+          : "Welcome back. Please enter your customer account details.";
+        document.querySelector("[data-panel-title]").textContent = "EMY " + roleName;
+        document.querySelector("[data-panel-tag]").textContent = role === "business" ? "Manage your profile" : "Continue discovering";
+
+        const status = document.querySelector("[data-status]");
+        const email = document.querySelector("[data-email]");
+        const password = document.querySelector("[data-password]");
+
+        document.querySelector("[data-back]").addEventListener("click", () => {
+          window.location.href = "index.html?emyAuth=signin";
+        });
+        document.querySelector("[data-close]").addEventListener("click", () => {
+          window.location.href = "index.html";
+        });
+        document.querySelector("[data-signup]").addEventListener("click", () => {
+          window.location.href = "index.html?emyAuth=signup";
+        });
+        document.querySelector("[data-forgot]").addEventListener("click", () => {
+          const target = new URL("emy-forgot-password.html", window.location.href);
+          target.searchParams.set("role", role);
+          if (email.value.trim()) target.searchParams.set("email", email.value.trim());
+          window.location.href = target.toString();
+        });
+        document.querySelector("[data-toggle-password]").addEventListener("click", () => {
+          const showing = password.type === "text";
+          password.type = showing ? "password" : "text";
+          const toggle = document.querySelector("[data-toggle-password]");
+          toggle.classList.toggle("is-visible", !showing);
+          toggle.setAttribute("aria-label", showing ? "Show password" : "Hide password");
+        });
+        function isLocalPreviewEnvironment() {
+          if (location.protocol === "file:") return true;
+          if (/^(127\.0\.0\.1|localhost|::1)$/.test(location.hostname)) return true;
+          if (localStorage.getItem("emyTestModeEnabled") === "true") return true;
+          if (localStorage.getItem("emyLocalDevAccess") === "1") return true;
+          return false;
+        }
+        function customerSignInReturnUrl(role) {
+          try {
+            const params = new URLSearchParams(window.location.search || "");
+            const returnTo = String(params.get("returnTo") || params.get("next") || "").trim();
+            const lowReturnTo = returnTo.toLowerCase();
+            if (returnTo && lowReturnTo.indexOf("http://") !== 0 && lowReturnTo.indexOf("https://") !== 0 && lowReturnTo.indexOf("//") !== 0 && lowReturnTo.indexOf(".html") > -1) return returnTo;
+          } catch (error) {}
+          return role === "customer" ? "emy-customer-home.html" : "emy-business-profile.html?mode=business";
+        }
+        document.querySelector("[data-form]").addEventListener("submit", async (event) => {
+          event.preventDefault();
+          status.textContent = "";
+          if (!email.value.trim()) {
+            status.textContent = "Please enter your email address.";
+            email.focus();
+            return;
+          }
+          if (!password.value.trim()) {
+            status.textContent = "Please enter your password.";
+            password.focus();
+            return;
+          }
+          if (isLocalPreviewEnvironment()) {
+            try {
+              localStorage.setItem("emyMainSignedInRole", role);
+              localStorage.setItem("emyMainSignedInEmail", email.value.trim());
+              localStorage.removeItem("emyMainSignedOut");
+              if (role === "customer") localStorage.setItem("emyCustomerDisplayName", "Local Test User");
+            } catch (error) {}
+            window.location.href = customerSignInReturnUrl(role);
+            return;
+          }
+          if (!window.emyRealAuth) {
+            status.textContent = "Firebase account backend is still loading. Refresh and try again.";
+            return;
+          }
+          status.style.color = "#61708c";
+          status.textContent = "Signing in to your real EMY account...";
+          try {
+            const result = await window.emyRealAuth.signIn(email.value.trim(), password.value, role);
+            if (result && result.needsVerification) {
+              status.style.color = "#b42318";
+              status.textContent = "Please verify your email first. EMY has sent a Firebase verification link to " + email.value.trim() + ".";
+              return;
+            }
+            window.location.href = customerSignInReturnUrl(role);
+          } catch (error) {
+            status.style.color = "#b42318";
+            status.textContent = window.emyRealAuth && window.emyRealAuth.publicError ? window.emyRealAuth.publicError(error) : (error.message || "Sign in failed.");
+          }
+        });
+
+        function socialRedirect(provider) {
+          const config = window.EMY_AUTH_CONFIG || {};
+          const redirectUri = config.redirectUri || (window.location.origin && window.location.origin !== "null" ? window.location.origin + "/auth/callback" : window.location.href.split("#")[0]);
+          if (provider === "google") {
+            if (!config.googleClientId) {
+              status.textContent = "Add a Google client ID in auth-config.js to enable Google sign in.";
+              return;
+            }
+            const auth = new URLSearchParams({
+              client_id: config.googleClientId,
+              redirect_uri: redirectUri,
+              response_type: "code",
+              scope: "openid email profile",
+              state: "emy-main-" + role + "-google"
+            });
+            window.location.href = "https://accounts.google.com/o/oauth2/v2/auth?" + auth.toString();
+            return;
+          }
+          if (!config.facebookAppId) {
+            status.textContent = "Add a Facebook app ID in auth-config.js to enable Facebook sign in.";
+            return;
+          }
+          const auth = new URLSearchParams({
+            client_id: config.facebookAppId,
+            redirect_uri: redirectUri,
+            response_type: "code",
+            scope: "email,public_profile",
+            state: "emy-main-" + role + "-facebook"
+          });
+          window.location.href = "https://www.facebook.com/v20.0/dialog/oauth?" + auth.toString();
+        }
+
+        document.querySelectorAll("[data-social]").forEach((button) => {
+          button.addEventListener("click", () => socialRedirect(button.dataset.social));
+        });
+      })();
+    </script>
+  </body>
+</html>
+`;
+}
+
